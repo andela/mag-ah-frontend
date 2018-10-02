@@ -48,4 +48,8 @@
             "prettier --write"
         ]
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> [chore]: set up a react app for Authors Haven
