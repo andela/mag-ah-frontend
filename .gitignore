@@ -26,8 +26,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # vscode
-<<<<<<< HEAD
 .vscode/
-=======
-/.vscode
->>>>>>> chore (app-setup): Add empty lastline in gitignore.
