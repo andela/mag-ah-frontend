@@ -10,21 +10,7 @@
         "browser": true,
         "node": true
     },
-    "parser": "babel-eslint",
-    "rules": {
-        "react/jsx-filename-extension": [
-            1,
-            {
-                "extensions": [".js"]
-            }
-        ]
-    }
-<<<<<<< HEAD
+    "parser": "babel-eslint"
 
 }
 
-}
-
-=======
-}
->>>>>>> add new line
