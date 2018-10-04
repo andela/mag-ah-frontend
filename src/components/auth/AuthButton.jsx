@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Button from "../../views/Button/index";
-import { Logout } from "../../redux/actions/loginAction";
+// import { Logout } from "../../redux/actions/loginAction";
 
 class AuthButton extends React.Component {
   onLogout = event => {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     event.preventDefault();
-    dispatch(Logout());
+    // dispatch(Logout());
   };
 
   render() {
@@ -59,7 +59,7 @@ class AuthButton extends React.Component {
 }
 
 AuthButton.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  //   dispatch: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired
 };
 

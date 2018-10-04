@@ -10,7 +10,8 @@ const initialState = {
     message: {},
     error: null,
     info: true
-  }
+  },
+  articles: []
 };
 
 export default initialState;

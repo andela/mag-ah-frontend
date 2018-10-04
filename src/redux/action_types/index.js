@@ -7,3 +7,5 @@ export const CLEAR_ERROR = "CLEAR_ERROR";
 export const FORGOT_PWD = "FORGOT_PASSWORD";
 export const RESET_PWD = "RESET_PASSWORD";
 export const ERROR = "ERROR";
+export const CREATE_ARTICLE = "CREATE_ARTICLE";
+export const FETCH_ARTICLES = "FETCH_ARTICLES";

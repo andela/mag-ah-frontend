@@ -1,11 +1,540 @@
-$facebook-color: #4065b4;
-$twitter-color: #55ACEE;
+// $facebook-color: #4065b4;
+// $twitter-color: #55ACEE;
+// $bg-color: #f9f8f3;
+// $ah-primary-color: #000000;
+// $ah-secondary-color: #e0e0d4;
+// $ah-alternate-color: #ffde00;
+// $ah-secondary-text-color: #999999;
+// $ah-btn-link-color:#018f69;
+// body {
+//     background: $bg-color;
+//     margin: 0px;
+// }
+// .btn-link {
+//     color: $ah-primary-color;
+// }
+// .btn-link:hover {
+//     color: $ah-primary-color;
+//     text-decoration: none;
+// }
+// 
+// small a,
+// .ah-author-link {
+//     color: $ah-primary-color;
+//     text-decoration: underline;
+// }
+// small a:hover,
+// .ah-author-link:hover {
+//     text-decoration: none;
+//     color: $ah-primary-color;
+//     background-color: $ah-alternate-color;
+// }
+// .ah-list-content {
+//     line-height: 1;
+// }
+.modal-content {
+    border: none;
+    border-radius: 0;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.modal-title {
+    font-family: "Vidaloka", serif;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.modal-header .close {
+    padding: 1rem;
+    margin: -1rem;
+}
+
+// .fa-facebook:hover,
+// .fa-twitter:hover,
+// .fa-envelope:hover,
+// .fa-flag:hover {
+//     opacity: 0.7;
+//     cursor: pointer;
+// }
+// .form-control {
+//     border-radius: 0px;
+// }
+// .custom-file-label {
+//     background-color: transparent;
+// }
+// .form-control:focus {
+//     box-shadow: None;
+// }
+.btn:focus,
+.btn:active {
+    box-shadow: none;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.description {
+    font-size: 1.7em;
+}
+
+// h6 a,
+// h6 a:hover {
+//     color: $ah-primary-color;
+// }
+.error {
+    border-color: red;
+}
+
+.ah-input-error {
+    font-size: 0.7rem;
+}
+
+// .editLink a,
+// .footer a {
+//     color: $ah-secondary-text-color;
+// }
+// fieldset,
+// label {
+//     margin: 0;
+//     padding: 0;
+// }
+// h1 {
+//     font-size: 1.5em;
+//     margin: 10px;
+// }
+// .rating {
+//     border: none;
+//     float: left;
+//     margin-right: -20px;
+// }
+// .ah-rating-average {
+//     font-family: "Vidaloka", serif;
+//     font-weight: bold;
+//     font-size: 2rem;
+// }
+// .rating>input {
+//     display: none;
+// }
+// .rating>label:before {
+//     margin: 5px;
+//     font-size: 1.25em;
+//     font-family: FontAwesome;
+//     display: inline-block;
+//     content: "\f005";
+// }
+// .rating>.half:before {
+//     content: "\f089";
+//     position: absolute;
+// }
+// .rating>label {
+//     color: #ddd;
+//     float: right;
+// }
+// @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+// fieldset,
+// label {
+//     margin: 0;
+//     padding: 0;
+// }
+// h1 {
+//     font-size: 1.5em;
+//     margin: 10px;
+// }
+// .rating {
+//     border: none;
+//     float: left;
+// }
+// .rating>input {
+//     display: none;
+// }
+// .rating>label:before {
+//     margin: 5px;
+//     font-size: 1.25em;
+//     font-family: FontAwesome;
+//     display: inline-block;
+//     content: "\f005";
+// }
+// .rating>.half:before {
+//     content: "\f089";
+//     position: absolute;
+// }
+// .rating>label {
+//     color: #ddd;
+//     float: right;
+// }
+// .rating>input:checked~label,
+// .rating:not(:checked)>label:hover,
+// .rating:not(:checked)>label:hover~label {
+//     color: $ah-alternate-color;
+// }
+// .rating>input:checked+label:hover,
+// .rating>input:checked~label:hover,
+// .rating>label:hover~input:checked~label,
+// .rating>input:checked~label:hover~label {
+//     color: $ah-alternate-color;
+// }
+// .header {
+//     display: block;
+// }
+// .article {
+//     border-bottom: 1px solid rgb(238, 235, 235);
+//     margin-bottom: 2px !important;
+// }
+// .likes a:hover,
+// .likes a {
+//     background-color: $bg-color;
+//     text-decoration: None;
+// }
+// .likes a {
+//     margin-left: 6px;
+//     text-decoration: None;
+// }
+// .text-success {
+//     color: #91be69 !important;
+// }
+// .profile {
+//     margin: 20px;
+// }
+// .ah-profile-card {
+//     border: $ah-secondary-color 1px solid;
+//     border-radius: 5px;
+// }
+// .ah-avatar {
+//     width: 100px;
+//     margin-right: 10px;
+// }
+// .card-body {
+//     .fa-user-circle {
+//         font-size: 6.8rem;
+//         color: lightblue;
+//     }
+// }
+// .fa-bell {
+//     color: $ah-secondary-text-color;
+//     font-size: 25px;
+// }
+// .ah-notifications-badge {
+//     position: absolute;
+//     top: -5px;
+//     right: -5px;
+// }
+// .dropdown-toggle::after {
+//     display: none;
+// }
+// .navbar {
+//     .fa-user-circle {
+//         font-size: 2.0625rem;
+//     }
+//     .dropdown-menu {
+//         right: 0;
+//         left: auto;
+//     }
+// }
+// .notifications {
+//     margin-right: 1rem;
+//     .dropdown-menu {
+//         min-width: 20rem;
+//         font-size: 0.8125rem;
+//         .dropdown-item {
+//             white-space: normal;
+//             .fa-user-circle {
+//                 color: lightblue;
+//             }
+//             .fa-check {
+//                 color: green;
+//                 margin-right: 1rem;
+//             }
+//             p {
+//                 margin-bottom: 0;
+//             }
+//         }
+//     }
+// }
+// .comments {
+//     border-color: rgb(238, 235, 235);
+//     padding: 1rem;
+//     margin: 1rem 0 2rem 0;
+//     .fa-user-circle {
+//         font-size: 3rem;
+//     }
+//     .col {
+//         margin-top: 1.5rem;
+//     }
+//     .card-text {
+//         font-size: 1rem;
+//     }
+// }
+// .bookmark a {
+//     margin-left: 6px;
+//     text-decoration: None;
+//     color: $ah-secondary-text-color;
+// }
+// .bookmark {
+//     margin-left: 6px;
+//     text-decoration: None;
+//     color: $ah-secondary-text-color;
+// }
+// .bookmark:hover {
+//     background-color: #fff !important;
+// }
+// .search-container {
+//     margin-right: 1.5rem;
+//     max-width: 300px;
+//     .fas {
+//         color: $ah-primary-color;
+//         font-size: 1.375rem;
+//     }
+//     .search {
+//         -webkit-transition: width 0.3s ease;
+//         -moz-transition: width 0.3s ease;
+//         -o-transition: width 0.3s ease;
+//         transition: width 0.3s ease;
+//     }
+// }
+// .filter-container {
+//     margin-top: 1rem;
+//     .applied-filters {
+//         margin-left: 0.3125rem;
+//         .alert {
+//             padding: 2px 0.5rem;
+//             border-radius: 1rem;
+//         }
+//         .filter-value:after {
+//             content: "\2715";
+//             padding-left: 0.5rem;
+//             color: $ah-secondary-text-color;
+//             font-size: 0.75rem;
+//         }
+//     }
+//     .filter {
+//         margin-top: 1.5rem;
+//         input {
+//             margin-bottom: 1rem;
+//         }
+//         .results {
+//             padding: 1rem;
+//         }
+//         .reset-filters {
+//             display: block;
+//             margin-top: 1rem;
+//         }
+//     }
+// }
+// .tags {
+//     font-size: 15px;
+//     font-weight: 400;
+// }
+// .tags {
+//     ul {
+//         list-style: none;
+//     }
+//     li {
+//         float: left;
+//         display: block;
+//         border: $ah-secondary-color 1px solid;
+//         border-radius: 2px;
+//     }
+//     li a:hover {
+//         text-decoration: none;
+//     }
+//     li a {
+//         color: $ah-secondary-text-color;
+//     }
+// }
+// .form-control::-webkit-input-placeholder {
+//     color: #a09f9d87;
+// }
+// .form-control:-moz-placeholder {
+//     color: #a09f9d87;
+// }
+// .form-control::-moz-placeholder {
+//     color: #a09f9d87;
+// }
+// .form-control:-ms-input-placeholder {
+//     color: #a09f9d87;
+// }
+// .form-control::-ms-input-placeholder {
+//     color: #a09f9d87;
+// }
+// .btn-link {
+//     color: $ah-btn-link-color;
+// }
+// .signup {
+//     border-radius: 2px !important;
+// }
+// .btn-link:hover {
+//     color: $ah-btn-link-color;
+//     text-decoration: none;
+// }
+// .btn-outline-success:hover {
+//     border: 1px solid $ah-btn-link-color;
+// }
+// .card-body {
+//     background-color: $bg-color;
+// }
+// .ah-jumbotron {
+//     background-color: $ah-secondary-color;
+//     padding: 0px;
+// }
+// .ah-jumbotron h1,
+// .navbar-brand {
+//     font-size: 2.5rem;
+//     font-family: "Vidaloka", serif;
+// }
+// .modal-title {
+//     font-family: "Vidaloka", serif;
+//     font-size: 2rem;
+//     line-height: 0.9;
+// }
+// .fa-twitter {
+//     color: #1da1f2;
+// }
+// .fa-facebook {
+//     color: #3b5998;
+// }
+// .fa-google {
+//     color: #ea4335;
+// }
+// .fa-facebook:hover,
+// .fa-twitter:hover,
+// .fa-envelope:hover,
+// .fa-flag:hover {
+//     opacity: 0.7;
+//     cursor: pointer;
+// }
+// .form-group input:focus,
+// textarea:focus {
+//     background-color: $bg-color;
+// }
+// .custom-file-label {
+//     background-color: transparent;
+// }
+// .App {
+//     text-align: center;
+// }
+// .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//     height: 40vmin;
+// }
+// $white: #FFFFFF;
+// .App-header {
+//     background-color: #282c34;
+//     min-height: 100vh;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: calc(10px + 2vmin);
+//     color: $white;
+// }
+// .App-link {
+//     color: #61dafb;
+// }
+// @keyframes App-logo-spin {
+//     from {
+//         transform: rotate(0deg);
+//     }
+//     to {
+//         transform: rotate(360deg);
+//     }
+// }
+// .ah-facebook-btn {
+//     background-color: $facebook-color;
+//     color: #ffffff !important;
+// }
+// .ah-twitter-btn {
+//     background-color: $twitter-color;
+//     color: #ffffff !important;
+// }
+// .ah-google-btn {
+//     background-color: $google-color;
+//     color: #ffffff !important;
+// }
+// .modal-body .ah-err-msg {
+//     color: red;
+// }
+// .modal-header .close {
+//     padding: 1rem;
+//     margin: -1rem;
+// }
+// @-webkit-keyframes fadein {
+//     from {
+//         bottom: 0;
+//         opacity: 0;
+//     }
+//     to {
+//         bottom: 30px;
+//         opacity: 1;
+//     }
+// }
+// @keyframes fadein {
+//     from {
+//         bottom: 0;
+//         opacity: 0;
+//     }
+//     to {
+//         bottom: 30px;
+//         opacity: 1;
+//     }
+// }
+// .search-container {
+//     max-width: 300px;
+//     .fas {
+//         color: $ah-primary-color;
+//         font-size: 1.375rem;
+//         fadeout {
+//             from {
+//                 bottom: 30px;
+//                 opacity: 1;
+//             }
+//             to {
+//                 bottom: 0;
+//                 opacity: 0;
+//             }
+//         }
+//         @keyframes fadeout {
+//             from {
+//                 bottom: 30px;
+//                 opacity: 1;
+//             }
+//             to {
+//                 bottom: 0;
+//                 opacity: 0;
+//             }
+//         }
+//         .tags {
+//             font-size: 15px;
+//             font-weight: 400;
+//         }
+//         .tags {
+//             ul {
+//                 list-style: none;
+//             }
+//             li {
+//                 float: left;
+//                 display: block;
+//                 border: $ah-secondary-color 1px solid;
+//                 border-radius: 2px;
+//             }
+//             li a:hover {
+//                 text-decoration: none;
+//             }
+//             li a {
+//                 color: $ah-secondary-text-color;
+//             }
+//         }
+//     }
+// }
 $bg-color: #f9f8f3;
 $ah-primary-color: #000000;
 $ah-secondary-color: #e0e0d4;
-$ah-alternate-color: #ffde00;
+$ah-alternate-color: #FFDE00;
 $ah-secondary-text-color: #999999;
-$ah-btn-link-color:#018f69;
 $google-color: #ea4335;
 $google-color-hover: #c7250c;
 $facebook-color: #3b5998;
@@ -14,7 +543,6 @@ $twitter-color: #1da1f2;
 $twitter-color-hover: #087bc2;
 body {
     background: $bg-color;
-    margin: 0px;
 }
 
 .btn-link {
@@ -26,43 +554,7 @@ body {
     text-decoration: none;
 }
 
-.ah-facebook-button {
-    color: #ffffff;
-    background-color: $facebook-color;
-}
-
-.ah-twitter-button {
-    color: #ffffff;
-    background-color: $twitter-color;
-}
-
-.ah-google-button {
-    color: #ffffff;
-    background-color: $google-color;
-}
-
-.ah-facebook-button:hover {
-    background-color: $facebook-color-hover;
-}
-
-.ah-twitter-button:hover {
-    background-color: $twitter-color-hover;
-}
-
-.ah-google-button:hover {
-    background-color: $google-color-hover;
-}
-
-.ah-success-message {
-    font-size: 0.8rem;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    font-size: 0.8rem;
-}
-
+// Card
 .card-body {
     background-color: $bg-color;
 }
@@ -103,35 +595,69 @@ small a:hover,
     line-height: 1;
 }
 
+// Jumbotron
 .ah-jumbotron {
     background-color: $ah-secondary-color;
     padding: 0px;
 }
 
+// Navbar
 .ah-jumbotron h1,
 .navbar-brand {
-    font-size: 2.5rem;
-    font-family: "Vidaloka", serif;
+    font-size: 3rem;
+    font-family: 'Vidaloka', serif;
 }
 
+// Modal
 .modal-content {
     border: none;
     border-radius: 0;
 }
 
 .modal-header {
-    text-align: center;
+    border-bottom: none;
 }
 
 .modal-title {
-    font-family: "Vidaloka", serif;
-    font-size: 2rem;
-    line-height: 2rem;
+    font-family: 'Vidaloka', serif;
+    font-size: 2.5rem;
 }
 
-.modal-header .close {
-    padding: 1rem;
-    margin: -1rem;
+.ah-facebook-button {
+    color: #ffffff;
+    background-color: $facebook-color;
+}
+
+.ah-twitter-button {
+    color: #ffffff;
+    background-color: $twitter-color;
+}
+
+.ah-google-button {
+    color: #ffffff;
+    background-color: $google-color;
+}
+
+.ah-facebook-button:hover {
+    background-color: $facebook-color-hover;
+}
+
+.ah-twitter-button:hover {
+    background-color: $twitter-color-hover;
+}
+
+.ah-google-button:hover {
+    background-color: $google-color-hover;
+}
+
+.ah-success-message {
+    font-size: 0.8rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    font-size: 0.8rem;
 }
 
 .fa-facebook:hover,
@@ -142,18 +668,16 @@ small a:hover,
     cursor: pointer;
 }
 
+.form-group,
 .form-control {
-    border-radius: 0px;
+    margin-top: 5px;
+    padding: 5px;
 }
 
-.form-group {
-    border-radius: 0px;
-    border: none;
-}
-
-.form-group input:focus,
-textarea:focus {
-    background-color: $bg-color;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    font-size: 0.8rem;
 }
 
 .custom-file-label {
@@ -161,12 +685,8 @@ textarea:focus {
 }
 
 .form-control:focus {
+    border-bottom: solid 1px;
     box-shadow: None;
-}
-
-.btn:focus,
-.btn:active {
-    box-shadow: none;
 }
 
 .title {
@@ -183,29 +703,29 @@ h6 a:hover {
     color: $ah-primary-color;
 }
 
-.error {
-    border-color: red;
-}
-
-.ah-input-error {
-    font-size: 0.7rem;
-}
-
 .editLink a,
 .footer a {
     color: $ah-secondary-text-color;
 }
 
+// Star rating
 fieldset,
 label {
     margin: 0;
     padding: 0;
 }
 
+body {
+    margin: 20px;
+}
+
 h1 {
     font-size: 1.5em;
     margin: 10px;
 }
+
+
+/****** Style Star Rating Widget *****/
 
 .rating {
     border: none;
@@ -214,7 +734,7 @@ h1 {
 }
 
 .ah-rating-average {
-    font-family: "Vidaloka", serif;
+    font-family: 'Vidaloka', serif;
     font-weight: bold;
     font-size: 2rem;
 }
@@ -241,6 +761,9 @@ h1 {
     float: right;
 }
 
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 fieldset,
 label {
@@ -248,10 +771,17 @@ label {
     padding: 0;
 }
 
+body {
+    margin: 20px;
+}
+
 h1 {
     font-size: 1.5em;
     margin: 10px;
 }
+
+
+/****** Style Star Rating Widget *****/
 
 .rating {
     border: none;
@@ -279,6 +809,9 @@ h1 {
     color: #ddd;
     float: right;
 }
+
+
+/***** CSS Magic to Highlight Stars on Hover *****/
 
 .rating>input:checked~label,
 .rating:not(:checked)>label:hover,
@@ -439,7 +972,7 @@ h1 {
             border-radius: 1rem;
         }
         .filter-value:after {
-            content: "\2715";
+            content: '\2715';
             padding-left: 0.5rem;
             color: $ah-secondary-text-color;
             font-size: 0.75rem;
@@ -469,232 +1002,20 @@ h1 {
     ul {
         list-style: none;
     }
+    ;
     li {
         float: left;
         display: block;
         border: $ah-secondary-color 1px solid;
         border-radius: 2px;
     }
+    ;
     li a:hover {
         text-decoration: none;
     }
+    ;
     li a {
         color: $ah-secondary-text-color;
     }
-}
-
-.form-control::-webkit-input-placeholder {
-    color: #a09f9d87;
-}
-
-.form-control:-moz-placeholder {
-    color: #a09f9d87;
-}
-
-.form-control::-moz-placeholder {
-    color: #a09f9d87;
-}
-
-.form-control:-ms-input-placeholder {
-    color: #a09f9d87;
-}
-
-.form-control::-ms-input-placeholder {
-    color: #a09f9d87;
-}
-
-.btn-link {
-    color: $ah-btn-link-color;
-}
-
-.signup {
-    border-radius: 2px !important;
-}
-
-.btn-link:hover {
-    color: $ah-btn-link-color;
-    text-decoration: none;
-}
-
-.btn-outline-success:hover {
-    border: 1px solid $ah-btn-link-color;
-}
-
-.card-body {
-    background-color: $bg-color;
-}
-
-.ah-jumbotron {
-    background-color: $ah-secondary-color;
-    padding: 0px;
-}
-
-.ah-jumbotron h1,
-.navbar-brand {
-    font-size: 2.5rem;
-    font-family: "Vidaloka", serif;
-}
-
-.modal-title {
-    font-family: "Vidaloka", serif;
-    font-size: 2rem;
-    line-height: 0.9;
-}
-
-.fa-twitter {
-    color: #1da1f2;
-}
-
-.fa-facebook {
-    color: #3b5998;
-}
-
-.fa-google {
-    color: #ea4335;
-}
-
-.fa-facebook:hover,
-.fa-twitter:hover,
-.fa-envelope:hover,
-.fa-flag:hover {
-    opacity: 0.7;
-    cursor: pointer;
-}
-
-.form-group input:focus,
-textarea:focus {
-    background-color: $bg-color;
-}
-
-.custom-file-label {
-    background-color: transparent;
-}
-
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 40vmin;
-}
-
-$white: #FFFFFF;
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: $white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.ah-facebook-btn {
-    background-color: $facebook-color;
-    color: #ffffff !important;
-}
-
-.ah-twitter-btn {
-    background-color: $twitter-color;
-    color: #ffffff !important;
-}
-
-.ah-google-btn {
-    background-color: $google-color;
-    color: #ffffff !important;
-}
-
-.modal-body .ah-err-msg {
-    color: red;
-}
-
-.modal-header .close {
-    padding: 1rem;
-    margin: -1rem;
-}
-
-@-webkit-keyframes fadein {
-    from {
-        bottom: 0;
-        opacity: 0;
-    }
-    to {
-        bottom: 30px;
-        opacity: 1;
-    }
-}
-
-@keyframes fadein {
-    from {
-        bottom: 0;
-        opacity: 0;
-    }
-    to {
-        bottom: 30px;
-        opacity: 1;
-    }
-}
-
-.search-container {
-    max-width: 300px;
-    .fas {
-        color: $ah-primary-color;
-        font-size: 1.375rem;
-        fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
-        }
-        @keyframes fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
-        }
-        .tags {
-            font-size: 15px;
-            font-weight: 400;
-        }
-        .tags {
-            ul {
-                list-style: none;
-            }
-            li {
-                float: left;
-                display: block;
-                border: $ah-secondary-color 1px solid;
-                border-radius: 2px;
-            }
-            li a:hover {
-                text-decoration: none;
-            }
-            li a {
-                color: $ah-secondary-text-color;
-            }
-        }
-    }
+    ;
 }
