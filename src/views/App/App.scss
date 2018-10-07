@@ -1,33 +1,547 @@
-.App {
+$bg-color: #f9f8f3;
+$ah-primary-color: #000000;
+$ah-secondary-color: #e0e0d4;
+$ah-alternate-color: #ffde00;
+$ah-secondary-text-color: #999999;
+$google-color: #ea4335;
+$google-color-hover: #c7250c;
+$facebook-color: #3b5998;
+$facebook-color-hover: #1e3a74;
+$twitter-color: #1da1f2;
+$twitter-color-hover: #087bc2;
+
+body {
+  background: $bg-color;
+  margin: 0px;
+}
+
+.btn-link {
+  color: $ah-primary-color;
+}
+
+.btn-link:hover {
+  color: $ah-primary-color;
+  text-decoration: none;
+}
+.ah-facebook-button {
+  color: #ffffff;
+  background-color: $facebook-color;
+}
+.ah-twitter-button {
+  color: #ffffff;
+  background-color: $twitter-color;
+}
+.ah-google-button {
+  color: #ffffff;
+  background-color: $google-color;
+}
+.ah-submit-button {
+  background-color: $ah-alternate-color;
+}
+.ah-submit-button:hover {
+  background-color: #ecd104;
+}
+.ah-facebook-button:hover {
+  background-color: $facebook-color-hover;
+}
+.ah-twitter-button:hover {
+  background-color: $twitter-color-hover;
+}
+.ah-google-button:hover {
+  background-color: $google-color-hover;
+}
+
+.ah-success-message {
+  font-size: 0.8rem;
+}
+
+// input
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  font-size: 0.8rem;
+}
+
+// Card
+.card-body {
+  background-color: $bg-color;
+}
+
+.card {
+  border: none;
+}
+
+.card-text {
+  color: $ah-secondary-text-color;
+  font-size: 10pt;
+}
+
+.card-title {
+  a {
+    text-decoration: none;
+    color: $ah-primary-color;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+small a,
+.ah-author-link {
+  color: $ah-primary-color;
+  text-decoration: underline;
+}
+
+small a:hover,
+.ah-author-link:hover {
+  text-decoration: none;
+  color: $ah-primary-color;
+  background-color: $ah-alternate-color;
+}
+
+.ah-list-content {
+  line-height: 1;
+}
+
+// Jumbotron
+.ah-jumbotron {
+  background-color: $ah-secondary-color;
+  padding: 0px;
+}
+
+// Navbar
+.ah-jumbotron h1,
+.navbar-brand {
+  font-size: 2.5rem;
+  font-family: "Vidaloka", serif;
+}
+
+// Modal
+.modal-content {
+  background-color: $ah-secondary-color;
+  border: none;
+  border-radius: 0;
+}
+
+.modal-header {
+  border-bottom: none;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.modal-title {
+  font-family: "Vidaloka", serif;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+.modal-header .close {
+  padding: 1rem;
+  margin: -1rem;
+}
+.modal-header,
+.modal-body {
+  padding: 0.5rem;
 }
 
-$white: #FFFFFF;
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: $white;
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-envelope:hover,
+.fa-flag:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.form-control {
+  background-color: $bg-color !important;
+  border: none;
+  border-radius: 0px;
+}
+.form-group {
+  border-radius: 0px;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.form-group input:focus,
+textarea:focus {
+  background-color: $bg-color;
+}
+
+.custom-file-label {
+  background-color: transparent;
+}
+
+.form-control:focus {
+  box-shadow: None;
+}
+.btn:focus,
+.btn:active {
+  box-shadow: none;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.description {
+  font-size: 1.7em;
+}
+
+h6 a,
+h6 a:hover {
+  color: $ah-primary-color;
+}
+
+.error {
+  border-color: red;
+  box-shadow: 0 0 5px red;
+}
+.ah-input-error {
+  font-size: 0.6rem;
+}
+
+.editLink a,
+.footer a {
+  color: $ah-secondary-text-color;
+}
+
+// Star rating
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+  margin-right: -20px;
+}
+
+.ah-rating-average {
+  font-family: "Vidaloka", serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating>input:checked~label,
+
+/* show gold star when clicked */
+
+.rating:not(:checked)>label:hover,
+
+/* hover current star */
+
+.rating:not(:checked)>label:hover~label {
+  color: $ah-alternate-color;
+}
+
+/* hover previous stars in list */
+
+.rating>input:checked+label:hover,
+
+/* hover current star when changing rating */
+
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+
+/* lighten current selection */
+
+.rating>input:checked~label:hover~label {
+  color: $ah-alternate-color;
+}
+
+.header {
+  display: block;
+}
+
+.article {
+  border-bottom: 1px solid rgb(238, 235, 235);
+  margin-bottom: 2px !important;
+}
+
+.likes a:hover,
+.likes a {
+  background-color: $bg-color;
+  text-decoration: None;
+}
+
+.likes a {
+  margin-left: 6px;
+  text-decoration: None;
+}
+
+.text-success {
+  color: #91be69 !important;
+}
+
+.profile {
+  margin: 20px;
+}
+
+.ah-profile-card {
+  border: $ah-secondary-color 1px solid;
+  border-radius: 5px;
+}
+
+.ah-avatar {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.card-body {
+  .fa-user-circle {
+    font-size: 6.8rem;
+    color: lightblue;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+// The notification bell
+.fa-bell {
+  color: $ah-secondary-text-color;
+  font-size: 25px;
+}
+
+// Position the count notification
+.ah-notifications-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+// Remove arrow after notifications icon
+.dropdown-toggle::after {
+  display: none;
+}
+
+.navbar {
+  .fa-user-circle {
+    font-size: 2.0625rem;
+  }
+  .dropdown-menu {
+    right: 0;
+    left: auto;
   }
 }
+
+// notification dropdown style
+.notifications {
+  margin-right: 1rem;
+  .dropdown-menu {
+    min-width: 20rem;
+    font-size: 0.8125rem;
+    .dropdown-item {
+      white-space: normal;
+      // The placeholder user icon
+      .fa-user-circle {
+        color: lightblue;
+      }
+      .fa-check {
+        color: green;
+        margin-right: 1rem;
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/** Comment section CSS **/
+
+.comments {
+  border-color: rgb(238, 235, 235);
+  padding: 1rem;
+  margin: 1rem 0 2rem 0;
+  .fa-user-circle {
+    font-size: 3rem;
+  }
+  .col {
+    margin-top: 1.5rem;
+  }
+  .card-text {
+    font-size: 1rem;
+  }
+}
+
+.bookmark a {
+  margin-left: 6px;
+  text-decoration: None;
+  color: $ah-secondary-text-color;
+}
+
+.bookmark {
+  margin-left: 6px;
+  text-decoration: None;
+  color: $ah-secondary-text-color;
+}
+
+.bookmark:hover {
+  background-color: #fff !important;
+}
+
+/**
+Search and filter CSS
+*/
+
+/**
+Search and filter CSS
+*/
+
+.search-container {
+  margin-right: 1.5rem;
+  max-width: 300px;
+  .fas {
+    color: $ah-primary-color;
+    font-size: 1.375rem;
+  }
+  .search {
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+  }
+}
+
+.filter-container {
+  margin-top: 1rem;
+  .applied-filters {
+    margin-left: 0.3125rem;
+    .alert {
+      padding: 2px 0.5rem;
+      border-radius: 1rem;
+    }
+    .filter-value:after {
+      content: "\2715";
+      padding-left: 0.5rem;
+      color: $ah-secondary-text-color;
+      font-size: 0.75rem;
+    }
+  }
+  .filter {
+    margin-top: 1.5rem;
+    input {
+      margin-bottom: 1rem;
+    }
+    .results {
+      padding: 1rem;
+    }
+    .reset-filters {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.tags {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.tags {
+  ul {
+    list-style: none;
+  }
+  li {
+    float: left;
+    display: block;
+    border: $ah-secondary-color 1px solid;
+    border-radius: 2px;
+  }
+  li a:hover {
+    text-decoration: none;
+  }
+  li a {
+    color: $ah-secondary-text-color;
+  }
+}
+
+// Placeholder color
+.form-control::-webkit-input-placeholder {
+  color: #a09f9d87;
+} /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder {
+  color: #a09f9d87;
+} /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder {
+  color: #a09f9d87;
+} /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder {
+  color: #a09f9d87;
+} /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder {
+  color: #a09f9d87;
+} /* Microsoft Edge */

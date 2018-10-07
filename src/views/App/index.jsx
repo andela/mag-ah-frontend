@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Routes from "../../routes/index";
-import logo from "./logo.svg";
+import AHHeader from "../Header/index";
 import "./App.scss";
 
 class App extends Component {
@@ -8,11 +8,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <Routes />
-        </header>
+      <div>
+        <AHHeader />
+        <Routes />
       </div>
     );
   }
