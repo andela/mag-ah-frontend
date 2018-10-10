@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { START_FETCH, SERVER_ERROR, CLEAR_ERROR } from "../action_types";
 
 /**
@@ -34,6 +35,10 @@ export const serverError = error => ({
   type: SERVER_ERROR,
   error
 });
+=======
+const BASE_URL = "http://ah-magnificent6-staging.herokuapp.com/api/";
+export default BASE_URL;
+>>>>>>> [feat]: enable a user to reset his/her password
 =======
 const BASE_URL = "http://ah-magnificent6-staging.herokuapp.com/api/";
 export default BASE_URL;

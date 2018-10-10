@@ -7,6 +7,7 @@ import "./index.css";
 import "bootstrap/dist/js/bootstrap.min";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./views/App";
+import configureStore from "./redux/store/configureStore";
 import * as serviceWorker from "./serviceWorker";
 import store from "./redux/store/store";
 

@@ -69,5 +69,9 @@ ForgotPassword.propTypes = {
   message: PropTypes.string.isRequired
 };
 
+<<<<<<< HEAD
 const mapStateToProps = resetPasswordReducer => resetPasswordReducer;
+=======
+const mapStateToProps = ({ resetPasswordReducer }) => resetPasswordReducer;
+>>>>>>> [feat]: enable a user to reset his/her password
 export default connect(mapStateToProps)(ForgotPassword);

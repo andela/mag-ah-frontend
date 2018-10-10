@@ -41,7 +41,10 @@ export class ResetPassword extends Component {
   render() {
     const { user } = this.state;
     const { email, password, confirmPassword } = user;
+<<<<<<< HEAD
     // const { reducerProp } = this.props;
+=======
+>>>>>>> [feat]: enable a user to reset his/her password
     const { error, message } = this.props;
     return (
       <div className="container-fluid h-100">
@@ -123,7 +126,11 @@ ResetPassword.propTypes = {
 };
 
 ResetPassword.defaultProps = {
+<<<<<<< HEAD
   error: { data: { errors: {} } }
+=======
+  error: { data: { errors: {} }, message: {} }
+>>>>>>> [feat]: enable a user to reset his/her password
 };
 const mapStateToProps = ({ resetPasswordReducer }) => resetPasswordReducer;
 export default connect(mapStateToProps)(ResetPassword);
