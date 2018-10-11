@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import resetPasswordReducer from "./reset_password";
+import resetPasswordReducer from "./ResetPassword";
 
 const rootReducers = combineReducers({
   resetPasswordReducer

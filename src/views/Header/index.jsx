@@ -1,7 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import { connect } from "react-redux";
 import Button from "../Button";
 import BaseModal from "../Modal";
+import ForgotPasswordComp from "../../components/auth/ForgotPasswordComp";
+import LoginPage from "../../components/auth/login";
+import AuthButton from "../../components/auth/AuthButton";
 import SignupModal from "../../components/SignupModal";
 
 const AHHeader = () => (
@@ -19,35 +23,39 @@ const AHHeader = () => (
           role="toolbar"
           aria-label="Toolbar with button groups"
         >
-          <div
-            className="btn-group mr-2"
-            role="group"
-            aria-label="Second group"
-          >
-            <Button
-              className="btn btn-link"
-              dataToggle="modal"
-              dataTarget="#ahSignInModal"
-              label="Sign In"
-            />
-          </div>
           <div className="btn-group" role="group" aria-label="Third group">
+            <AuthButton isAuthenticated={false} />
+
             <Button
-              className="btn btn-outline-success"
-              dataToggle="modal"
+              className="btn btn-outline-success rounded"
+              type="button"
               dataTarget="#ahRegisterModal"
-              label="Get started"
+              dataToggle="modal"
+              label="Get Started"
             />
           </div>
         </div>
       </div>
     </nav>
+
     <BaseModal
       modalId="ahRegisterModal"
       modalTitle="Join Authors' Haven"
       modalContent={<SignupModal />}
     />
+
+    <BaseModal
+      modalId="ahSignInModal"
+      modalTitle="Log in"
+      modalContent={<LoginPage error={null} />}
+    />
+
+    <BaseModal
+      modalId="ahResetPasswordModal"
+      modalTitle="Account Recovery"
+      modalContent={<ForgotPasswordComp />}
+    />
   </div>
 );
 
-export default AHHeader;
+export default connect()(AHHeader);

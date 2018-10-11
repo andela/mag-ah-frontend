@@ -1,10 +1,7 @@
 import { FORGOT_PWD, RESET_PWD, ERROR } from "../action_types";
+import initialState from "./initialState";
 
-const initialState = {
-  message: {},
-  error: null
-};
-export default (state = initialState, action) => {
+export default (state = initialState.resetPassword, action) => {
   switch (action.type) {
     case FORGOT_PWD:
       return {
@@ -19,7 +16,8 @@ export default (state = initialState, action) => {
     case ERROR:
       return {
         ...state,
-        error: action.error
+        error: action.error,
+        info: false
       };
     default:
       return state;

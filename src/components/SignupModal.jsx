@@ -64,6 +64,7 @@ class SignupModal extends React.Component {
                     error={error.error || error.serverError}
                   />
                 )}
+
                 <TextInput
                   type="email"
                   placeholder="example@authorshaven.com"
@@ -76,6 +77,7 @@ class SignupModal extends React.Component {
                   error={error.email}
                   required
                 />
+
                 <TextInput
                   type="text"
                   placeholder="yourusername"
@@ -101,6 +103,7 @@ class SignupModal extends React.Component {
                   error={error.password}
                   required
                 />
+
                 <TextInput
                   type="password"
                   placeholder="Confirm password"

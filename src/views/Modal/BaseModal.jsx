@@ -34,7 +34,7 @@ const BaseModal = ({ modalId, modalTitle, modalContent }) => (
 BaseModal.propTypes = {
   modalId: PropTypes.string.isRequired,
   modalTitle: PropTypes.string.isRequired,
-  modalContent: PropTypes.shape({}).isRequired
+  modalContent: PropTypes.element.isRequired
 };
 
 export default BaseModal;

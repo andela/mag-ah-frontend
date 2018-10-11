@@ -1,13 +1,15 @@
-import reducer from "./reset_password";
-import * as types from "../action_types";
+import reducer from "../../redux/reducers/ResetPassword";
+import * as types from "../../redux/action_types";
 
 describe("password reset reducers", () => {
   it("should return initial state", () => {
     expect(reducer(undefined, {})).toEqual({
       message: {},
+      info: true,
       error: null
     });
   });
+
   it("should set message informing user to check their email indox", () => {
     expect(
       reducer([], {
@@ -18,6 +20,7 @@ describe("password reset reducers", () => {
       message: "Check your email for further instructions"
     });
   });
+
   it("should inform a user that their password is updated", () => {
     expect(
       reducer([], {
@@ -28,6 +31,7 @@ describe("password reset reducers", () => {
       message: "Password updated successfully"
     });
   });
+
   it("should set errors when they are caught", () => {
     expect(
       reducer([], {
@@ -35,7 +39,8 @@ describe("password reset reducers", () => {
         error: "Passwords do not match"
       })
     ).toEqual({
-      error: "Passwords do not match"
+      error: "Passwords do not match",
+      info: false
     });
   });
 });

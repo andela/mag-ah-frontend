@@ -5,6 +5,11 @@ const initialState = {
     fetching: false,
     fetched: false,
     success: false
+  },
+  resetPassword: {
+    message: {},
+    error: null,
+    info: true
   }
 };
 
