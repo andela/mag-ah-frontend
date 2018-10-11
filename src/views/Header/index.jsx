@@ -7,6 +7,7 @@ import ForgotPasswordComp from "../../components/auth/ForgotPasswordComp";
 import LoginPage from "../../components/auth/login";
 import AuthButton from "../../components/auth/AuthButton";
 import SignupModal from "../../components/auth/SignupModal";
+import LoginBaseModal from "../Modal/LoginBaseModal";
 
 const AHHeader = () => (
   <div>
@@ -23,6 +24,19 @@ const AHHeader = () => (
           role="toolbar"
           aria-label="Toolbar with button groups"
         >
+          <div
+            className="btn-group mr-2"
+            role="group"
+            aria-label="Second group"
+          >
+            <Button
+              className="btn btn-link"
+              dataToggle="modal"
+              dataTarget="#ahSignInModal"
+              label="Sign In"
+            />
+            <AuthButton />
+          </div>
           <div className="btn-group" role="group" aria-label="Third group">
             <AuthButton isAuthenticated={false} />
 
@@ -48,13 +62,16 @@ const AHHeader = () => (
       modalTitle="Join Authors' Haven"
       modalContent={<SignupModal />}
     />
-
+    <LoginBaseModal
+      modalId="ahSignInModal"
+      modalTitle="Log in"
+      modalContent={<LoginPage />}
+    />
     <BaseModal
       modalId="ahSignInModal"
       modalTitle="Log in"
       modalContent={<LoginPage error={null} />}
     />
-
     <BaseModal
       modalId="ahResetPasswordModal"
       modalTitle="Account Recovery"
