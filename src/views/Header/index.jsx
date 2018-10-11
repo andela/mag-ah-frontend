@@ -33,6 +33,11 @@ const AHHeader = () => (
               dataToggle="modal"
               label="Get Started"
             />
+            <div
+              className="btn-group mr-2"
+              role="group"
+              aria-label="Second group"
+            />
           </div>
         </div>
       </div>

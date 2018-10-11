@@ -1,17 +1,29 @@
-import { LOGIN_USER, LOGIN_ERROR } from "../action_types";
+import {
+  LOGIN_SUCCESSFUL,
+  LOGIN_ERROR,
+  LOGOUT_SUCCESSFUL
+} from "../action_types";
+import initialState from "./initialState";
 
-const initialState = { message: {}, error: null };
-export default (state = initialState, action) => {
+export default (state = initialState.loginUser, action) => {
   switch (action.type) {
-    case LOGIN_USER:
+    case LOGIN_SUCCESSFUL:
       return {
         ...state,
-        message: action.message
+        message: action.message,
+        isAuthenticated: true
       };
     case LOGIN_ERROR:
       return {
         ...state,
         error: action.error
+      };
+    case LOGOUT_SUCCESSFUL:
+      return {
+        ...state,
+        message: {},
+        error: {},
+        isAuthenticated: false
       };
     default:
       return state;
