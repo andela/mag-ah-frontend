@@ -72,5 +72,6 @@
     "*.js": [
       "prettier --write"
     ]
-  }
+  },
+  "proxy": "https://ah-magnificent6-staging.herokuapp.com"
 }

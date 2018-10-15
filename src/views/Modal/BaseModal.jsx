@@ -9,7 +9,7 @@ const BaseModal = ({ modalId, modalTitle, modalContent }) => (
     role="dialog"
     aria-hidden="true"
   >
-    <div className="modal-dialog modal-sm" role="document">
+    <div className="modal-dialog modal-dialog-centered" role="document">
       <div className="modal-content">
         <div className="modal-header">
           <div />

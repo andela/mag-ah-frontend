@@ -2,44 +2,48 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { TextInput, SubmitButton, MessageBox } from "../views/Form";
-import authUser from "../redux/actions/authUser";
+import authUser, { signupError } from "../redux/actions/authUser";
+import { clearError } from "../redux/actions/common";
 
 class SignupModal extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    user: { username: "", email: "", password: "", confirm_password: "" }
+  };
 
-    this.state = {
-      user: { username: "", email: "", password: "", confirm_password: "" }
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    const { name, value } = event.target;
+  handleChange = e => {
+    const { name, value } = e.target;
     const { user } = this.state;
+    const { dispatch } = this.props;
+
     this.setState({
       user: {
         ...user,
         [name]: value
       }
     });
-  }
+    dispatch(clearError());
+  };
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit = e => {
+    e.preventDefault();
     const { user } = this.state;
     const { dispatch } = this.props;
-    dispatch(authUser(user));
-  }
+    if (user.password !== user.confirm_password) {
+      const confirmPasswordError = {
+        confirm_password: ["Password and confirm password do not match"]
+      };
+      dispatch(signupError(confirmPasswordError));
+    } else {
+      dispatch(authUser(user));
+    }
+  };
 
   render() {
     const { user } = this.state;
     const { success, message, error, fetching } = this.props;
     return (
       <div className="row">
-        <div className="m-auto col-sm-12">
+        <div className="m-auto col-sm-8">
           {success && (
             <MessageBox
               className="ah-success-message p-2 alert alert-success"
@@ -111,7 +115,7 @@ class SignupModal extends React.Component {
                   label="Sign up"
                   type="submit"
                   fetching={fetching}
-                  className="btn text-center btn-block ah-submit-button disabled"
+                  className="btn m-auto btn-primary btn-block"
                 />
               </form>
               <p className="text-center">OR</p>
@@ -171,6 +175,6 @@ SignupModal.defaultProps = {
   fetching: false
 };
 
-const mapStateToProps = ({ authReducer }) => authReducer;
+const mapStateToProps = state => state.authSignup;
 
 export default connect(mapStateToProps)(SignupModal);

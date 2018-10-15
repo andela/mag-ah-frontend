@@ -9,6 +9,7 @@ const TextInput = ({
   error,
   placeholder,
   type,
+  value,
   required
 }) => (
   <div className="m-0">
@@ -19,6 +20,7 @@ const TextInput = ({
         name={name}
         onChange={onChange}
         onBlur={onBlur}
+        value={value}
         placeholder={placeholder}
         required={required}
       />
@@ -34,6 +36,7 @@ TextInput.propTypes = {
   error: PropTypes.arrayOf(PropTypes.string),
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   required: PropTypes.bool,
   onBlur: PropTypes.func
 };

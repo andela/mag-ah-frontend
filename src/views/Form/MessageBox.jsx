@@ -9,7 +9,7 @@ const MessageBox = ({ className, message }) => (
 
 MessageBox.propTypes = {
   className: PropTypes.string.isRequired,
-  message: PropTypes.string
+  message: PropTypes.arrayOf(PropTypes.string)
 };
 
 MessageBox.defaultProps = {

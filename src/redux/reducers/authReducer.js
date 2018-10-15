@@ -2,7 +2,8 @@ import {
   SIGNUP_ERROR,
   SIGNUP_SUCCESS,
   START_FETCH,
-  SERVER_ERROR
+  SERVER_ERROR,
+  CLEAR_ERROR
 } from "../action_types";
 import initialState from "./initialState";
 
@@ -13,7 +14,6 @@ export default (state = initialState, action) => {
         ...state,
         message: action.message,
         success: true,
-        fetching: false,
         fetched: true
       };
     case SIGNUP_ERROR:
@@ -21,8 +21,12 @@ export default (state = initialState, action) => {
         ...state,
         error: action.error,
         fetched: true,
-        fetching: false,
-        success: false
+        fetching: false
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        error: {}
       };
     case START_FETCH:
       return {
@@ -32,8 +36,6 @@ export default (state = initialState, action) => {
     case SERVER_ERROR:
       return {
         ...state,
-        fetching: false,
-        fetched: false,
         error: action.error
       };
     default:
