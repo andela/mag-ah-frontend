@@ -53,6 +53,7 @@ describe(" User signup reducer ", () => {
     expect(newState.fetched).toEqual(true);
     expect(newState.success).toEqual(false);
   });
+
   it("should change state of fetched to false when passed with SERVER_ERROR", () => {
     const action = {
       type: SERVER_ERROR,

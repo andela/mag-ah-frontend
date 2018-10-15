@@ -1,20 +1,31 @@
-// Signup user
 import axios from "axios";
 
 import { SIGNUP_SUCCESS, SIGNUP_ERROR } from "../action_types";
 import { serverError, startFetch } from "./common";
 
+/**
+ * Signup successfull
+ *
+ * @param (string) message
+ * @return (object) type and payload
+ */
 export const signupSuccess = message => ({
   type: SIGNUP_SUCCESS,
   message
 });
 
+/**
+ * Signup error
+ *
+ * @param (object) error
+ * @return (object) type and payload
+ */
 export const signupError = error => ({
   type: SIGNUP_ERROR,
   error
 });
 
-export default user => dispatch => {
+export const signup = user => dispatch => {
   dispatch(startFetch());
   axios
     .post("/api/users/signup/", user)
@@ -27,7 +38,10 @@ export default user => dispatch => {
         const responseErrors = error.response.data.errors;
         dispatch(signupError(responseErrors));
       } else {
-        dispatch(serverError("Oops something went wrong"));
+        const oops = { serverError: "Oops something went wrong" };
+        dispatch(serverError(oops));
       }
     });
 };
+
+export default signup;

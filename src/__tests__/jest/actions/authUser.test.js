@@ -8,13 +8,16 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_ERROR
 } from "../../../redux/action_types";
-import authUser, {
+
+import {
+  signup,
   signupSuccess,
   signupError
 } from "../../../redux/actions/authUser";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+let store;
 const signupUrl = "http://127.0.0.1:8000/api/users/signup/";
 const validUser = {
   username: "Tried and Tested",
@@ -27,20 +30,22 @@ const error = {
 
 describe("test signup_actions", () => {
   beforeEach(() => {
+    store = mockStore({});
     moxios.install();
   });
-  afterEach(() => moxios.uninstall());
-  it("should dispatch START_FETCH when the signup begins", done => {
-    const expectedAction = [{ type: START_FETCH }];
-    const store = mockStore({});
-    store.dispatch(authUser(validUser));
-    expect(store.getActions()).toEqual(expectedAction);
-    done();
-  });
-});
 
-describe("Successfull Signup Action", () => {
-  it("should dispatch SIGNUP_SUCCESS on successfull user signup", done => {
+  afterEach(() => {
+    store.clearActions();
+    moxios.uninstall();
+  });
+
+  it("should dispatch START_FETCH when the signup begins", () => {
+    const expectedAction = [{ type: START_FETCH }];
+    store.dispatch(signup(validUser));
+    expect(store.getActions()).toEqual(expectedAction);
+  });
+
+  it("should dispatch SIGNUP_SUCCESS on successfull user signup", () => {
     moxios.stubRequest(signupUrl, {
       request: validUser,
       status: 201,
@@ -56,18 +61,16 @@ describe("Successfull Signup Action", () => {
           "Kindly click the link sent to your email to complete registration."
       }
     ];
-    const store = mockStore({});
     store.dispatch(
       signupSuccess(
         "Kindly click the link sent to your email to complete registration."
       )
     );
     expect(store.getActions()).toEqual(expectedAction);
-    done();
   });
 });
 
-it("should return action type and payload for signUpFailure", done => {
+it("should return action type and payload for signUpFailure", () => {
   moxios.stubRequest(signupUrl, {
     request: error,
     status: 400,
@@ -80,8 +83,6 @@ it("should return action type and payload for signUpFailure", done => {
       error
     }
   ];
-  const store = mockStore({});
   store.dispatch(signupError(error));
   expect(store.getActions()).toEqual(returnedAction);
-  done();
 });
