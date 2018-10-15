@@ -2,12 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { TextInput, SubmitButton, MessageBox } from "../views/Form";
-import authUser, { signupError } from "../redux/actions/authUser";
+import { signup, signupError } from "../redux/actions/authUser";
 import { clearError } from "../redux/actions/common";
 
 class SignupModal extends React.Component {
   state = {
-    user: { username: "", email: "", password: "", confirm_password: "" }
+    user: {
+      username: "",
+      email: "",
+      password: "",
+      confirm_password: ""
+    }
   };
 
   handleChange = e => {
@@ -34,7 +39,7 @@ class SignupModal extends React.Component {
       };
       dispatch(signupError(confirmPasswordError));
     } else {
-      dispatch(authUser(user));
+      dispatch(signup(user));
     }
   };
 
@@ -56,7 +61,7 @@ class SignupModal extends React.Component {
                 {error && (
                   <MessageBox
                     className="ah-input-error text-danger mb-2"
-                    message={error.error}
+                    error={error.error || error.serverError}
                   />
                 )}
                 <TextInput
@@ -175,6 +180,19 @@ SignupModal.defaultProps = {
   fetching: false
 };
 
-const mapStateToProps = state => state.authSignup;
+const mapStateToProps = ({ authSignup }) => {
+  const { message, error, success, fetching } = authSignup || {
+    message: null,
+    error: {},
+    success: false,
+    fetching: false
+  };
+  return {
+    message,
+    error,
+    success,
+    fetching
+  };
+};
 
 export default connect(mapStateToProps)(SignupModal);

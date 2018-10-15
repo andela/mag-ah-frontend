@@ -7,7 +7,7 @@ import {
 } from "../action_types";
 import initialState from "./initialState";
 
-export default (state = initialState, action) => {
+export default (state = initialState.authUser, action) => {
   switch (action.type) {
     case SIGNUP_SUCCESS:
       return {

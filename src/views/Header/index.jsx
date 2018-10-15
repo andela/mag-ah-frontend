@@ -44,7 +44,7 @@ const AHHeader = () => (
     </nav>
     <BaseModal
       modalId="ahRegisterModal"
-      modalTitle="Join Authors' Haven."
+      modalTitle="Join Authors' Haven"
       modalContent={<SignupModal />}
     />
   </div>
