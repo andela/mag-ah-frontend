@@ -2,6 +2,9 @@ import axios from "axios";
 
 import { SIGNUP_SUCCESS, SIGNUP_ERROR } from "../action_types";
 import { serverError, startFetch } from "./common";
+import config from "../../config";
+
+const url = `${config.BASE_URL}/users/signup/`;
 
 /**
  * Signup successfull
@@ -28,7 +31,7 @@ export const signupError = error => ({
 export const signup = user => dispatch => {
   dispatch(startFetch());
   axios
-    .post("/api/users/signup/", user)
+    .post(url, user)
     .then(response => {
       const responseMessage = response.data.response.message;
       dispatch(signupSuccess(responseMessage));

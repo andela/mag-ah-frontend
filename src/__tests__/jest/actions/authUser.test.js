@@ -15,10 +15,12 @@ import {
   signupError
 } from "../../../redux/actions/authUser";
 
+import config from "../../../config";
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 let store;
-const signupUrl = "http://127.0.0.1:8000/api/users/signup/";
+const signupUrl = `${config.BASE_URL}/users/signup/`;
 const validUser = {
   username: "Tried and Tested",
   email: "testeduser@gmail.com",
