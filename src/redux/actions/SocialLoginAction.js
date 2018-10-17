@@ -3,8 +3,9 @@ import axios from "axios";
 import * as actionTypes from "../action_types";
 import history from "../../routes/history";
 import homepage from "../../views/Home/index";
+import config from "../../config";
 
-const BASE_URL = "https://ah-magnificent6-staging.herokuapp.com/api";
+const loginURL = config.BASE_URL;
 
 export const socialLoginStart = () => ({
   type: actionTypes.SOCIAL_LOGIN_START
@@ -25,13 +26,11 @@ export const socialLoginFail = error => ({
 export default authData => dispatch => {
   dispatch(socialLoginStart());
   axios
-    .post(`${BASE_URL}/users/oauth/`, authData)
+    .post(`${loginURL}/users/oauth/`, authData)
     .then(response => {
       const { token, username, email } = response.data.response;
       dispatch(socialLoginSuccess(token, username, email));
       localStorage.setItem("accessToken", token);
-      document.querySelector("#ahSignInModal").remove();
-      document.querySelector(".modal-backdrop").remove();
       history.push(homepage);
     })
     .catch(err => {

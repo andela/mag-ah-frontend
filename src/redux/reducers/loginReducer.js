@@ -1,31 +1,14 @@
+import initialState from "./initialState";
 import {
   LOGIN_SUCCESSFUL,
   LOGIN_ERROR,
-<<<<<<< HEAD
-  LOGOUT_SUCCESSFUL
-} from "../action_types";
-import initialState from "./initialState";
-
-export default (state = initialState.loginUser, action) => {
-=======
   LOGOUT_SUCCESSFUL,
   SOCIAL_LOGIN_START,
   SOCIAL_LOGIN_SUCCESS,
   SOCIAL_LOGIN_FAIL
 } from "../action_types";
 
-export const initialState = {
-  message: {},
-  error: {},
-  isAuthenticated: false,
-  token: "",
-  username: null,
-  email: null,
-  isLogged: false,
-  loading: false
-};
 export default (state = initialState, action) => {
->>>>>>> [Feature #159965267] Implement social login strategies
   switch (action.type) {
     case LOGIN_SUCCESSFUL:
       return {
@@ -42,11 +25,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         message: {},
-<<<<<<< HEAD
-        error: {},
-        isAuthenticated: false
-      };
-=======
         error: "",
         isAuthenticated: false
       };
@@ -74,7 +52,6 @@ export default (state = initialState, action) => {
         error: action.error,
         loading: false
       };
->>>>>>> [Feature #159965267] Implement social login strategies
     default:
       return state;
   }

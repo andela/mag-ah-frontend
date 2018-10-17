@@ -5,16 +5,11 @@ import Button from "../Button";
 import { Logout } from "../../redux/actions/loginAction";
 
 class AuthButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onLogout = this.onLogout.bind(this);
-  }
-
-  onLogout(event) {
+  onLogout = event => {
     const { dispatch } = this.props;
     event.preventDefault();
     dispatch(Logout());
-  }
+  };
 
   render() {
     const { isAuthenticated } = this.props;

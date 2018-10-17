@@ -4,12 +4,11 @@ import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Home from "../Home";
 
-import config from "../../config.json";
+import config from "../../config";
 import socialLoginAction from "../../redux/actions/SocialLoginAction";
 
-export class SocialLogin extends Component {
+class SocialLogin extends Component {
   twitterResponse = response => {
     const { dispatch } = this.props;
     // const token = response.headers.get('x-auth-token');
@@ -40,73 +39,60 @@ export class SocialLogin extends Component {
   };
 
   render() {
-    let socialLoginContent = null;
-    const { isAuthenticated } = this.props;
-
-    if (isAuthenticated) {
-      socialLoginContent = (
-        <div>
-          <p>Welcome to Authors Haven {this.props.username}</p>
-          <div>{this.props.email}</div>
-          <div>
-            <button onClick={this.logout} className="btn btn-outline-secondary">
-              Log out
-            </button>
-          </div>
+    return (
+      <div className="row">
+        <div className="col-12">
+          <TwitterLogin
+            className="ah-twitter-button btn btn-block btn-lg mb-3"
+            loginUrl="https://ah-magnificent6-staging.herokuapp.com/api/users/oauth/"
+            onFailure={this.twitterResponse}
+            onSuccess={this.twitterResponse}
+            requestTokenUrl="https://ah-magnificent6-staging.herokuapp.com/api/users/oauth/"
+            forceLogin
+          >
+            <i className="fab fa-twitter" />
+            <span /> <span /> Sign in with Twitter
+          </TwitterLogin>
         </div>
-      );
-    } else {
-      socialLoginContent = (
-        <div className="row">
-          <div className="col-12">
-            <TwitterLogin
-              className="ah-twitter-btn btn btn-block btn-lg mb-3"
-              loginUrl="https://ah-magnificent6-staging.herokuapp.com/api/users/oauth/"
-              onFailure={this.twitterResponse}
-              onSuccess={this.twitterResponse}
-              requestTokenUrl="https://ah-magnificent6-staging.herokuapp.com/api/users/oauth/"
-              forceLogin
-            >
-              <i className="fab fa-twitter" />
-              <span /> {" "} <span /> Sign in with Twitter
-            </TwitterLogin>
-          </div>
-          <div className="col-12">
-            <FacebookLogin
-              appId={config.FACEBOOK_KEY}
-              autoLoad={false}
-              fields="name,email"
-              callback={this.facebookResponse}
-              cssClass="ah-facebook-btn btn btn-block btn-lg mb-3"
-              textButton=" Sign in with Facebook"
-              icon="fa-facebook"
-            />
-          </div>
-          <div className="col-12">
-            <GoogleLogin
-              className="ah-google-btn btn btn-block btn-lg mb-3"
-              clientId={config.GOOGLE_KEY}
-              buttonText="Login With Google"
-              onSuccess={this.googleResponse}
-              onFailure={this.googleResponse}
-            >
-              <i className="fab fa-google" />
-              <span /> {" "} <span />Sign in with Google
-            </GoogleLogin>
-          </div>
+        <div className="col-12">
+          <FacebookLogin
+            appId={config.FACEBOOK_KEY}
+            autoLoad={false}
+            fields="name,email"
+            callback={this.facebookResponse}
+            cssClass="ah-facebook-button btn btn-block btn-lg mb-3"
+            textButton=" Sign in with Facebook"
+            icon="fa-facebook"
+          />
         </div>
-      );
-    }
-
-    return <div className="SocialLogin">{socialLoginContent}</div>;
+        <div className="col-12">
+          <GoogleLogin
+            className="ah-google-button btn btn-block btn-lg mb-3"
+            clientId={config.GOOGLE_KEY}
+            buttonText="Login With Google"
+            onSuccess={this.googleResponse}
+            onFailure={this.googleResponse}
+          >
+            <i className="fab fa-google" />
+            <span /> <span />
+            Sign in with Google
+          </GoogleLogin>
+        </div>
+      </div>
+    );
   }
 }
 
-const mapStateToProps = ({ loginReducer }) => loginReducer;
+SocialLogin.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
+
+const mapStateToProps = ({ loginReducer }) => {
+  const { isAuthenticated, error } = loginReducer || {
+    isAuthenticated: false,
+    error: {}
+  };
+  return { isAuthenticated, error };
+};
 
 export default connect(mapStateToProps)(SocialLogin);
-
-SocialLogin.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
-};

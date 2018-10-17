@@ -7,27 +7,25 @@ import LoginForm from "./LoginForm";
 import SocialAuth from "./socialAuth";
 
 class LoginPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { email: "", password: "" };
-    this.handleChange = this.handleChange.bind(this);
-    this.onLogin = this.onLogin.bind(this);
-  }
+  state = {
+    email: "",
+    password: ""
+  };
 
-  onLogin(event) {
+  onLogin = event => {
     const { email, password } = this.state;
     const user = { email, password };
     const { dispatch } = this.props;
     event.preventDefault();
     dispatch(loginAction(user));
-  }
+  };
 
-  handleChange(event) {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  }
+  };
 
   render() {
     const { error } = this.props;
@@ -62,6 +60,12 @@ LoginPage.propTypes = {
   error: PropTypes.shape().isRequired
 };
 
-const mapStateToProps = ({ loginReducer }) => loginReducer;
+const mapStateToProps = ({ loginReducer }) => {
+  const { isAuthenticated, error } = loginReducer || {
+    isAuthenticated: false,
+    error: {}
+  };
+  return { isAuthenticated, error };
+};
 
 export default connect(mapStateToProps)(LoginPage);

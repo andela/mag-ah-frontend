@@ -1,9 +1,8 @@
 import React from "react";
-import AHHeader from "../Header";
 
 const Home = () => (
   <div>
-    <AHHeader />
+    <p className="ml-3">Welcome to Authors Haven</p>
   </div>
 );
 
