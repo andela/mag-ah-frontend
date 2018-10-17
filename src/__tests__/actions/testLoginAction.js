@@ -8,11 +8,14 @@ const middleware = [thunk];
 const mockstore = configureMockStore(middleware);
 const emailError = "email is required";
 const loginSuccefullMessage = "mike";
-const regURL = "http://localhost:8000/api/users/login";
-const store = mockstore({});
+const regURL = "https://ah-magnificent6-staging.herokuapp.com/api/users/login";
+let store;
 
 describe("action", () => {
-  beforeEach(() => moxios.install());
+  beforeEach(() => {
+    moxios.install();
+    store = mockstore({});
+  });
   afterEach(() => {
     store.clearActions();
     moxios.uninstall();

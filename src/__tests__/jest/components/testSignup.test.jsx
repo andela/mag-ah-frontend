@@ -4,7 +4,7 @@ import Adapter from "enzyme-adapter-react-16";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
-import SignupModal from "../../../components/SignupModal";
+import SignupModal from "../../../components/auth/SignupModal";
 
 Enzyme.configure({ adapter: new Adapter() });
 

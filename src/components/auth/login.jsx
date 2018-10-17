@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import loginAction from "../../redux/actions/loginAction";
+import { Login } from "../../redux/actions/loginAction";
 import Button from "../../views/Button/index";
 import LoginForm from "./LoginForm";
 
@@ -13,7 +13,7 @@ class LoginPage extends React.Component {
     const user = { email, password };
     const { dispatch } = this.props;
     event.preventDefault();
-    dispatch(loginAction(user));
+    dispatch(Login(user));
   };
 
   handleChange = event => {
@@ -28,46 +28,46 @@ class LoginPage extends React.Component {
     const { email, password } = this.state;
 
     return (
-      <div className="text-center m-auto">
+      <div className="modal-body text-center">
         <LoginForm
           handleChange={this.handleChange}
           email={email}
           password={password}
           error={error}
         />
-        <div className="col-9 m-auto">
-          <a
-            href="/"
-            className="p-1 mb-4"
-            data-dismiss="modal"
-            data-toggle="modal"
-            data-target="#ahResetPasswordModal"
-          >
-            Forgot password ?
-          </a>
-        </div>
-
         <Button
-          className="btn btn-primary mb-5 col-2"
+          className="btn btn-primary mb-5 col-3"
           onclick={this.onLogin}
           label="Sign in"
         />
-
         <div className="col-9 m-auto">
-          <a href="/" className="ah-facebook-btn btn btn-block btn-lg mb-3">
-            <i className="fab fa-facebook-square" />
-            &ensp; Sign in with Facebook
-          </a>
-          <a href="/" className="ah-twitter-btn btn btn-block btn-lg mb-3">
-            <i className="fab fa-twitter" />
-            &ensp; Sign in with Twitter
-          </a>
-          <a href="/" className="ah-google-btn btn btn-block btn-lg mb-3">
-            <i className="fab fa-google" />
-            &ensp; Sign in with Google
-          </a>
+          <button
+            type="button"
+            className="btn text-left m-1 ah-google-button btn-block mb-3"
+          >
+            <i className="fab fa-google" /> &ensp; Sign in with Google
+          </button>
+          <button
+            type="button"
+            className="btn text-left m-1 ah-twitter-button btn-block mb-3"
+          >
+            <i className="fab fa-twitter" /> &ensp; Sign in with Twitter
+          </button>
+          <button
+            type="button"
+            className="btn text-left m-1 ah-facebook-button btn-block mb-3"
+          >
+            <i className="fab fa-facebook" /> &ensp; Sign in with Facebook
+          </button>
           <span>
-            <p>Create an account ?</p>
+            <a
+              href="/"
+              data-toggle="modal"
+              data-dismiss="modal"
+              data-target="#ahRegisterModal"
+            >
+              Create an account ?
+            </a>
           </span>
         </div>
       </div>
@@ -77,11 +77,15 @@ class LoginPage extends React.Component {
 
 LoginPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  error: PropTypes.shape()
+  error: PropTypes.shape().isRequired
 };
 
-LoginPage.defaultProps = {
-  error: {}
+const mapStateToProps = ({ loginReducer }) => {
+  const { isAuthenticated, error } = loginReducer || {
+    isAuthenticated: false,
+    error: {}
+  };
+  return { isAuthenticated, error };
 };
 
-export default connect()(LoginPage);
+export default connect(mapStateToProps)(LoginPage);

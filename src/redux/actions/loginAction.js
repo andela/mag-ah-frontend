@@ -1,5 +1,6 @@
 import axios from "axios";
 import history from "../../routes/history";
+import config from "../../config";
 
 import {
   LOGIN_SUCCESSFUL,
@@ -8,8 +9,11 @@ import {
 } from "../action_types";
 import Home from "../../views/Home/index";
 
+const url = `${config.BASE_URL}/users/login/`;
+
 /**
  * Login Successful
+ *
  * @param message
  * @returns {{type: string, message: *}}
  */
@@ -20,10 +24,10 @@ export const loginSuccessful = message => ({
 
 /**
  * Login error
+ *
  * @param error
  * @returns {{type: string, error: *}}
  */
-
 export const loginError = error => ({
   type: LOGIN_ERROR,
   error
@@ -31,6 +35,7 @@ export const loginError = error => ({
 
 /**
  * Logout Successful
+ *
  * @returns {{type: string}}
  */
 export const logoutsuccessful = () => ({
@@ -39,7 +44,7 @@ export const logoutsuccessful = () => ({
 
 export const Login = user => dispatch => {
   axios
-    .post(`/api/users/login/`, user)
+    .post(url, user)
     .then(response => {
       const message = response.data;
       dispatch(loginSuccessful(message));
