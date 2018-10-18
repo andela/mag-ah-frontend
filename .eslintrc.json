@@ -5,6 +5,13 @@
         "plugin:prettier/recommended",
         "prettier/react"
     ],
+    "rules": {
+        "jsx-a11y/label-has-for": [2, {
+            "required": {
+                "every": ["id"]
+            }
+        }]
+    },
     "env": {
         "es6": true,
         "browser": true,
@@ -14,4 +21,3 @@
     "parser": "babel-eslint"
 
 }
-

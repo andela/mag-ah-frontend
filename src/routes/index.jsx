@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "../views";
+import ResetPass from "../views/Login/PasswordReset";
 
 const Routes = () => (
   <Router>
-    <Switch>
-      <Route exact path="/" component={Home} />
-    </Switch>
+    <div>
+      <Switch>
+        <Route exact path="/reset-password/" component={ResetPass} />;
+      </Switch>
+    </div>
   </Router>
 );
 

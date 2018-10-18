@@ -36,7 +36,7 @@ TextInput.propTypes = {
   error: PropTypes.arrayOf(PropTypes.string),
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   required: PropTypes.bool,
   onBlur: PropTypes.func
 };
@@ -44,6 +44,7 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
   error: null,
   required: false,
+  value: "",
   onBlur: () => {}
 };
 
