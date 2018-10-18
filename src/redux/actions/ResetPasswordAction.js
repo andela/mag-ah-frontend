@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as ActionTypes from "../action_types";
-import API_BASE_URL from "./index";
+import config from "../../config";
 
 /**
  * error from forgot password request
@@ -32,8 +32,9 @@ export const userResetPassword = responseData => ({
  */
 export const handleResetPassword = userData => async dispatch => {
   try {
+    const url = config.BASE_URL;
     const response = await axios.put(
-      `${API_BASE_URL}/api/reset_password/${userData.token}/`,
+      `${url}/api/reset_password/${userData.token}/`,
       userData
     );
 
