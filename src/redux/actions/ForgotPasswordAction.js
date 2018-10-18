@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as ActionTypes from "../action_types";
-import API_BASE_URL from "./index";
+import config from "../../config";
 
 /**
  * request to change password
@@ -31,14 +31,12 @@ export const forgotPasswordError = error => ({
  * @return {function} dispatch
  */
 export const handleForgotPassword = email => async dispatch => {
+  const url = config.BASE_URL;
   try {
-    const response = await axios.post(
-      `${API_BASE_URL}/api/accounts/forgot_password/`,
-      {
-        email: email.email,
-        client_url: email.client_url
-      }
-    );
+    const response = await axios.post(`${url}/accounts/forgot_password/`, {
+      email: email.email,
+      client_url: email.client_url
+    });
     dispatch(forgotPassword(response.data));
   } catch (error) {
     dispatch(forgotPasswordError(error.response));
