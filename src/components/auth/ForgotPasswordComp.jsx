@@ -27,19 +27,25 @@ export class ForgotPassword extends Component {
     dispatch(handleForgotPassword(user));
   };
 
+  handleClearForm = () => {
+    this.setState({
+      user: {}
+    });
+  };
+
   render() {
     const { message, error } = this.props;
     const { user } = this.state;
     const { email } = user;
 
     return (
-      <div className="m-auto col-sm-12">
+      <div className="m-auto col-sm-12 text-center">
         <form onSubmit={this.handleSubmit} className="forgotPassword">
           {message && (
             <p className="text-center text-info info">
               {message.message ? (
                 <span>
-                  We have send an email{" "}
+                  We have sent an email{" "}
                   <a
                     href="https://mail.google.com/mail/u/0/#inbox"
                     target="_blank"
@@ -72,28 +78,32 @@ export class ForgotPassword extends Component {
               value={email}
               onChange={this.handleChange}
             />
-          </div>
-
-          <div className="text-center">
             <SubmitButton
-              className="btn btn-primary mb-4"
+              className="btn btn-primary btn-block mb-4"
               label="Next"
               id="reset"
             />
           </div>
         </form>
 
-        <span>
+        <small>
+          Dont want to reset?{" "}
           <a
-            href="/login"
             className="p-1"
-            data-dismiss="modal"
+            href="/login"
             data-toggle="modal"
+            data-dismiss="modal"
             data-target="#ahSignInModal"
           >
             Back to login form
           </a>
-        </span>
+        </small>
+        <button
+          id="clearState"
+          className="d-none"
+          type="button"
+          onClick={this.handleClearForm}
+        />
       </div>
     );
   }
@@ -101,7 +111,7 @@ export class ForgotPassword extends Component {
 
 ForgotPassword.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  message: PropTypes.objectOf(PropTypes.string).isRequired,
+  message: PropTypes.objectOf(PropTypes.string),
   error: PropTypes.objectOf(PropTypes.object)
 };
 
@@ -109,12 +119,14 @@ ForgotPassword.defaultProps = {
   error: {
     data: { errors: {} },
     message: { message: "" }
-  }
+  },
+  message: {}
 };
 
 const mapStateToProps = ({ resetPassword }) => {
   const { message, error } = resetPassword || {
     message: {},
+    success: false,
     error: {
       data: { errors: {} }
     }

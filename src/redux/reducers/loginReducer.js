@@ -5,7 +5,8 @@ import {
   LOGOUT_SUCCESSFUL,
   SOCIAL_LOGIN_START,
   SOCIAL_LOGIN_SUCCESS,
-  SOCIAL_LOGIN_FAIL
+  SOCIAL_LOGIN_FAIL,
+  RESET_STATE
 } from "../action_types";
 
 export default (state = initialState, action) => {
@@ -52,6 +53,8 @@ export default (state = initialState, action) => {
         error: action.error,
         loading: false
       };
+    case RESET_STATE:
+      return initialState.loginUser;
     default:
       return state;
   }

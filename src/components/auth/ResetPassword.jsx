@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Redirect } from "react-router-dom";
 import { handleResetPassword } from "../../redux/actions/ResetPasswordAction";
 import SubmitButton from "../../views/Form/SubmitButton";
 import { TextInput } from "../../views/Form";
@@ -42,20 +41,12 @@ export class ResetPassword extends Component {
   render() {
     const { user } = this.state;
     const { password, confirmPassword } = user;
-    const { error, message } = this.props;
-
-    if (message.message) {
-      const msg = `${
-        message.message
-      }\nWe will redirect you to login page when you close this dialog`;
-      window.alert(msg);
-      return <Redirect to="/login" />;
-    }
+    const { error } = this.props;
 
     return (
       <div className="container-fluid h-100">
         <div className="row justify-content-left align-items-center h-10">
-          <div className="m-auto col-3">
+          <div className="m-auto col-sm-8">
             <form onSubmit={this.handleSubmit} className="resetPassword">
               <div className="form-group">
                 <div className="form-group mb-4">
@@ -100,9 +91,19 @@ export class ResetPassword extends Component {
               <div className="text-center">
                 <SubmitButton
                   id="submit"
-                  className="btn btn-primary mb-4"
+                  className="btn btn-primary btn-block mb-4"
                   label="Update password"
                 />
+                <a
+                  id="openLogin"
+                  className="d-none"
+                  href="/"
+                  data-toggle="modal"
+                  data-dismiss="modal"
+                  data-target="#ahSignInModal"
+                >
+                  Sign In
+                </a>
               </div>
             </form>
           </div>
@@ -114,7 +115,6 @@ export class ResetPassword extends Component {
 
 ResetPassword.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  message: PropTypes.objectOf(PropTypes.string).isRequired,
   error: PropTypes.objectOf(PropTypes.object)
 };
 
@@ -131,6 +131,7 @@ ResetPassword.defaultProps = {
 const mapStateToProps = ({ resetPassword }) => {
   const { message, error } = resetPassword || {
     message: {},
+    success: false,
     error: {
       data: { errors: {} }
     }

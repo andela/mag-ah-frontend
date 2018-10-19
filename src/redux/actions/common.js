@@ -1,4 +1,9 @@
-import { START_FETCH, SERVER_ERROR, CLEAR_ERROR } from "../action_types";
+import {
+  START_FETCH,
+  SERVER_ERROR,
+  CLEAR_ERROR,
+  RESET_STATE
+} from "../action_types";
 
 /**
  * Start Fetch operation.
@@ -32,4 +37,8 @@ export const clearError = () => ({
 export const serverError = error => ({
   type: SERVER_ERROR,
   error
+});
+
+export const clearState = () => ({
+  type: RESET_STATE
 });

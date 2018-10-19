@@ -1,6 +1,8 @@
 import axios from "axios";
+import { toaster } from "evergreen-ui";
 import * as ActionTypes from "../action_types";
 import config from "../../config";
+import { clearState } from "./common";
 
 /**
  * error from forgot password request
@@ -34,11 +36,15 @@ export const handleResetPassword = userData => async dispatch => {
   try {
     const url = config.BASE_URL;
     const response = await axios.put(
-      `${url}/api/reset_password/${userData.token}/`,
+      `${url}/reset_password/${userData.token}/`,
       userData
     );
-
     dispatch(userResetPassword(response.data));
+    dispatch(clearState());
+    document.querySelector("#openLogin").click();
+    toaster.success(response.data.message, {
+      duration: 3
+    });
   } catch (error) {
     dispatch(resetPasswordError(error.response));
   }

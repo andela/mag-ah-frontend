@@ -502,3 +502,11 @@ body {
       color: $ah-secondary-text-color;
     }
   }
+
+  .css-1sugtjn, [data-css-1sugtjn] {
+    z-index: 1060;
+}
+
+.btn-link.focus, .btn-link:focus {
+  text-decoration: none;
+}

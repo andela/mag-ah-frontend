@@ -1,4 +1,4 @@
-import { FORGOT_PWD, RESET_PWD, ERROR } from "../action_types";
+import { FORGOT_PWD, RESET_PWD, ERROR, RESET_STATE } from "../action_types";
 import initialState from "./initialState";
 
 export default (state = initialState.resetPassword, action) => {
@@ -19,6 +19,9 @@ export default (state = initialState.resetPassword, action) => {
         error: action.error,
         info: false
       };
+    case RESET_STATE:
+      return initialState;
+
     default:
       return state;
   }

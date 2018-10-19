@@ -2,11 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Login } from "../../redux/actions/loginAction";
+import { clearState } from "../../redux/actions/common";
 import Button from "../../views/Button/index";
 import LoginForm from "./LoginForm";
 
 class LoginPage extends React.Component {
   state = { email: "", password: "" };
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    document
+      .querySelector("#ahSignInModalCloseButton")
+      .addEventListener("click", () => {
+        dispatch(clearState());
+        this.handleClearForm();
+      });
+  }
+
+  handleClearForm = () => {
+    this.setState({
+      email: "",
+      password: ""
+    });
+  };
 
   onLogin = event => {
     const { email, password } = this.state;
@@ -26,49 +44,67 @@ class LoginPage extends React.Component {
   render() {
     const { error } = this.props;
     const { email, password } = this.state;
-
     return (
-      <div className="modal-body text-center">
-        <LoginForm
-          handleChange={this.handleChange}
-          email={email}
-          password={password}
-          error={error}
-        />
-        <Button
-          className="btn btn-primary mb-5 col-3"
-          onclick={this.onLogin}
-          label="Sign in"
-        />
-        <div className="col-9 m-auto">
-          <button
-            type="button"
-            className="btn text-left m-1 ah-google-button btn-block mb-3"
-          >
-            <i className="fab fa-google" /> &ensp; Sign in with Google
-          </button>
-          <button
-            type="button"
-            className="btn text-left m-1 ah-twitter-button btn-block mb-3"
-          >
-            <i className="fab fa-twitter" /> &ensp; Sign in with Twitter
-          </button>
-          <button
-            type="button"
-            className="btn text-left m-1 ah-facebook-button btn-block mb-3"
-          >
-            <i className="fab fa-facebook" /> &ensp; Sign in with Facebook
-          </button>
-          <span>
-            <a
-              href="/"
-              data-toggle="modal"
-              data-dismiss="modal"
-              data-target="#ahRegisterModal"
-            >
-              Create an account ?
-            </a>
-          </span>
+      <div className="row">
+        <div className="m-auto col-sm-8">
+          <div>
+            <LoginForm
+              handleChange={this.handleChange}
+              email={email}
+              password={password}
+              error={error}
+            />
+            <div className="mb-4 text-center">
+              <a
+                href="/"
+                className="p-1 mb-4"
+                data-dismiss="modal"
+                data-toggle="modal"
+                data-target="#ahResetPasswordModal"
+              >
+                Forgot password ?
+              </a>
+            </div>
+            <Button
+              className="btn btn-primary btn-block mb-4"
+              onclick={this.onLogin}
+              label="Sign in"
+            />
+            <p className="text-center">OR</p>
+            <p className="d-flex flex-column">
+              <button
+                type="button"
+                className="btn text-left ah-google-button btn-block"
+              >
+                <i className="fab fa-google" /> &ensp; Sign in with Google
+              </button>
+              <button
+                type="button"
+                className="btn text-left ah-twitter-button btn-block"
+              >
+                <i className="fab fa-twitter" /> &ensp; Sign in with Twitter
+              </button>
+              <button
+                type="button"
+                className="btn text-left ah-facebook-button btn-block"
+              >
+                <i className="fab fa-facebook" /> &ensp; Sign in with Facebook
+              </button>
+              <br />
+              <small className="text-center">
+                Do not have an account?{" "}
+                <a
+                  className="p-1"
+                  href="/"
+                  data-toggle="modal"
+                  data-dismiss="modal"
+                  data-target="#ahRegisterModal"
+                >
+                  Sign up
+                </a>
+              </small>
+            </p>
+          </div>
         </div>
       </div>
     );
