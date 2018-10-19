@@ -45,13 +45,16 @@ class AuthButton extends React.Component {
             </ul>
           </div>
         ) : (
-          <Button
-            className="btn btn-link mr-3"
-            label="Sign in"
-            dataToggle="modal"
-            dataTarget="#ahSignInModal"
-            onKeyPress=""
-          />
+          <div>
+            <Button
+              className="btn btn-link mr-3 btn-lg mb1 black"
+              id="signInButton"
+              label="Sign in"
+              dataToggle="modal"
+              dataTarget="#ahSignInModal"
+              onKeyPress=""
+            />
+          </div>
         )}
       </div>
     );
@@ -63,8 +66,11 @@ AuthButton.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired
 };
 
-AuthButton.defaults = {
-  isAuthenticated: false
+const mapStateToProps = ({ loginReducer }) => {
+  const { isAuthenticated } = loginReducer || {
+    isAuthenticated: false
+  };
+  return { isAuthenticated };
 };
 
-export default connect()(AuthButton);
+export default connect(mapStateToProps)(AuthButton);

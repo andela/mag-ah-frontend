@@ -10,6 +10,11 @@ const initialState = {
     message: {},
     error: null,
     info: true
+  },
+  loginUser: {
+    message: {},
+    error: {},
+    isAuthenticated: false
   }
 };
 

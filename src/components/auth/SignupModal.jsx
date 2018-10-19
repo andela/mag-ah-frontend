@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { TextInput, SubmitButton, MessageBox } from "../views/Form";
-import { signup, signupError } from "../redux/actions/authUser";
-import { clearError } from "../redux/actions/common";
+import { TextInput, SubmitButton, MessageBox } from "../../views/Form";
+import { signup, signupError } from "../../redux/actions/authUser";
+import { clearError } from "../../redux/actions/common";
 
 class SignupModal extends React.Component {
   state = {

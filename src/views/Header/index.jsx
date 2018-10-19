@@ -6,7 +6,7 @@ import BaseModal from "../Modal";
 import ForgotPasswordComp from "../../components/auth/ForgotPasswordComp";
 import LoginPage from "../../components/auth/login";
 import AuthButton from "../../components/auth/AuthButton";
-import SignupModal from "../../components/SignupModal";
+import SignupModal from "../../components/auth/SignupModal";
 
 const AHHeader = () => (
   <div>
@@ -32,6 +32,11 @@ const AHHeader = () => (
               dataTarget="#ahRegisterModal"
               dataToggle="modal"
               label="Get Started"
+            />
+            <div
+              className="btn-group mr-2"
+              role="group"
+              aria-label="Second group"
             />
           </div>
         </div>
