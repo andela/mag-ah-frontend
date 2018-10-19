@@ -80,7 +80,8 @@ const initialState = {
     liked: false,
     disliked: false,
     error: ""
-  }
+  },
+  profile: {}
 };
 
 export default initialState;

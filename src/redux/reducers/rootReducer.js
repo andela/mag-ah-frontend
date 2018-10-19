@@ -9,6 +9,7 @@ import deleteArticleReducer from "./deleteArticleReducer";
 import articleRatingReducer from "./articleRatingReducer";
 import commentsReducer from "./commentsReducer";
 import likeDislikeReducer from "./likeDislikeReducer";
+import profileReducer from "./profileReducer";
 
 export default combineReducers({
   authSignup: authReducer,
@@ -20,5 +21,6 @@ export default combineReducers({
   deleteArticleReducer,
   rateArticle: articleRatingReducer,
   commentsReducer,
-  likeDislikeReducer
+  likeDislikeReducer,
+  profile: profileReducer
 });
