@@ -23,7 +23,14 @@ const initialState = {
   username: null,
   email: null,
   isLogged: false,
-  loading: false
+  loading: false,
+  allArticles: {
+    articles: [],
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
+  }
 };
 
 export default initialState;

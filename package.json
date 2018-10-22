@@ -10,6 +10,7 @@
     "expect": "^23.6.0",
     "fetch-mock": "^7.0.7",
     "history": "^4.7.2",
+    "javascript-time-ago": "^1.0.31",
     "jquery": "^3.3.1",
     "moxios": "^0.4.0",
     "node-fetch": "^2.2.0",
