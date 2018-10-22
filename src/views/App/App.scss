@@ -13,9 +13,8 @@ $facebook-color: #3b5998;
 $facebook-color-hover: #1e3a74;
 $twitter-color: #1da1f2;
 $twitter-color-hover: #087bc2;
-
 body {
-  background: $bg-color;
+  background: white;
   margin: 0px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -93,6 +92,9 @@ input[type="password"] {
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
   min-height: 400px;
 }
+  .card {
+    border: none;
+  }
 
 .card-text {
   color: $ah-secondary-text-color;
@@ -106,38 +108,38 @@ input[type="password"] {
   }
 }
 
-small a,
-.ah-author-link {
-  color: $ah-primary-color;
-  text-decoration: underline;
-}
+  small a,
+  .ah-author-link {
+    color: $ah-primary-color;
+    text-decoration: underline;
+  }
 
-small a:hover,
-.ah-author-link:hover {
-  text-decoration: none;
-  color: $ah-primary-color;
-  background-color: $ah-alternate-color;
-}
+  small a:hover,
+  .ah-author-link:hover {
+    text-decoration: none;
+    color: $ah-primary-color;
+    background-color: $ah-alternate-color;
+  }
 
-.ah-list-content {
-  line-height: 1;
-}
+  .ah-list-content {
+    line-height: 1;
+  }
 
-.ah-jumbotron {
-  background-color: $ah-secondary-color;
-  padding: 0px;
-}
+  .ah-jumbotron {
+    background-color: $ah-secondary-color;
+    padding: 0px;
+  }
 
-.ah-jumbotron h1,
-.navbar-brand {
-  font-size: 2.5rem;
-  font-family: "Vidaloka", serif;
-}
+  .ah-jumbotron h1,
+  .navbar-brand {
+    font-size: 2.5rem;
+    font-family: 'Vidaloka', serif;
+  }
 
-.modal-content {
-  border: none;
-  border-radius: 0;
-}
+  .modal-content {
+    border: none;
+    border-radius: 0;
+  }
 
 .modal-header {
   text-align: center;
@@ -150,167 +152,172 @@ small a:hover,
 }
 
 .modal-header .close {
-  padding: 1rem;
-  margin: -1rem;
-}
+    padding: 1rem;
+    margin: -1rem;
+  }
 
-.fa-facebook:hover,
-.fa-twitter:hover,
-.fa-envelope:hover,
-.fa-flag:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
+  .fa-facebook:hover,
+  .fa-twitter:hover,
+  .fa-envelope:hover,
+  .fa-flag:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
 
-.form-control {
-  border-radius: 0px;
-}
+  .form-control {
+    border-radius: 0px;
+  }
 
-.form-group {
-  border-radius: 0px;
-  border: none;
-}
+  .form-group {
+    border-radius: 0px;
+    border: none;
+  }
 
-.custom-file-label {
-  background-color: transparent;
-}
+  .form-group input:focus,
+  textarea:focus {
+    background-color: $bg-color;
+  }
 
-.form-control:focus {
-  box-shadow: None;
-}
+  .custom-file-label {
+    background-color: transparent;
+  }
 
-.btn:focus,
-.btn:active {
-  box-shadow: none;
-}
+  .form-control:focus {
+    box-shadow: None;
+  }
 
-.title {
-  font-weight: bold;
-  font-size: 2em;
-}
+  .btn:focus,
+  .btn:active {
+    box-shadow: none;
+  }
 
-.description {
-  font-size: 1.7em;
-}
+  .title {
+    font-weight: bold;
+    font-size: 2em;
+  }
 
-h6 a,
-h6 a:hover {
-  color: $ah-primary-color;
-}
+  .description {
+    font-size: 1.7em;
+  }
 
-.error {
-  border-color: red;
-}
+  h6 a,
+  h6 a:hover {
+    color: $ah-primary-color;
+  }
 
-.ah-input-error {
-  font-size: 0.7rem;
-}
+  .error {
+    border-color: red;
+  }
 
-.editLink a,
-.footer a {
-  color: $ah-secondary-text-color;
-}
+  .ah-input-error {
+    font-size: 0.7rem;
+  }
 
-fieldset,
-label {
-  margin: 0;
-  padding: 0;
-}
+  .editLink a,
+  .footer a {
+    color: $ah-secondary-text-color;
+  }
 
-h1 {
-  font-size: 1.5em;
-  margin: 10px;
-}
+  fieldset,
+  label {
+    margin: 0;
+    padding: 0;
+  }
 
-.rating {
-  border: none;
-  float: left;
-  margin-right: -20px;
-}
+  h1 {
+    font-size: 1.5em;
+    margin: 10px;
+  }
 
-.ah-rating-average {
-  font-family: "Vidaloka", serif;
-  font-weight: bold;
-  font-size: 2rem;
-}
+  .rating {
+    border: none;
+    float: left;
+    margin-right: -20px;
+  }
 
-.rating > input {
-  display: none;
-}
+  .ah-rating-average {
+    font-family: 'Vidaloka', serif;
+    font-weight: bold;
+    font-size: 2rem;
+  }
 
-.rating > label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
-}
+  .rating > input {
+    display: none;
+  }
 
-.rating > .half:before {
-  content: "\f089";
-  position: absolute;
-}
+  .rating > label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: '\f005';
+  }
 
-.rating > label {
-  color: #ddd;
-  float: right;
-}
+  .rating > .half:before {
+    content: '\f089';
+    position: absolute;
+  }
 
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-fieldset,
-label {
-  margin: 0;
-  padding: 0;
-}
+  .rating > label {
+    color: #ddd;
+    float: right;
+  }
 
-h1 {
-  font-size: 1.5em;
-  margin: 10px;
-}
+  @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+  fieldset,
+  label {
+    margin: 0;
+    padding: 0;
+  }
 
-.rating {
-  border: none;
-  float: left;
-}
+  h1 {
+    font-size: 1.5em;
+    margin: 10px;
+  }
 
-.rating > input {
-  display: none;
-}
+  .rating {
+    border: none;
+    float: left;
+  }
 
-.rating > label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
-}
+  .rating > input {
+    display: none;
+  }
 
-.rating > .half:before {
-  content: "\f089";
-  position: absolute;
-}
+  .rating > label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: '\f005';
+  }
 
-.rating > label {
-  color: #ddd;
-  float: right;
-}
+  .rating > .half:before {
+    content: '\f089';
+    position: absolute;
+  }
 
-.rating > input:checked ~ label,
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-  color: $ah-alternate-color;
-}
+  .rating > label {
+    color: #ddd;
+    float: right;
+  }
 
-.rating > input:checked + label:hover,
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label,
-.rating > input:checked ~ label:hover ~ label {
-  color: $ah-alternate-color;
-}
+  .rating > input:checked ~ label,
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    color: $ah-alternate-color;
+  }
 
-.header {
-  display: block;
-}
+  .rating > input:checked + label:hover,
+  .rating > input:checked ~ label:hover,
+  .rating > label:hover ~ input:checked ~ label,
+  .rating > input:checked ~ label:hover ~ label {
+    color: $ah-alternate-color;
+  }
+
+  .header {
+    display: block;
+  }
 
 .article {
   .ah-article-body {
@@ -324,20 +331,20 @@ h1 {
   font-family: "raleway", "sans";
 }
 
-.likes a:hover,
-.likes a {
-  background-color: $bg-color;
-  text-decoration: None;
-}
+  .likes a:hover,
+  .likes a {
+    background-color: $bg-color;
+    text-decoration: None;
+  }
 
-.likes a {
-  margin-left: 6px;
-  text-decoration: None;
-}
+  .likes a {
+    margin-left: 6px;
+    text-decoration: None;
+  }
 
-.text-success {
-  color: #91be69 !important;
-}
+  .text-success {
+    color: #91be69 !important;
+  }
 
 .profile {
   margin: 20px;
@@ -368,11 +375,11 @@ h1 {
   font-size: 25px;
 }
 
-.ah-notifications-badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-}
+  .ah-notifications-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+  }
 
 .dropdown-toggle::after {
   display: none;
@@ -426,99 +433,89 @@ h1 {
   }
 }
 
-.bookmark a {
-  margin-left: 6px;
-  text-decoration: None;
-  color: $ah-secondary-text-color;
-}
-
-.bookmark {
-  margin-left: 6px;
-  text-decoration: None;
-  color: $ah-secondary-text-color;
-}
-
-.bookmark:hover {
-  background-color: #fff !important;
-}
-
-.search-container {
-  margin-right: 1.5rem;
-  max-width: 300px;
-  .fas {
-    color: $ah-primary-color;
-    font-size: 1.375rem;
-  }
-  .search {
-    -webkit-transition: width 0.3s ease;
-    -moz-transition: width 0.3s ease;
-    -o-transition: width 0.3s ease;
-    transition: width 0.3s ease;
-  }
-}
-
-.filter-container {
-  margin-top: 1rem;
-  .applied-filters {
-    margin-left: 0.3125rem;
-    .alert {
-      padding: 2px 0.5rem;
-      border-radius: 1rem;
-    }
-    .filter-value:after {
-      content: "\2715";
-      padding-left: 0.5rem;
-      color: $ah-secondary-text-color;
-      font-size: 0.75rem;
-    }
-  }
-  .filter {
-    margin-top: 1.5rem;
-    input {
-      margin-bottom: 1rem;
-    }
-    .results {
-      padding: 1rem;
-    }
-    .reset-filters {
-      display: block;
-      margin-top: 1rem;
-    }
-  }
-}
-
-.tags {
-  font-size: 15px;
-  font-weight: 400;
-}
-
-.tags {
-  ul {
-    list-style: none;
-  }
-  li {
-    float: left;
-    display: block;
-    border: $ah-secondary-color 1px solid;
-    border-radius: 2px;
-  }
-  li a:hover {
-    text-decoration: none;
-  }
-
-  .css-1sugtjn,
-  [data-css-1sugtjn] {
-    z-index: 1060;
-  }
-
-  .btn-link.focus,
-  .btn-link:focus {
-    text-decoration: none;
-  }
-  li a {
+  .bookmark a {
+    margin-left: 6px;
+    text-decoration: None;
     color: $ah-secondary-text-color;
   }
-}
+
+  .bookmark {
+    margin-left: 6px;
+    text-decoration: None;
+    color: $ah-secondary-text-color;
+  }
+
+  .bookmark:hover {
+    background-color: #fff !important;
+  }
+
+  .search-container {
+    margin-right: 1.5rem;
+    max-width: 300px;
+    .fas {
+      color: $ah-primary-color;
+      font-size: 1.375rem;
+    }
+    .search {
+      -webkit-transition: width 0.3s ease;
+      -moz-transition: width 0.3s ease;
+      -o-transition: width 0.3s ease;
+      transition: width 0.3s ease;
+    }
+  }
+
+  .filter-container {
+    margin-top: 1rem;
+    .applied-filters {
+      margin-left: 0.3125rem;
+      .alert {
+        padding: 2px 0.5rem;
+        border-radius: 1rem;
+      }
+      .filter-value:after {
+        content: '\2715';
+        padding-left: 0.5rem;
+        color: $ah-secondary-text-color;
+        font-size: 0.75rem;
+      }
+    }
+    .filter {
+      margin-top: 1.5rem;
+      input {
+        margin-bottom: 1rem;
+      }
+      .results {
+        padding: 1rem;
+      }
+      .reset-filters {
+        display: block;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .tags {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .tags {
+    ul {
+      list-style: none;
+    }
+    li {
+      float: left;
+      display: block;
+      border: $ah-secondary-color 1px solid;
+      border-radius: 2px;
+    }
+    li a:hover {
+      text-decoration: none;
+    }
+    li a {
+      color: $ah-secondary-text-color;
+    }
+  }
 
 .ah-editor-field {
   border: none;

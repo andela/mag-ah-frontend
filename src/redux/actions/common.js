@@ -40,5 +40,6 @@ export const serverError = () => ({
 });
 
 export const clearState = () => ({
-  type: RESET_STATE
+  type: RESET_STATE,
+  error: { serverError: "Oops something went wrong!!" }
 });
