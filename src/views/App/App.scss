@@ -37,76 +37,110 @@ body {
 .App {
   min-height: 100vh;
 }
+.ah-article-body{
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-family: 'Exo', sans-serif;
+}
+.share-feed{
+  font-size: 30px;
+}
+.fa-twitter{
+  color: $twitter-color;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.fa-facebook{
+  margin-right: 1em;
+  color: $facebook-color;
+}
+.text-muted{
+  font-size: 20px;
+  margin-right: 10px;
+}
+.card-title{
+
+}
+
+  .App-link {
+    color: #61dafb;
   }
-  to {
-    transform: rotate(360deg);
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-}
 
-.ah-facebook-button {
-  color: #ffffff;
-  background-color: $facebook-color;
-}
+  .ah-facebook-button {
+    color: #ffffff;
+    background-color: $facebook-color;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+  }
 
-.ah-twitter-button {
-  color: #ffffff;
-  background-color: $twitter-color;
-}
+  .ah-twitter-button {
+    color: #ffffff;
+    background-color: $twitter-color;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+  }
 
-.ah-google-button {
-  color: #ffffff;
-  background-color: $google-color;
-}
+  .ah-google-button {
+    color: #ffffff;
+    background-color: $google-color;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+  }
 
-.ah-facebook-button:hover {
-  background-color: $facebook-color-hover;
-}
+  .ah-facebook-button:hover {
+    background-color: $facebook-color-hover;
+  }
 
-.ah-twitter-button:hover {
-  background-color: $twitter-color-hover;
-}
+  .ah-twitter-button:hover {
+    background-color: $twitter-color-hover;
+  }
 
-.ah-google-button:hover {
-  background-color: $google-color-hover;
-}
+  .ah-google-button:hover {
+    background-color: $google-color-hover;
+  }
 
-.ah-success-message {
-  font-size: 0.8rem;
-}
+  .ah-success-message {
+    font-size: 0.8rem;
+  }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  font-size: 0.8rem;
-}
+  input[type='text'],
+  input[type='email'],
+  input[type='password'] {
+    font-size: 0.8rem;
+  }
 
 .card-body {
   background-color: $article-card-bg-color;
 }
-
 .card {
-  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
-  min-height: 400px;
-}
-  .card {
     border: none;
   }
 
-.card-text {
-  color: $ah-secondary-text-color;
-  font-size: 10pt;
-}
-
-.card-title {
-  a {
-    text-decoration: none;
-    color: $ah-primary-color;
+  .card-text {
+    color: $ah-secondary-text-color;
+    font-size: 10pt;
   }
-}
+
+  .card-title {
+    a {
+      text-decoration: none;
+      color: $ah-primary-color;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    font-size: 40px;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 3px;
+  }
 
   small a,
   .ah-author-link {
@@ -150,7 +184,6 @@ input[type="password"] {
   font-size: 2rem;
   line-height: 2rem;
 }
-
 .modal-header .close {
     padding: 1rem;
     margin: -1rem;
@@ -346,34 +379,35 @@ input[type="password"] {
     color: #91be69 !important;
   }
 
-.profile {
-  margin: 20px;
-}
-
-.ah-profile-card {
-  border: $ah-secondary-color 1px solid;
-  border-radius: 5px;
-}
-
-.ah-avatar {
-  width: 100px;
-  margin-right: 10px;
-}
-
-.card-body {
-  .fa-user-circle {
-    font-size: 6.8rem;
-    color: lightblue;
+  .profile {
+    margin: 20px;
   }
-}
-.modal-body .ah-err-msg {
-  color: red;
-}
-// The notification bell
-.fa-bell {
-  color: $ah-secondary-text-color;
-  font-size: 25px;
-}
+
+  .ah-profile-card {
+    border: $ah-secondary-color 1px solid;
+    border-radius: 5px;
+  }
+
+  .ah-avatar {
+    width: 100px;
+    margin-right: 10px;
+  }
+
+  .card-body {
+    .fa-user-circle {
+      font-size: 6.8rem;
+      color: lightblue;
+      padding: 0;
+    }
+  }
+  .modal-body .ah-err-msg {
+    color: red;
+  }
+  // The notification bell
+  .fa-bell {
+    color: $ah-secondary-text-color;
+    font-size: 25px;
+  }
 
   .ah-notifications-badge {
     position: absolute;
@@ -517,12 +551,10 @@ input[type="password"] {
     }
   }
 
-.ah-editor-field {
-  border: none;
-  background: none;
+  .css-1sugtjn, [data-css-1sugtjn] {
+    z-index: 1060;
 }
-
-.ah-editor-field:focus {
+.ah-editor-field {
   border: none;
   background: none;
 }

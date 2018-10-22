@@ -19,14 +19,16 @@ class Article extends React.Component {
       return <div />;
     }
     return (
-      <div className="container">
+      <div className="mt-5 container article">
         <div className="row">
           <div className="col-sm-6">
             <div className="card p-0">
               <div className="card-body p-0 mt-2">
-                <h1 className="card-title mb-5">{article.title}</h1>
+                <h1 className="card-title mb-5 font-weight-bold">
+                  {article.title}
+                </h1>
                 <small>
-                  <a className="ah-author-link" href="/">
+                  <a className="ah-author-link font-weight-bold" href="/">
                     {article.author}
                   </a>
                   <button
@@ -37,8 +39,8 @@ class Article extends React.Component {
                     Follow
                   </button>
                 </small>
-                <small className="text-muted px-1">July 21</small>
-                <small className="text-muted px-1">
+                <small className="text-muted px-1 font-weight-bold">July 21</small>
+                <small className="text-muted px-1 font-weight-bold">
                   {article.time_to_read}
                 </small>
                 <p className="card-text d-flex justify-content-between">
@@ -60,6 +62,13 @@ class Article extends React.Component {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="card mb-3 col-sm-6">
+            <img
+              className="card-img-top"
+              src="https://source.unsplash.com/random"
+              alt="Italian Trulli"
+            />
           </div>
         </div>
         <div className="row">
