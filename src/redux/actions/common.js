@@ -2,7 +2,8 @@ import {
   START_FETCH,
   SERVER_ERROR,
   CLEAR_ERROR,
-  RESET_STATE
+  RESET_STATE,
+  RESPONSE_ERROR
 } from "../action_types";
 
 /**
@@ -36,10 +37,31 @@ export const clearError = () => ({
  */
 export const serverError = () => ({
   type: SERVER_ERROR,
-  error: "Oops something went wrong"
+  error: {
+    serverError: "Oops something went wrong!!"
+  }
 });
 
+/**
+ * clear state
+ * Used to revert state to initial state
+ *
+ * @param (object) error
+ * @return (object) type payload
+ */
 export const clearState = () => ({
   type: RESET_STATE,
   error: { serverError: "Oops something went wrong!!" }
+});
+
+/**
+ * response error
+ * Used to error messages from the api endpoints
+ *
+ * @param (object) error
+ * @return (object) type payload
+ */
+export const responseError = error => ({
+  type: RESPONSE_ERROR,
+  error
 });

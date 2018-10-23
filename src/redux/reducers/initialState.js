@@ -62,6 +62,10 @@ const initialState = {
     updating: false,
     updated: false,
     success: false
+  },
+  articleRating: {
+    response: null,
+    error: null
   }
 };
 
