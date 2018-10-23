@@ -15,7 +15,15 @@ const initialState = {
     message: {},
     error: {},
     isAuthenticated: false
-  }
+  },
+  message: {},
+  error: {},
+  isAuthenticated: false,
+  token: "",
+  username: null,
+  email: null,
+  isLogged: false,
+  loading: false
 };
 
 export default initialState;

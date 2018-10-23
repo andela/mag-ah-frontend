@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { TextInput, SubmitButton, MessageBox } from "../../views/Form";
 import { signup, signupError } from "../../redux/actions/authUser";
 import { clearError } from "../../redux/actions/common";
+import SocialAuth from "../../views/Login/socialAuth";
 
 class SignupModal extends React.Component {
   state = {
@@ -90,7 +91,6 @@ class SignupModal extends React.Component {
                   error={error.username}
                   required
                 />
-
                 <TextInput
                   type="password"
                   placeholder="Password"
@@ -127,25 +127,8 @@ class SignupModal extends React.Component {
                 />
               </form>
               <p className="text-center">OR</p>
+              <SocialAuth />
               <p className="d-flex flex-column">
-                <button
-                  type="button"
-                  className="btn text-left m-1 ah-google-button btn-block"
-                >
-                  <i className="fab fa-google" /> &ensp; Sign up with Google
-                </button>
-                <button
-                  type="button"
-                  className="btn text-left m-1 ah-twitter-button btn-block"
-                >
-                  <i className="fab fa-twitter" /> &ensp; Sign up with Twitter
-                </button>
-                <button
-                  type="button"
-                  className="btn text-left m-1 ah-facebook-button btn-block"
-                >
-                  <i className="fab fa-facebook" /> &ensp; Sign up with Facebook
-                </button>
                 <br />
                 <small className="text-center">
                   Already have an account?{" "}

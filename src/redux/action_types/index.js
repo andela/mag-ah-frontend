@@ -13,3 +13,7 @@ export const CLEAR_ERROR = "CLEAR_ERROR";
 export const FORGOT_PWD = "FORGOT_PASSWORD";
 export const RESET_PWD = "RESET_PASSWORD";
 export const ERROR = "ERROR";
+// Register social login action types
+export const SOCIAL_LOGIN_START = "SOCIAL_LOGIN_START";
+export const SOCIAL_LOGIN_SUCCESS = "SOCIAL_LOGIN_SUCCESS";
+export const SOCIAL_LOGIN_FAIL = "SOCIAL_LOGIN_FAIL";
