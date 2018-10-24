@@ -33,7 +33,11 @@ export default authData => dispatch => {
       localStorage.setItem("accessToken", token);
       history.push(homepage);
     })
-    .catch(err => {
-      dispatch(socialLoginFail(err.data.error));
+    .catch(error => {
+      if (error.data) {
+        dispatch(socialLoginFail(error.data.error));
+      } else {
+        dispatch(socialLoginFail("Oops something went wrong"));
+      }
     });
 };

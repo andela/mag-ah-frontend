@@ -1,21 +1,21 @@
 language: node_js
 node_js:
-  - 'stable'
+- stable
 cache:
   directories:
-    - node_modules
+  - node_modules
 before_script:
-  - npm install codeclimate-test-reporter -g
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-    > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - './cc-test-reporter before-build'
+- npm install codeclimate-test-reporter -g
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
-  - npm run lint
-  - npm test -- --coverage
-  - npm run build
+- npm run lint
+- npm test -- --coverage
+- npm run build
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 notifications:
   email: false
   slack: andela:a9Wc1dsD5EuUXLwDC2DtqUDh
@@ -23,3 +23,5 @@ deploy:
   provider: heroku
   app:
     develop: magnificent6-frontend
+  api_key:
+    secure: mxLtWnHEkUzGbsp579tkjRULJr5VCCafeR463tr65Os3EAyvZh36NjeA/jervFuA2rNgtWjM2bZiz1Sno028Ritjq0caV9tZHX3ErNea6JeyiUvSl7+z/1VfBHUY9KRihW2ixI55o9wNrevNW9fycxO/QbGpZOFsRixPUCNe9jdFvvOS5PfZdRmT+aExzMS3RjLU7fuQZ7Ec5RunZllCR2ij2Kx8Z2qQ/L8B9kFqTpLcc17HELuctarD6Doem4uTdgt0KyQ7axr7mjNbs6clgpSDw9DATobKQu1Asu2vZAJRYGjWx7/esTIKRpa0TEq5AUgZ/vfalsytd0LHT42EBTeMDeI+mZ7sxXw+h3bOEUXc4nzvGUD2nb9Huj2FnKVzYUXC04i6nnQ3Lh/s8FYcbozH53HjKEJGuwtNHUHbtjU/mZRvVwg+eC6USJp3+jmfOr3F388YtyP7NAFW8b3MiTC0HBnKNyq82ZscrDC6VYSUeF4ziWjKv/VZZ7aDKIY1dxY3eRwmlY2lR5iitkWiUKqBDpGSjTibnbqoZvZLFfyV4bzrX9piZMVTfVYYrqaouSk4NI5zKSnQ2eGzzvuwQF4kqLsM5WYGKJ53YHDkSh56u1Znf8CD7xIgxO2upWAwWuo4rNjGylBdMKtsV8jbz3nzCjwnEtkaKVysvUOVHJY=

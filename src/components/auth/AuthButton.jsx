@@ -46,7 +46,7 @@ class AuthButton extends React.Component {
           </div>
         ) : (
           <Button
-            className="btn btn-link mr-3"
+            className="btn btn-link mr-1"
             id="signInButton"
             label="Sign in"
             dataToggle="modal"

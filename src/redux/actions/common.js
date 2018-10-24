@@ -34,9 +34,9 @@ export const clearError = () => ({
  * @param (object) error
  * @return (object) type payload
  */
-export const serverError = error => ({
+export const serverError = () => ({
   type: SERVER_ERROR,
-  error
+  error: "Oops something went wrong"
 });
 
 export const clearState = () => ({

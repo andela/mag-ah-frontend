@@ -44,8 +44,7 @@ export const signup = user => dispatch => {
         const responseErrors = error.response.data.errors;
         dispatch(signupError(responseErrors));
       } else {
-        const oops = { serverError: "Oops something went wrong !!" };
-        dispatch(serverError(oops));
+        dispatch(serverError());
       }
     });
 };

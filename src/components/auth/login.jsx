@@ -5,6 +5,8 @@ import { Login } from "../../redux/actions/loginAction";
 import { clearState } from "../../redux/actions/common";
 import Button from "../../views/Button/index";
 import LoginForm from "./LoginForm";
+import { MessageBox } from "../../views/Form";
+import SocialAuth from "../../views/Login/socialAuth";
 
 class LoginPage extends React.Component {
   state = { email: "", password: "" };
@@ -48,49 +50,37 @@ class LoginPage extends React.Component {
       <div className="row">
         <div className="m-auto col-sm-8">
           <div>
+            {error && (
+              <MessageBox
+                className="ah-input-error text-danger mb-2"
+                error={error.error || error.serverError}
+              />
+            )}
             <LoginForm
               handleChange={this.handleChange}
               email={email}
               password={password}
               error={error}
             />
-            <div className="mb-4 text-center">
-              <a
-                href="/"
-                className="p-1 mb-4"
-                data-dismiss="modal"
-                data-toggle="modal"
-                data-target="#ahResetPasswordModal"
-              >
-                Forgot password ?
-              </a>
-            </div>
             <Button
               className="btn btn-primary btn-block mb-4"
               onclick={this.onLogin}
               label="Sign in"
             />
             <p className="text-center">OR</p>
+            <SocialAuth />
             <p className="d-flex flex-column">
-              <button
-                type="button"
-                className="btn text-left ah-google-button btn-block"
-              >
-                <i className="fab fa-google" /> &ensp; Sign in with Google
-              </button>
-              <button
-                type="button"
-                className="btn text-left ah-twitter-button btn-block"
-              >
-                <i className="fab fa-twitter" /> &ensp; Sign in with Twitter
-              </button>
-              <button
-                type="button"
-                className="btn text-left ah-facebook-button btn-block"
-              >
-                <i className="fab fa-facebook" /> &ensp; Sign in with Facebook
-              </button>
-              <br />
+              <small className="mb-4 text-center">
+                <a
+                  href="/"
+                  className="p-1 mb-4"
+                  data-dismiss="modal"
+                  data-toggle="modal"
+                  data-target="#ahResetPasswordModal"
+                >
+                  Forgot password ?
+                </a>
+              </small>
               <small className="text-center">
                 Do not have an account?{" "}
                 <a

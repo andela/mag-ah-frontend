@@ -8,7 +8,7 @@ import BaseModal from "../Modal";
 import SignupModal from "../../components/auth/SignupModal";
 import { Logout } from "../../redux/actions/loginAction";
 import ResetPassword from "../Login/PasswordReset";
-import AuthButton from "../Login/AuthButton";
+import AuthButton from "../../components/auth/AuthButton";
 import LoginPage from "../../components/auth/login";
 import ForgotPasswordComp from "../../components/auth/ForgotPasswordComp";
 
@@ -136,13 +136,11 @@ class AHHeader extends Component {
           modalTitle="Sign in"
           modalContent={<LoginPage error={null} />}
         />
-
         <BaseModal
           modalId="ahResetPasswordModal"
           modalTitle="Account Recovery"
           modalContent={<ForgotPasswordComp />}
         />
-
         <BaseModal
           modalId="ahNewPasswordModal"
           modalTitle="Update Password"

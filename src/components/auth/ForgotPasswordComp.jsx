@@ -3,11 +3,26 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { SubmitButton, TextInput } from "../../views/Form/index";
 import { handleForgotPassword } from "../../redux/actions/ForgotPasswordAction";
+import { clearState } from "../../redux/actions/common";
 
 export class ForgotPassword extends Component {
   state = {
     user: { email: "", client_url: window.location.href }
   };
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    const registerModal = document.querySelector(
+      "#ahResetPasswordModalCloseButton"
+    );
+
+    if (registerModal) {
+      registerModal.addEventListener("click", () => {
+        this.handleClearForgotPasswordForm();
+        dispatch(clearState());
+      });
+    }
+  }
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -27,7 +42,7 @@ export class ForgotPassword extends Component {
     dispatch(handleForgotPassword(user));
   };
 
-  handleClearForm = () => {
+  handleClearForgotPasswordForm = () => {
     this.setState({
       user: {}
     });
@@ -62,8 +77,12 @@ export class ForgotPassword extends Component {
           )}
 
           {error && (
-            <p className="text-center text-danger info">
-              {error.data.message ? error.data.message : ""}
+            <p>
+              {error.data && (
+                <small className="text-center text-danger info mb-2">
+                  {error.data.message ? error.data.message : ""}
+                </small>
+              )}
             </p>
           )}
 
@@ -102,7 +121,7 @@ export class ForgotPassword extends Component {
           id="clearState"
           className="d-none"
           type="button"
-          onClick={this.handleClearForm}
+          onClick={this.handleClearForgotPasswordForm}
         />
       </div>
     );
@@ -116,20 +135,15 @@ ForgotPassword.propTypes = {
 };
 
 ForgotPassword.defaultProps = {
-  error: {
-    data: { errors: {} },
-    message: { message: "" }
-  },
-  message: {}
+  error: null,
+  message: null
 };
 
 const mapStateToProps = ({ resetPassword }) => {
   const { message, error } = resetPassword || {
     message: {},
     success: false,
-    error: {
-      data: { errors: {} }
-    }
+    error: null
   };
   return {
     message,

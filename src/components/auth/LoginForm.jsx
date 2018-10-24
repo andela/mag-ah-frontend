@@ -11,7 +11,7 @@ const LoginForm = ({ error, password, handleChange, email }) => (
       placeholder="Email"
       name="email"
       value={email}
-      error={error.email ? ["Email is required"] : [""]}
+      error={error && error.email ? ["Email is required"] : [""]}
       onChange={handleChange}
       required
     />
@@ -23,7 +23,7 @@ const LoginForm = ({ error, password, handleChange, email }) => (
         placeholder="Password"
         name="password"
         value={password}
-        error={error.password ? ["Password is required"] : [""]}
+        error={error && error.password ? ["Password is required"] : [""]}
         onChange={handleChange}
         required
       />

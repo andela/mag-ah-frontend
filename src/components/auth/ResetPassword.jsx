@@ -50,15 +50,13 @@ export class ResetPassword extends Component {
             <form onSubmit={this.handleSubmit} className="resetPassword">
               <div className="form-group">
                 <div className="form-group mb-4">
-                  <h4>
-                    {error && (
-                      <p className="text-center">
-                        <span className="text-danger">
-                          {error.data ? error.data.errors.error : ""}
-                        </span>
-                      </p>
-                    )}
-                  </h4>
+                  {error && (
+                    <p className="text-center">
+                      <span className="text-danger">
+                        {error.data ? error.data.message : ""}
+                      </span>
+                    </p>
+                  )}
                 </div>
 
                 <div className="form-group">
