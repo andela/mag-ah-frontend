@@ -1,8 +1,8 @@
 import axios from "axios";
 import {
-  START_ARTICLE_FETCH,
-  ARTICLE_FETCH_SUCCESS,
-  ARTICLE_FETCH_ERROR
+  START_SINGLE_ARTICLE_FETCH,
+  SINGLE_ARTICLE_FETCH_SUCCESS,
+  SINGLE_ARTICLE_FETCH_ERROR
 } from "../action_types";
 import config from "../../config";
 
@@ -13,9 +13,7 @@ const url = `${config.BASE_URL}/articles/`;
  *
  * @return {object} type
  */
-export const startArticleFetch = () => ({
-  type: START_ARTICLE_FETCH
-});
+export const startArticleFetch = () => ({ type: START_SINGLE_ARTICLE_FETCH });
 
 /**
  * Article fetch success
@@ -24,7 +22,7 @@ export const startArticleFetch = () => ({
  * @return (object) type and payload
  */
 export const articleFetchSuccess = articles => ({
-  type: ARTICLE_FETCH_SUCCESS,
+  type: SINGLE_ARTICLE_FETCH_SUCCESS,
   articles
 });
 
@@ -35,14 +33,14 @@ export const articleFetchSuccess = articles => ({
  * @return (object) type and payload
  */
 export const articleFetchError = error => ({
-  type: ARTICLE_FETCH_ERROR,
+  type: SINGLE_ARTICLE_FETCH_ERROR,
   error
 });
 
-export const fetchArticles = () => async dispatch => {
+export const fetchArticle = slug => async dispatch => {
   dispatch(startArticleFetch);
   try {
-    const response = await axios.get(url);
+    const response = await axios.get(`${url}${slug}/`);
     dispatch(articleFetchSuccess(response.data.Articles.results));
   } catch (error) {
     dispatch(articleFetchError(error.message));

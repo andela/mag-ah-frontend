@@ -30,6 +30,20 @@ const initialState = {
     fetching: false,
     fetched: false,
     success: false
+  },
+  singleArticle: {
+    article: {},
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
+  },
+  createArticle: {
+    message: "",
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
   }
 };
 

@@ -7,16 +7,15 @@ import AHHeader from "../../views/Home";
 
 class Articles extends Component {
   componentDidMount() {
-    this.props.fetchArticles();
+    const { fetchArticles } = this.props;
+    fetchArticles();
   }
 
   render() {
     const { articles } = this.props;
-    console.log(articles);
     return (
       <div>
         <AHHeader />
-
         <div className="container">
           <div className="row">
             {articles.map(article => (

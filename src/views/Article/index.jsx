@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 
@@ -13,20 +14,20 @@ const ArticleCard = ({
   timeToRead,
   publishedAt
 }) => (
-  <div className="col-sm-4">
+  <div className="col-sm-4 mb-3">
     <div className="card">
       <img
         className="card-img-top"
-        src="https://source.unsplash.com/random"
+        src={`https://source.unsplash.com/random/350x250?sig=${Math.random()}`}
         alt="Card"
         height="250"
       />
-      <div className="card-body">
+      <div className="card-body d-flex flex-column">
         <h5 className="card-title">
           <a href={`articles/${slug}`}>{title}</a>
         </h5>
-        <p className="card-text ">{description}</p>
-        <small>
+        <p className="card-text">{description}</p>
+        <small className="mt-auto">
           By{" "}
           <a className="ah-author-link" href="/">
             {author}
@@ -44,5 +45,14 @@ const ArticleCard = ({
     </div>
   </div>
 );
+
+ArticleCard.propTypes = {
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  author: PropTypes.number.isRequired,
+  timeToRead: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired
+};
 
 export default ArticleCard;
