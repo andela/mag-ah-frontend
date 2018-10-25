@@ -44,16 +44,10 @@ class NewArticle extends React.Component {
         <AHHeader />
         <div className="container">
           <div className="d-flex justify-content-end" />
-          <div className="row">
-            <div className="m-auto col-sm-8 ">
+          <div className="row ah-editor-container">
+            <div className="ml-auto mr-auto col-sm-8 p-4">
               <div>
                 <form onSubmit={this.handleSubmit} className="mb-4">
-                  <SubmitButton
-                    label="Publish"
-                    type="submit"
-                    fetching={fetching}
-                    className="btn m-auto btn-primary"
-                  />
                   <TextInput
                     type="text"
                     placeholder="Title"
@@ -70,31 +64,37 @@ class NewArticle extends React.Component {
                   />
                   <TextInput
                     type="text"
-                    placeholder="Description"
+                    placeholder="A cool subtitle"
                     name="description"
                     value={article.description}
                     onChange={this.handleChange}
                     className={
                       error.description
-                        ? "error form-control ah-editor-field"
-                        : "form-control ah-editor-field"
+                        ? "error form-control ah-editor-field ah-article-description"
+                        : "form-control ah-editor-field ah-article-description"
                     }
                     error={error.description}
                     required
                   />
                   <TextArea
-                    placeholder="Body"
+                    placeholder="Write your story"
                     name="body"
                     value={article.body}
                     onChange={this.handleChange}
                     className={
                       error.body
-                        ? "error form-control ah-editor-field"
-                        : "form-control ah-editor-field"
+                        ? "error form-control ah-editor-field ah-article-body"
+                        : "form-control ah-editor-field ah-article-body"
                     }
                     error={error.body}
                     required
                     rows={8}
+                  />
+                  <SubmitButton
+                    label="Publish"
+                    type="submit"
+                    fetching={fetching}
+                    className="btn mb-4 btn-outline-success"
                   />
                 </form>
               </div>

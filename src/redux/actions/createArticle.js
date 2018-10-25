@@ -33,7 +33,7 @@ export const createArticle = article => dispatch => {
   const axiosConfig = {
     headers: {
       Authorization:
-        "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1pY2Fob3JpYXNvIiwiZXhwIjoxNTQwNDYwODcyfQ.JTfumhwniOHb_EwnOQ0F6SNO8Y1kb6jY7gq06qE-4gc"
+        "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1pY2Fob3JpYXNvIiwiZXhwIjoxNTQwNTU3MDU1fQ.oiIfbzzRow14RXqItgOdqbao3AT9Fe72KZvFGQF1dw8"
     }
   };
   dispatch(startFetch());

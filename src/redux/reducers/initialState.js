@@ -44,6 +44,10 @@ const initialState = {
     fetching: false,
     fetched: false,
     success: false
+  },
+  viewArticle: {
+    article: {},
+    error: {}
   }
 };
 

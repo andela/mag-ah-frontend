@@ -105,9 +105,6 @@ input[type="password"] {
     text-decoration: none;
     color: $ah-primary-color;
   }
-  a:hover {
-    text-decoration: underline;
-  }
 }
 
 small a,
@@ -173,11 +170,6 @@ small a:hover,
 .form-group {
   border-radius: 0px;
   border: none;
-}
-
-.form-group input:focus,
-textarea:focus {
-  background-color: $bg-color;
 }
 
 .custom-file-label {
@@ -322,8 +314,17 @@ h1 {
 }
 
 .article {
-  border-bottom: 1px solid rgb(238, 235, 235);
+  .ah-article-body {
+    font-size: 1.0625rem;
+    font-weight: 500;
+  }
+  img {
+    height: 500px;
+    object-fit: cover;
+  }
   margin-bottom: 2px !important;
+  font-family: "raleway", "sans";
+  line-height: 200%;
 }
 
 .likes a:hover,
@@ -529,4 +530,58 @@ h1 {
 
 .ah-editor-field:focus {
   border: none;
+  background: none;
+}
+
+.ah-article-title {
+  font-size: 2rem !important;
+  font-weight: bold;
+}
+
+.ah-article-description {
+  font-size: 1.5rem !important;
+  font-weight: bolder;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #a09f9d87;
+}
+.form-control:-moz-placeholder {
+  color: #a09f9d87;
+}
+.form-control::-moz-placeholder {
+  color: #a09f9d87;
+}
+.form-control:-ms-input-placeholder {
+  color: #a09f9d87;
+}
+.form-control::-ms-input-placeholder {
+  color: #a09f9d87;
+}
+
+.ah-editor-container {
+  background-color: $article-card-bg-color;
+}
+
+.form-group {
+  input[type="text"]:focus {
+    background: none;
+  }
+}
+
+.ah-main-article-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-family: "Vidaloka";
+}
+
+.ah-main-article-description {
+  font-size: 1.1875rem;
+}
+.ah-main-article-body {
+  font-size: 1.1875rem;
+}
+
+.ah-navbar {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05) !important;
 }

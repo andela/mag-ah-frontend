@@ -5,6 +5,7 @@ import history from "./history";
 import Articles from "../components/articles/Articles";
 import NewArticle from "../components/articles/NewArticle";
 import UpdateArticle from "../components/articles/UpdateArticle";
+import SingleArticle from "../components/articles/ViewSingleArticle";
 
 const Routes = () => (
   <Router history={history}>
@@ -15,6 +16,7 @@ const Routes = () => (
       <Route exact path="/articles/" component={Articles} />
       <Route exact path="/articles/create/" component={NewArticle} />
       <Route exact path="/articles/update/" component={UpdateArticle} />
+      <Route exact path="/articles/:slug" component={SingleArticle} />
       <Redirect to="/" />
     </Switch>
   </Router>
