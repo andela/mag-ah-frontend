@@ -3,7 +3,8 @@ import {
   SIGNUP_SUCCESS,
   START_FETCH,
   SERVER_ERROR,
-  CLEAR_ERROR
+  CLEAR_ERROR,
+  RESET_STATE
 } from "../action_types";
 import initialState from "./initialState";
 
@@ -14,12 +15,14 @@ export default (state = initialState.authUser, action) => {
         ...state,
         message: action.message,
         success: true,
-        fetched: true
+        fetched: true,
+        fetching: false
       };
     case SIGNUP_ERROR:
       return {
         ...state,
         error: action.error,
+        success: false,
         fetched: true,
         fetching: false
       };
@@ -38,6 +41,8 @@ export default (state = initialState.authUser, action) => {
         ...state,
         error: action.error
       };
+    case RESET_STATE:
+      return initialState.authUser;
     default:
       return state;
   }

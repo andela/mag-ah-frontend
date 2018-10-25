@@ -1,4 +1,6 @@
 import axios from "axios";
+import { toaster } from "evergreen-ui";
+import history from "../../routes/history";
 import * as ActionTypes from "../action_types";
 import config from "../../config";
 
@@ -38,6 +40,11 @@ export const handleForgotPassword = email => async dispatch => {
       client_url: email.client_url
     });
     dispatch(forgotPassword(response.data));
+    toaster.success(response.data.message, {
+      duration: 3
+    });
+    history.push("/");
+    document.querySelector("#ahResetPasswordModalCloseButton").click();
   } catch (error) {
     dispatch(forgotPasswordError(error.response));
   }

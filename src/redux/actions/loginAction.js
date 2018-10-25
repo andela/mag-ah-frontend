@@ -1,6 +1,7 @@
 import axios from "axios";
 import history from "../../routes/history";
 import config from "../../config";
+import { serverError } from "./common";
 
 import {
   LOGIN_SUCCESSFUL,
@@ -54,8 +55,12 @@ export const Login = user => dispatch => {
       history.push(Home);
     })
     .catch(error => {
-      const message = error.response.data.errors;
-      dispatch(loginError(message));
+      if (error.response) {
+        const responseErrors = error.response.data.errors;
+        dispatch(loginError(responseErrors));
+      } else {
+        dispatch(serverError());
+      }
     });
 };
 

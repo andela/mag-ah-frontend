@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { toaster } from "evergreen-ui";
 import { SIGNUP_SUCCESS, SIGNUP_ERROR } from "../action_types";
 import { serverError, startFetch } from "./common";
 import config from "../../config";
@@ -35,14 +35,16 @@ export const signup = user => dispatch => {
     .then(response => {
       const responseMessage = response.data.response.message;
       dispatch(signupSuccess(responseMessage));
+      toaster.success(responseMessage, {
+        duration: 3
+      });
     })
     .catch(error => {
       if (error.response) {
         const responseErrors = error.response.data.errors;
         dispatch(signupError(responseErrors));
       } else {
-        const oops = { serverError: "Oops something went wrong" };
-        dispatch(serverError(oops));
+        dispatch(serverError());
       }
     });
 };

@@ -15,6 +15,7 @@ const BaseModal = ({ modalId, modalTitle, modalContent }) => (
           <div />
           <h5 className="modal-title">{modalTitle}</h5>
           <button
+            id={`${modalId}CloseButton`}
             type="button"
             className="close"
             data-dismiss="modal"

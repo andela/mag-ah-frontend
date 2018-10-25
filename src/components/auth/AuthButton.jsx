@@ -45,16 +45,14 @@ class AuthButton extends React.Component {
             </ul>
           </div>
         ) : (
-          <div>
-            <Button
-              className="btn btn-link mr-3 btn-lg mb1 black"
-              id="signInButton"
-              label="Sign in"
-              dataToggle="modal"
-              dataTarget="#ahSignInModal"
-              onKeyPress=""
-            />
-          </div>
+          <Button
+            className="btn btn-link mr-1"
+            id="signInButton"
+            label="Sign in"
+            dataToggle="modal"
+            dataTarget="#ahSignInModal"
+            onKeyPress=""
+          />
         )}
       </div>
     );

@@ -1,5 +1,4 @@
-// contains action types for login action
-
+// Contains action types for login action
 export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 export const LOGOUT_SUCCESSFUL = "LOGOUT_SUCCESSFUL";
@@ -17,3 +16,4 @@ export const ERROR = "ERROR";
 export const SOCIAL_LOGIN_START = "SOCIAL_LOGIN_START";
 export const SOCIAL_LOGIN_SUCCESS = "SOCIAL_LOGIN_SUCCESS";
 export const SOCIAL_LOGIN_FAIL = "SOCIAL_LOGIN_FAIL";
+export const RESET_STATE = "RESET_STATE";
