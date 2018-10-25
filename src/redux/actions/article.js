@@ -5,20 +5,20 @@ import config from "../../config";
 
 const baseUrl = config.BASE_URL;
 
-const viewArticle = slug => async dispatch => {
+const GetArticle = slug => async dispatch => {
   const onSuccess = article => {
     dispatch({ type: VIEW_ARTICLE, payload: article });
     return article;
   };
-  const onSeverError = () => {
+  const onError = () => {
     dispatch(serverError());
   };
   try {
-    const article = await axios.get(`${baseUrl}/articles/${slug}`);
-    onSuccess(article.data.Article);
+    const response = await axios.get(`${baseUrl}/articles/${slug}`);
+    onSuccess(response.data);
   } catch (error) {
-    onSeverError();
+    onError();
   }
 };
 
-export default viewArticle;
+export default GetArticle;

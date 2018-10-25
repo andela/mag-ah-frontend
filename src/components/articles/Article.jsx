@@ -2,21 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import viewArticle from "../../redux/actions/article";
+import Share from "./share";
 
-class Article extends React.Component {
+class SingleArticle extends React.Component {
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(
-      viewArticle(
-        "company-should-not-sell-facial-recognition-tech-to-police-4f9825"
-      )
-    );
+    const { match, dispatch } = this.props;
+    dispatch(viewArticle(match.params.slug));
   }
 
   render() {
     const { article } = this.props;
+    const { Article } = article;
     if (Object.keys(article).length === 0) {
-      return <div />;
+      return <div className="no-article" />;
     }
     return (
       <div className="mt-5 container article">
@@ -25,11 +23,11 @@ class Article extends React.Component {
             <div className="card p-0">
               <div className="card-body p-0 mt-2">
                 <h1 className="card-title mb-5 font-weight-bold">
-                  {article.title}
+                  {Article.title}
                 </h1>
                 <small>
                   <a className="ah-author-link font-weight-bold" href="/">
-                    {article.author}
+                    {Article.author}
                   </a>
                   <button
                     type="button"
@@ -39,25 +37,29 @@ class Article extends React.Component {
                     Follow
                   </button>
                 </small>
-                <small className="text-muted px-1 font-weight-bold">July 21</small>
+                <small className="text-muted px-1 font-weight-bold">
+                  July 21
+                </small>
                 <small className="text-muted px-1 font-weight-bold">
                   {article.time_to_read}
                 </small>
                 <p className="card-text d-flex justify-content-between">
-                  <span className="text-muted">{article.description}</span>
+                  <span className="text-muted">{Article.description}</span>
                 </p>
                 <div className="d-flex justify-content-between article">
                   <div className="p-2">
-                    <a href={article.share_urls.twitter}>
-                      <i className="fab fa-lg fa-twitter share-feed mr-4" />
-                    </a>
-                    <a href={article.share_urls.facebook}>
-                      {" "}
-                      <i className="fab fa-lg fa-facebook share-feed" />
-                    </a>
-                    <a href={article.share_urls.email}>
-                      <i className="fas fa-lg fa-envelope share-feed" />
-                    </a>
+                    <Share
+                      url={Article.share_urls.twitter}
+                      className="fab fa-lg fa-twitter share-feed mr-4"
+                    />
+                    <Share
+                      url={Article.share_urls.facebook}
+                      className="fab fa-lg fa-facebook share-feed"
+                    />
+                    <Share
+                      url={Article.share_urls.email}
+                      className="fas fa-lg fa-envelope share-feed"
+                    />
                   </div>
                 </div>
               </div>
@@ -76,7 +78,7 @@ class Article extends React.Component {
           <div className="col-sm-12 mt-3">
             <div className="list-group">
               <div className=" d-flex justify-content-between ">
-                <div className="ml-2 ah-article-body">{article.body}</div>
+                <div className="ml-2 ah-article-body">{Article.body}</div>
               </div>
             </div>
           </div>
@@ -86,18 +88,21 @@ class Article extends React.Component {
   }
 }
 
-Article.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  article: PropTypes.string.isRequired
+SingleArticle.propTypes = {
+  article: PropTypes.shape().isRequired,
+  match: PropTypes.checkPropTypes.isRequired,
+  dispatch: PropTypes.checkPropTypes.isRequired
 };
 
 const mapStateToProps = ({ getArticle }) => {
-  const { article, error } = getArticle;
-  console.log(article);
+  const { article, error } = getArticle || {
+    article: {},
+    error: {}
+  };
   return {
     article,
     error
   };
 };
 
-export default connect(mapStateToProps)(Article);
+export default connect(mapStateToProps)(SingleArticle);
