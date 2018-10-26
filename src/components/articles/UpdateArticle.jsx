@@ -1,164 +1,117 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { toaster } from "evergreen-ui";
-import Dante from "Dante2";
-import Button from "../../views/Button";
-import { fetchArticle } from "../../redux/actions/fetchArticle";
-import config from "../../config";
-import AHHeader from "../../views/Home";
+import { TextInput, TextArea, SubmitButton } from "../../views/Form";
+import viewSingleArticle from "../../redux/actions/viewSingleArticle";
+import updateArticle from "../../redux/actions/editArticle";
+import { clearError } from "../../redux/actions/common";
 
 class UpdateArticle extends React.Component {
   state = {
-    editorState: null,
-    article: {}
+    title: "",
+    description: "",
+    body: "",
+    loaded: false
   };
 
   componentDidMount() {
-    const { fetchArticle } = this.props;
-    fetchArticle("another-article-please-ff5c55");
+    const { match, dispatch } = this.props;
+    dispatch(viewSingleArticle(match.params.slug));
   }
 
-  handleSave = state => {
-    // this.setState({ saving: true });
-    const editorState = state.editorState();
-    const title = editorState.getCurrentContent().getFirstBlock().text;
-    let data;
-    if (
-      state.editorContent.blocks.length === 1 &&
-      state.editorContent.blocks[0].text === ""
-    ) {
-      // eslint-disable-next-line
-      const { editorState } = this.state;
-      data = {
-        article: {
-          body: JSON.stringify(editorState),
-          title,
-          description: title
-          // eslint-disable-next-line
-          // tagList: this.state.tags
-        }
-      };
-      localStorage.setItem("article", JSON.stringify(data));
-      // this.setState({ saving: false });
-      return;
+  componentWillReceiveProps(nextProps) {
+    const { loaded } = this.state;
+    if (!loaded) {
+      this.setState(state => ({
+        ...state,
+        loaded: true,
+        title: nextProps.article.Article.title,
+        description: nextProps.article.Article.description,
+        body: nextProps.article.Article.body
+      }));
     }
-    data = {
-      article: {
-        body: JSON.stringify(state.editorContent),
-        title,
-        description: title
-        // eslint-disable-next-line
-        // tagList: this.state.tags
-      }
-    };
+  }
 
-    localStorage.setItem("article", JSON.stringify(data));
+  handleChange = e => {
+    const { value, name } = e.target;
+    const { dispatch } = this.props;
 
-    // return this.props.createArticle(data.article);
-
-    // this.setState({ saving: false });
+    this.setState(state => ({ ...state, [name]: value }));
+    dispatch(clearError());
   };
-  // state = {
-  //   article: {
-  //     title: "",
-  //     description: "",
-  //     body: ""
-  //   }
-  // };
 
-  // handleChange = e => {
-  //   const { name, value } = e.target;
-  //   const { article } = this.state;
-  //   const { dispatch } = this.props;
-
-  //   this.setState({
-  //     article: {
-  //       ...article,
-  //       [name]: value
-  //     }
-  //   });
-  //   dispatch(clearError());
-  // };
-
-  //   handleSubmit = () => {
-  //     const rawArticle = JSON.parse(localStorage.getItem("article"));
-  //     if (rawArticle.article.title === "") {
-  //       toaster.danger("Please write something first");
-  //       return;
-  //     }
-  //     this.props.createArticle(rawArticle.article);
-  //   };
+  handleSubmit = e => {
+    e.preventDefault();
+    const { title, body, description } = this.state;
+    const { dispatch, match } = this.props;
+    dispatch(
+      updateArticle(match.params.slug, {
+        title,
+        body,
+        description
+      })
+    );
+  };
 
   render() {
-    const { article } = this.props;
+    const { title, body, description } = this.state;
+    const { updating, error } = this.props;
     return (
-      <div>
-        <AHHeader />
-        <div className="container">
-          <div className="d-flex justify-content-end">
-            {/* <Button
-              label="Publish"
-              className="btn btn-primary"
-              onclick={this.handleSubmit}
-            /> */}
-          </div>
-          <div className="row">
-            <div className="m-auto col-sm-8 ">
-              <div>
-                {/* <form onSubmit={this.handleSubmit} className="mb-4">
-                <SubmitButton
-                  label="Publish"
-                  type="submit"
-                  fetching={fetching}
-                  className="btn m-auto btn-primary"
-                />
-                {error && (
-                  <MessageBox
-                    className="ah-input-error text-danger mb-2"
-                    error={error.error || error.serverError}
-                  />
-                )}
+      <div className="container">
+        <div className="d-flex justify-content-end" />
+        <div className="row ah-editor-container">
+          <div className="ml-auto mr-auto col-sm-8 p-4">
+            <div>
+              <form onSubmit={this.handleSubmit} className="mb-4">
                 <TextInput
                   type="text"
                   placeholder="Title"
                   name="title"
-                  value={article.title}
+                  value={title}
                   onChange={this.handleChange}
                   className={
-                    error.title ? "form-control error" : "form-control"
+                    error.title
+                      ? "form-control error ah-editor-field ah-article-title"
+                      : "form-control ah-editor-field ah-article-title"
                   }
                   error={error.title}
                   required
                 />
                 <TextInput
                   type="text"
-                  placeholder="Description"
+                  placeholder="A cool subtitle"
                   name="description"
-                  value={article.description}
+                  value={description}
                   onChange={this.handleChange}
                   className={
-                    error.description ? "error form-control" : "form-control"
+                    error.description
+                      ? "error form-control ah-editor-field ah-article-description"
+                      : "form-control ah-editor-field ah-article-description"
                   }
                   error={error.description}
                   required
                 />
-              </form> */}
-                <Dante
-                  data_storage={{
-                    url: `${config.BASE_URL}/articles/`,
-                    method: "POST",
-                    save_handler: this.handleSave,
-                    interval: 100,
-                    withCredantials: true,
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1pY2Fob3JpYXNvIiwiZXhwIjoxNTQwMzcyNzEzfQ.YyGY0sYIv7N2vOPMiSBT4kI5_5NjpfnXbid_ijyToc0`
-                    }
-                  }}
-                  content={article}
+                <TextArea
+                  placeholder="Write your story"
+                  name="body"
+                  value={body}
+                  onChange={this.handleChange}
+                  className={
+                    error.body
+                      ? "error form-control ah-editor-field ah-article-body"
+                      : "form-control ah-editor-field ah-article-body"
+                  }
+                  error={error.body}
+                  required
+                  rows={8}
                 />
-              </div>
+                <SubmitButton
+                  label="Update"
+                  type="submit"
+                  fetching={updating}
+                  className="btn mb-4 btn-outline-success"
+                />
+              </form>
             </div>
           </div>
         </div>
@@ -168,24 +121,31 @@ class UpdateArticle extends React.Component {
 }
 
 UpdateArticle.propTypes = {
-  article: PropTypes.shape(PropTypes.object),
-  fetchArticle: PropTypes.func.isRequired
+  updating: PropTypes.bool.isRequired,
+  error: PropTypes.shape(() => {}),
+  article: PropTypes.shape(() => {}),
+  match: PropTypes.shape(() => {}).isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 UpdateArticle.defaultProps = {
+  error: null,
   article: {}
 };
 
-const mapStateToProps = ({ singleArticleReducer }) => {
-  const { article } = singleArticleReducer || {
+const mapStateToProps = ({ editArticle, getArticle }) => {
+  const { updating, error } = editArticle || {
+    updating: null,
+    error: null
+  };
+  const { article } = getArticle || {
     article: {}
   };
   return {
-    article
+    article,
+    updating,
+    error
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchArticle }
-)(UpdateArticle);
+export default connect(mapStateToProps)(UpdateArticle);

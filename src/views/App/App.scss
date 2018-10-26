@@ -92,7 +92,6 @@ input[type="password"] {
 .card {
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
   min-height: 400px;
-  max-height: 400px;
 }
 
 .card-text {
@@ -322,9 +321,7 @@ h1 {
     height: 500px;
     object-fit: cover;
   }
-  margin-bottom: 2px !important;
   font-family: "raleway", "sans";
-  line-height: 200%;
 }
 
 .likes a:hover,
@@ -573,6 +570,12 @@ h1 {
   font-size: 3rem;
   line-height: 1.1;
   font-family: "Vidaloka";
+  a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: $ah-primary-color;
+    font-weight: 200;
+  }
 }
 
 .ah-main-article-description {
@@ -580,8 +583,18 @@ h1 {
 }
 .ah-main-article-body {
   font-size: 1.1875rem;
+  line-height: 200%;
 }
 
 .ah-navbar {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.ah-page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.ah-dropdown-arrow:hover {
+  cursor: pointer;
 }

@@ -39,10 +39,17 @@ export const articleFetchError = error => ({
   error
 });
 
-export const fetchArticles = () => async dispatch => {
+export const fetchArticles = (username = null) => async dispatch => {
+  let response;
   dispatch(startArticleFetch);
   try {
-    const response = await axios.get(url);
+    if (username) {
+      response = await axios.get(
+        `${url}?author__username__icontains=${username}`
+      );
+    } else {
+      response = await axios.get(url);
+    }
     dispatch(articleFetchSuccess(response.data.Articles.results));
   } catch (error) {
     dispatch(articleFetchError(error.message));

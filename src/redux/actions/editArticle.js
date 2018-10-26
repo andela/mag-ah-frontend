@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toaster } from "evergreen-ui";
-import { CREATE_ARTICLE_SUCCESS, CREATE_ARTICLE_ERROR } from "../action_types";
+import { EDIT_ARTICLE_SUCCESS, EDIT_ARTICLE_ERROR } from "../action_types";
 import { serverError, startFetch } from "./common";
 import config from "../../config";
 import history from "../../routes/history";
@@ -8,28 +8,28 @@ import history from "../../routes/history";
 const url = `${config.BASE_URL}/articles/`;
 
 /**
- * Create successfull
+ * Edit successfull
  *
  * @param (string) message
  * @return (object) type and payload
  */
-export const createArticleSuccess = message => ({
-  type: CREATE_ARTICLE_SUCCESS,
+export const updateArticleSuccess = message => ({
+  type: EDIT_ARTICLE_SUCCESS,
   message
 });
 
 /**
- * Create error
+ * Edit error
  *
  * @param (object) error
  * @return (object) type and payload
  */
-export const createArticleError = error => ({
-  type: CREATE_ARTICLE_ERROR,
+export const updateArticleError = error => ({
+  type: EDIT_ARTICLE_ERROR,
   error
 });
 
-export const createArticle = article => dispatch => {
+const updateArticle = (slug, article) => dispatch => {
   const axiosConfig = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -37,19 +37,19 @@ export const createArticle = article => dispatch => {
   };
   dispatch(startFetch());
   axios
-    .post(url, article, axiosConfig)
+    .put(`${url}${slug}`, article, axiosConfig)
     .then(response => {
       const responseMessage = `Article ${
         response.data.Article.title
-      } created successfully`;
-      dispatch(createArticleSuccess(responseMessage));
+      } updated successfully`;
+      dispatch(updateArticleSuccess(responseMessage));
       toaster.success(responseMessage, { duration: 3 });
       history.push("/articles");
     })
     .catch(error => {
       if (error.response) {
         const responseErrors = error.response.data.errors;
-        dispatch(createArticleError(responseErrors));
+        dispatch(updateArticleError(responseErrors));
       } else {
         const oops = { serverError: "Oops something went wrong" };
         dispatch(serverError(oops));
@@ -57,4 +57,4 @@ export const createArticle = article => dispatch => {
     });
 };
 
-export default createArticle;
+export default updateArticle;

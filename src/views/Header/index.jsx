@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
 import Button from "../Button";
 import BaseModal from "../Modal";
 import SignupModal from "../../components/auth/SignupModal";
@@ -40,36 +39,52 @@ class AHHeader extends Component {
 
   render() {
     const { isAuthenticated } = this.props;
-    return isAuthenticated ? (
+    return isAuthenticated || localStorage.getItem("token") ? (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light p-0">
+        <nav className="ah-navbar navbar navbar-expand-lg navbar-light p-0 mb-2">
           <div className="container">
-            <Router>
-              <Link to="/" className="navbar-brand font-weight-bold">
-                Authors&apos; Haven
-              </Link>
-            </Router>
+            <a href="/" className="navbar-brand font-weight-bold">
+              Authors&apos; Haven
+            </a>
             <div
               className="btn-toolbar"
               role="toolbar"
               aria-label="Toolbar with button groups"
             >
-              <div
-                className="btn-group mr-2"
-                role="group"
-                aria-label="Second group"
-              >
-                <Button
-                  className="btn btn-link"
-                  onclick={event => this.onLogout(event)}
-                  label="Sign Out"
-                />
+              <div className="btn-group" role="group" aria-label="Second group">
+                <div className="navbar-text">
+                  <ul className="navbar-nav">
+                    <li className="nav-item dropdown">
+                      <a
+                        className="nav-link dropdown-toggle"
+                        href="/"
+                        id="navbarDropdownMenuLink"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <i className="fas fa-user-circle" />
+                      </a>
+                      <div
+                        className="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink"
+                      >
+                        <a className="dropdown-item" href="/articles/create">
+                          New article
+                        </a>
+                        <a className="dropdown-item" href="/articles">
+                          Articles
+                        </a>
+                        <Button
+                          className="dropdown-item"
+                          onclick={event => this.onLogout(event)}
+                          label="Sign out"
+                        />
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div
-                className="btn-group"
-                role="group"
-                aria-label="Third group"
-              />
             </div>
           </div>
         </nav>
@@ -79,9 +94,9 @@ class AHHeader extends Component {
         <nav className="navbar navbar-expand-lg navbar-light p-0">
           <div className="container">
             <Router>
-              <Link to="/" className="navbar-brand font-weight-bold">
+              <a href="/" className="navbar-brand font-weight-bold">
                 Authors&apos; Haven
-              </Link>
+              </a>
             </Router>
             <div
               className="btn-toolbar"
