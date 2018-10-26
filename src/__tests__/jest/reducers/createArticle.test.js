@@ -1,44 +1,52 @@
 import expect from "expect";
-import constants from "../../constants";
-import usersReducer from "../../reducers/user.reducer";
-import users from "../../mock/users";
-
-const { USER_LOAD_REQUEST, USER_LOAD_SUCCESS, USER_LOAD_FAILURE } = constants;
+import createArticleReducer from "../../../redux/reducers/createArticleReducer";
+import {
+  CREATE_ARTICLE_SUCCESS,
+  CREATE_ARTICLE_ERROR,
+  ARTICLE_FETCH_SUCCESS,
+  SERVER_ERROR
+} from "../../../redux/action_types";
 
 const initialState = {
-  users: {
-    userList: [],
-    loading: false
-  }
+  message: "",
+  error: {},
+  fetching: false,
+  fetched: false,
+  success: false
 };
 
-const action = { payload: {} };
+const action = { message: "", error: {}, fetching: false };
 
-describe("User Reducer test", () => {
+describe("Create article Reducer test", () => {
   it("should return initial state when there is no action", () => {
-    expect(usersReducer(initialState, action)).toEqual(initialState);
+    expect(createArticleReducer(initialState, action)).toEqual(initialState);
   });
 
-  it("should handle USER_LOAD_REQUEST", () => {
-    action.type = USER_LOAD_REQUEST;
-    action.payload.results = users;
-    expect(usersReducer(initialState.users, action).userList).toEqual([]);
-    expect(usersReducer(initialState.users, action).loading).toEqual(true);
+  it("should handle return create article success", () => {
+    action.type = CREATE_ARTICLE_SUCCESS;
+    action.message = "";
+    expect(
+      createArticleReducer(initialState.createArticle, action).message
+    ).toEqual("");
   });
 
-  it("should handle USER_LOAD_SUCCESS", () => {
-    action.type = USER_LOAD_SUCCESS;
-    action.payload = users;
-    expect(usersReducer(initialState.users, action).userList).toEqual(
-      action.payload
-    );
-    expect(usersReducer(initialState.users, action).loading).toEqual(false);
+  it("should handle return create article error", () => {
+    action.type = CREATE_ARTICLE_ERROR;
+    // action.message = false;
+    expect(
+      createArticleReducer(initialState.createArticle, action).error
+    ).toEqual({});
   });
-
-  it("should handle USER_LOAD_FAILURE", () => {
-    action.type = USER_LOAD_FAILURE;
-    action.payload.results = users;
-    expect(usersReducer(initialState.users, action).userList).toEqual([]);
-    expect(usersReducer(initialState.users, action).loading).toEqual(false);
+  it("should handle fetching article success", () => {
+    action.type = ARTICLE_FETCH_SUCCESS;
+    expect(
+      createArticleReducer(initialState.createArticle, action).fetching
+    ).toEqual(false);
+  });
+  it("should handle server error", () => {
+    action.type = SERVER_ERROR;
+    expect(
+      createArticleReducer(initialState.createArticle, action).error
+    ).toEqual({});
   });
 });

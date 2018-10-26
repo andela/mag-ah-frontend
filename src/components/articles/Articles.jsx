@@ -6,10 +6,6 @@ import ArticleCard from "../../views/Article/index";
 
 class Articles extends Component {
   componentDidMount() {
-    const { fetchArticles } = this.props;
-    fetchArticles();
-    window.scrollTo(0, 0);
-
     const { fetch } = this.props;
     fetch();
   }
