@@ -7,22 +7,19 @@ import { deleteArticle } from "../../redux/actions/deleteArticle";
 import FlatArticle from "../../views/Article/FlatArticle";
 import { clearState } from "../../redux/actions/common";
 
-class Articles extends Component {
-  constructor(props) {
-    super(props);
-    this.currentUser = jwtDecode(localStorage.getItem("token"));
-  }
+const currentUser = jwtDecode(localStorage.getItem("token"));
 
+class Articles extends Component {
   componentDidMount() {
     const { fetch } = this.props;
-    fetch(this.currentUser.username);
+    fetch(currentUser.username);
   }
 
   componentDidUpdate() {
     const { success } = this.props;
     if (success) {
       const { fetch, reset } = this.props;
-      fetch(this.currentUser.username);
+      fetch(currentUser.username);
       reset();
     }
   }
@@ -77,5 +74,9 @@ const mapStateToProps = ({ deleteArticleReducer, allArticlesReducer }) => {
 
 export default connect(
   mapStateToProps,
-  { fetch: fetchArticles, trash: deleteArticle, reset: clearState }
+  {
+    fetch: fetchArticles,
+    trash: deleteArticle,
+    reset: clearState
+  }
 )(Articles);

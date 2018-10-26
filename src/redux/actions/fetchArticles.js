@@ -1,21 +1,9 @@
 import axios from "axios";
-import {
-  START_ARTICLE_FETCH,
-  ARTICLE_FETCH_SUCCESS,
-  ARTICLE_FETCH_ERROR
-} from "../action_types";
+import { ARTICLE_FETCH_SUCCESS, ARTICLE_FETCH_ERROR } from "../action_types";
+import { startFetch } from "./common";
 import config from "../../config";
 
 const url = `${config.BASE_URL}/articles/`;
-
-/**
- * Action for start article fetch
- *
- * @return {object} type
- */
-export const startArticleFetch = () => ({
-  type: START_ARTICLE_FETCH
-});
 
 /**
  * Article fetch success
@@ -41,7 +29,7 @@ export const articleFetchError = error => ({
 
 export const fetchArticles = (username = null) => async dispatch => {
   let response;
-  dispatch(startArticleFetch);
+  dispatch(startFetch);
   try {
     if (username) {
       response = await axios.get(
