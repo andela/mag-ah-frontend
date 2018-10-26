@@ -9,6 +9,9 @@ class Articles extends Component {
     const { fetchArticles } = this.props;
     fetchArticles();
     window.scrollTo(0, 0);
+
+    const { fetch } = this.props;
+    fetch();
   }
 
   render() {
@@ -35,7 +38,7 @@ class Articles extends Component {
 
 Articles.propTypes = {
   articles: PropTypes.arrayOf(PropTypes.object),
-  fetchArticles: PropTypes.func.isRequired
+  fetch: PropTypes.func.isRequired
 };
 
 Articles.defaultProps = {
@@ -53,5 +56,5 @@ const mapStateToProps = ({ allArticlesReducer }) => {
 
 export default connect(
   mapStateToProps,
-  { fetchArticles }
+  { fetch: fetchArticles }
 )(Articles);

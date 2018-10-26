@@ -8,7 +8,7 @@ import history from "../../routes/history";
 const url = `${config.BASE_URL}/articles/`;
 
 /**
- * Signup successfull
+ * Create successfull
  *
  * @param (string) message
  * @return (object) type and payload
@@ -19,7 +19,7 @@ export const createArticleSuccess = message => ({
 });
 
 /**
- * Signup error
+ * Create error
  *
  * @param (object) error
  * @return (object) type and payload

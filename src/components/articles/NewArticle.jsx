@@ -19,12 +19,7 @@ class NewArticle extends React.Component {
     const { article } = this.state;
     const { dispatch } = this.props;
 
-    this.setState({
-      article: {
-        ...article,
-        [name]: value
-      }
-    });
+    this.changeHandle(article, name, value);
     dispatch(clearError());
   };
 
@@ -34,6 +29,15 @@ class NewArticle extends React.Component {
     const { dispatch } = this.props;
     dispatch(createArticle(article));
   };
+
+  changeHandle(article, name, value) {
+    this.setState({
+      article: {
+        ...article,
+        [name]: value
+      }
+    });
+  }
 
   render() {
     const { article } = this.state;

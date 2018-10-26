@@ -20,6 +20,8 @@ export const getArticleSuccess = message => ({
 
 /**
  * Signup successfull
+
+ * Edit successfull
  *
  * @param (string) message
  * @return (object) type and payload
@@ -30,7 +32,11 @@ export const updateArticleSuccess = message => ({
 });
 
 /**
+
  * Signup error
+
+ * Edit error
+
  *
  * @param (object) error
  * @return (object) type and payload

@@ -61,7 +61,8 @@ ArticleCard.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  publishedAt: PropTypes.string.isRequired
+  publishedAt: PropTypes.string.isRequired,
+  handleDelete: PropTypes.func.isRequired
 };
 
 export default ArticleCard;

@@ -122,8 +122,10 @@ class UpdateArticle extends React.Component {
 
 UpdateArticle.propTypes = {
   updating: PropTypes.bool.isRequired,
-  error: PropTypes.bool,
-  article: PropTypes.shape
+  error: PropTypes.shape(() => {}),
+  article: PropTypes.shape(() => {}),
+  match: PropTypes.shape(() => {}).isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 UpdateArticle.defaultProps = {
