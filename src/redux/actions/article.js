@@ -14,7 +14,15 @@ const GetArticle = slug => async dispatch => {
     dispatch(serverError());
   };
   try {
-    const response = await axios.get(`${baseUrl}/articles/${slug}`);
+    const axiosConfig = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    };
+    const response = await axios.get(
+      `${baseUrl}/articles/${slug}`,
+      axiosConfig
+    );
     onSuccess(response.data);
   } catch (error) {
     onError();
