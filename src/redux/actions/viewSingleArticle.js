@@ -12,6 +12,7 @@ const viewSingleArticle = slug => async dispatch => {
    * @param (object) article
    * @return (object) type and payload
    */
+
   const onSuccess = article => {
     dispatch({
       type: VIEW_ARTICLE,

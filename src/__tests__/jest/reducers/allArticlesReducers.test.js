@@ -2,7 +2,7 @@ import expect from "expect";
 import {
   ARTICLE_FETCH_ERROR,
   ARTICLE_FETCH_SUCCESS,
-  START_ARTICLE_FETCH
+  START_FETCH
 } from "../../../redux/action_types";
 import allArticlesReducer from "../../../redux/reducers/allArticlesReducer";
 import articlesMockData from "../../mock/articles";
@@ -22,8 +22,8 @@ describe("Get articles reducer test", () => {
     expect(allArticlesReducer(initialState, action)).toEqual(initialState);
   });
 
-  it("should handle START_ARTICLE_FETCH", () => {
-    action.type = START_ARTICLE_FETCH;
+  it("should handle START_FETCH", () => {
+    action.type = START_FETCH;
     expect(allArticlesReducer(initialState, action).articles).toEqual([]);
     expect(allArticlesReducer(initialState, action).fetching).toEqual(true);
   });

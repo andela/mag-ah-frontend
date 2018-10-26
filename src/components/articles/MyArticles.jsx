@@ -7,7 +7,10 @@ import { deleteArticle } from "../../redux/actions/deleteArticle";
 import FlatArticle from "../../views/Article/FlatArticle";
 import { clearState } from "../../redux/actions/common";
 
-const currentUser = jwtDecode(localStorage.getItem("token"));
+let currentUser;
+if (localStorage.getItem("token")) {
+  currentUser = jwtDecode(localStorage.getItem("token"));
+}
 
 class Articles extends Component {
   componentDidMount() {

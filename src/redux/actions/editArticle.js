@@ -8,6 +8,19 @@ import history from "../../routes/history";
 const url = `${config.BASE_URL}/articles/`;
 
 /**
+ * Signup successfull
+ *
+ * @param (string) message
+ * @return (object) type and payload
+ */
+export const getArticleSuccess = message => ({
+  type: EDIT_ARTICLE_SUCCESS,
+  message
+});
+
+/**
+ * Signup successfull
+
  * Edit successfull
  *
  * @param (string) message
@@ -19,7 +32,11 @@ export const updateArticleSuccess = message => ({
 });
 
 /**
+
+ * Signup error
+
  * Edit error
+
  *
  * @param (object) error
  * @return (object) type and payload
