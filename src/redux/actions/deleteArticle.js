@@ -1,35 +1,34 @@
 import axios from "axios";
 import { toaster } from "evergreen-ui";
-import { CREATE_ARTICLE_SUCCESS, CREATE_ARTICLE_ERROR } from "../action_types";
+import { DELETE_ARTICLE_SUCCESS, DELETE_ARTICLE_ERROR } from "../action_types";
 import { serverError, startFetch } from "./common";
 import config from "../../config";
-import history from "../../routes/history";
 
 const url = `${config.BASE_URL}/articles/`;
 
 /**
- * Signup successfull
+ * Delete successfull
  *
  * @param (string) message
  * @return (object) type and payload
  */
-export const createArticleSuccess = message => ({
-  type: CREATE_ARTICLE_SUCCESS,
+export const deleteArticleSuccess = message => ({
+  type: DELETE_ARTICLE_SUCCESS,
   message
 });
 
 /**
- * Signup error
+ * Delete error
  *
  * @param (object) error
  * @return (object) type and payload
  */
-export const createArticleError = error => ({
-  type: CREATE_ARTICLE_ERROR,
+export const deleteArticleError = error => ({
+  type: DELETE_ARTICLE_ERROR,
   error
 });
 
-export const createArticle = article => dispatch => {
+export const deleteArticle = slug => dispatch => {
   const axiosConfig = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -37,19 +36,23 @@ export const createArticle = article => dispatch => {
   };
   dispatch(startFetch());
   axios
-    .post(url, article, axiosConfig)
+    .delete(`${url}${slug}`, axiosConfig)
     .then(response => {
-      const responseMessage = `Article ${
-        response.data.Article.title
-      } created successfully`;
-      dispatch(createArticleSuccess(responseMessage));
+      const responseMessage = response.data.Articles.message;
+      dispatch(deleteArticleSuccess(responseMessage));
       toaster.success(responseMessage, { duration: 3 });
-      history.push("/articles");
     })
     .catch(error => {
       if (error.response) {
         const responseErrors = error.response.data.errors;
-        dispatch(createArticleError(responseErrors));
+        toaster.warning(
+          error.response.data.Articles.detail ||
+            error.response.data.Articles.error,
+          {
+            duration: 3
+          }
+        );
+        dispatch(deleteArticleError(responseErrors));
       } else {
         const oops = { serverError: "Oops something went wrong" };
         dispatch(serverError(oops));
@@ -57,4 +60,4 @@ export const createArticle = article => dispatch => {
     });
 };
 
-export default createArticle;
+export default deleteArticle;

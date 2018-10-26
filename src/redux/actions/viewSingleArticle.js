@@ -5,7 +5,7 @@ import config from "../../config";
 
 const baseUrl = config.BASE_URL;
 
-const GetArticle = slug => async dispatch => {
+const viewSingleArticle = slug => async dispatch => {
   const onSuccess = article => {
     dispatch({ type: VIEW_ARTICLE, payload: article });
     return article;
@@ -21,4 +21,4 @@ const GetArticle = slug => async dispatch => {
   }
 };
 
-export default GetArticle;
+export default viewSingleArticle;
