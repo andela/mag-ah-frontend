@@ -72,7 +72,7 @@ export const fetchComments = slug => async dispatch => {
       headers: { Authorization: token }
     });
 
-    dispatch(commentFetchSuccess(response.data));
+    dispatch(commentFetchSuccess(response.data.reverse()));
   } catch (error) {
     dispatch(commentFetchError(error));
   }

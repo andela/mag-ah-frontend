@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import jwtDecode from "jwt-decode";
 import {
   fetchComments,
   createComment,
@@ -12,54 +13,36 @@ class Comments extends Component {
   state = { newComment: "" };
 
   async componentDidMount() {
-    const { fetchComments, slug } = this.props;
-    await fetchComments(slug);
+    const { getComments, slug } = this.props;
+    await getComments(slug);
   }
 
-  handleRestructureComments = comments => {
-    let parent = {};
-    const newComments = [];
-    for (let i = 0; i < comments.length; i++) {
-      if (comments[i].parent === null) {
-        parent = comments[i];
-        for (let x = 0; x < comments.length; x++) {
-          if (comments[x].parent === parent.id) {
-            if (!parent.children) {
-              parent.children = [];
-            }
-            parent.children.unshift(comments[x]);
-          }
-        }
-        newComments.unshift(comments[i]);
-      }
-    }
-    return newComments;
-  };
-
   handleDelete = id => {
-    const { deleteComment, fetchComments, slug } = this.props;
-    deleteComment(id);
-    fetchComments(slug);
+    const { deleteCom, getComments, slug } = this.props;
+    deleteCom(id);
+    getComments(slug);
   };
 
   onCreateComment = event => {
     const { newComment } = this.state;
-    const { createComment, fetchComments, slug } = this.props;
+    const { create, getComments, slug } = this.props;
     const payload = {
       comment_body: newComment
     };
     event.preventDefault();
-    createComment(payload, slug);
+    create(payload, slug);
     this.setState({ newComment: "" });
-    fetchComments(slug);
+    getComments(slug);
   };
 
   handleNameInput = e => this.setState({ newComment: e.target.value });
 
   render() {
+    let currentUser;
+    if (localStorage.getItem("token")) {
+      currentUser = jwtDecode(localStorage.getItem("token"));
+    }
     const { comments } = this.props;
-    let updatedComments = [];
-    updatedComments = this.handleRestructureComments(comments);
     const { newComment } = this.state;
     return (
       <div className="comments row mt-5">
@@ -85,7 +68,7 @@ class Comments extends Component {
         >
           Comment
         </button>
-        {updatedComments.map(comment => (
+        {comments.map(comment => (
           <CommentCard
             key={comment.id}
             commentId={comment.id}
@@ -93,6 +76,7 @@ class Comments extends Component {
             createdAt={comment.created_at}
             commentBody={comment.comment_body}
             handleDelete={() => this.handleDelete(comment.id)}
+            currentUser={currentUser.username}
           />
         ))}
       </div>
@@ -102,7 +86,10 @@ class Comments extends Component {
 
 Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.object),
-  slug: PropTypes.string.isRequired
+  slug: PropTypes.string.isRequired,
+  deleteCom: PropTypes.func.isRequired,
+  create: PropTypes.func.isRequired,
+  getComments: PropTypes.func.isRequired
 };
 
 Comments.defaultProps = {
@@ -120,5 +107,9 @@ const mapStateToProps = ({ commentsReducer }) => {
 
 export default connect(
   mapStateToProps,
-  { fetchComments, createComment, deleteComment }
+  {
+    getComments: fetchComments,
+    create: createComment,
+    deleteCom: deleteComment
+  }
 )(Comments);

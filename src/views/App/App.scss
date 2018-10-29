@@ -16,8 +16,8 @@ $twitter-color-hover: #087bc2;
 body {
   background: white;
   margin: 0px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -162,11 +162,19 @@ body {
     padding: 0px;
   }
 
+<<<<<<< HEAD
   .ah-jumbotron h1,
   .navbar-brand {
     font-size: 2.5rem;
     font-family: 'Vidaloka', serif;
   }
+=======
+.ah-jumbotron h1,
+.navbar-brand {
+  font-size: 2.5rem;
+  font-family: "Vidaloka", serif;
+}
+>>>>>>> [Feature #159965271] Implement commenting on articles
 
   .modal-content {
     border: none;
@@ -178,7 +186,7 @@ body {
 }
 
 .modal-title {
-  font-family: 'Vidaloka', serif;
+  font-family: "Vidaloka", serif;
   font-size: 2rem;
   line-height: 2rem;
 }
@@ -266,7 +274,7 @@ body {
     margin-right: -20px;
   }
 .ah-rating-average {
-  font-family: 'Vidaloka', serif;
+  font-family: "Vidaloka", serif;
   font-weight: bold;
   font-size: 2rem;
 }
@@ -286,11 +294,11 @@ body {
   font-size: 1.25em;
   font-family: FontAwesome;
   display: inline-block;
-  content: '\f005';
+  content: "\f005";
 }
 
 .rating > .half:before {
-  content: '\f089';
+  content: "\f089";
   position: absolute;
 }
 
@@ -330,11 +338,11 @@ body {
   font-size: 1.25em;
   font-family: FontAwesome;
   display: inline-block;
-  content: '\f005';
+  content: "\f005";
 }
 
 .rating > .half:before {
-  content: '\f089';
+  content: "\f089";
   position: absolute;
 }
 
@@ -374,7 +382,7 @@ body {
     height: 500px;
     object-fit: cover;
   }
-  font-family: 'raleway', 'sans';
+  font-family: "raleway", "sans";
 }
 
   .likes a:hover,
@@ -467,8 +475,6 @@ body {
 
 .comments {
   border-color: rgb(238, 235, 235);
-  // padding: 1rem;
-  // margin: 1rem 0 2rem 0;
   .fa-user-circle {
     font-size: 3rem;
   }
@@ -509,7 +515,7 @@ body {
       -o-transition: width 0.3s ease;
       transition: width 0.3s ease;
     .filter-value:after {
-      content: '\2715';
+      content: "\2715";
       padding-left: 0.5rem;
       color: $ah-secondary-text-color;
       font-size: 0.75rem;
@@ -608,7 +614,7 @@ body {
 }
 
 .form-group {
-  input[type='text']:focus {
+  input[type="text"]:focus {
     background: none;
   }
 }
@@ -616,7 +622,7 @@ body {
 .ah-main-article-title {
   font-size: 3rem;
   line-height: 1.1;
-  font-family: 'Vidaloka';
+  font-family: "Vidaloka";
   a {
     font-size: 2rem;
     text-decoration: none;
