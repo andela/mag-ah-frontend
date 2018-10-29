@@ -66,6 +66,13 @@ const initialState = {
   articleRating: {
     response: null,
     error: null
+  },
+  comments: {
+    comments: [],
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
   }
 };
 
