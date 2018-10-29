@@ -62,6 +62,13 @@ const initialState = {
     updating: false,
     updated: false,
     success: false
+  },
+  comments: {
+    comments: [],
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
   }
 };
 

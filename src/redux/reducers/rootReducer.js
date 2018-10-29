@@ -6,6 +6,7 @@ import allArticlesReducer from "./allArticlesReducer";
 import viewSingleArticleReducer from "./viewSingleArticleReducer";
 import editArticleReducer from "./editArticleReducer";
 import deleteArticleReducer from "./deleteArticleReducer";
+import commentsReducer from "./commentsReducer";
 
 export default combineReducers({
   authSignup: authReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   allArticlesReducer,
   getArticle: viewSingleArticleReducer,
   editArticle: editArticleReducer,
-  deleteArticleReducer
+  deleteArticleReducer,
+  commentsReducer
 });
