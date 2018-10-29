@@ -8,8 +8,6 @@ import MyArticles from "../components/articles/MyArticles";
 import NewArticle from "../components/articles/NewArticle";
 import UpdateArticle from "../components/articles/UpdateArticle";
 import SingleArticle from "../components/articles/ViewSingleArticle";
-import ResetPass from "../views/Login/PasswordReset";
-import SingleArticle from "../components/articles/Article";
 
 const Routes = () => (
   <Router history={history}>
