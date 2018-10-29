@@ -10,11 +10,19 @@ import {
 import CommentCard from "../../views/Comments";
 
 class Comments extends Component {
-  state = { newComment: "" };
+  state = {
+    newComment: "",
+    username: ""
+  };
 
   async componentDidMount() {
     const { getComments, slug } = this.props;
     await getComments(slug);
+    let currentUser;
+    if (localStorage.getItem("token")) {
+      currentUser = jwtDecode(localStorage.getItem("token"));
+      this.setState({ username: currentUser.username });
+    }
   }
 
   handleDelete = id => {
@@ -38,18 +46,17 @@ class Comments extends Component {
   handleNameInput = e => this.setState({ newComment: e.target.value });
 
   render() {
-    let currentUser;
-    if (localStorage.getItem("token")) {
-      currentUser = jwtDecode(localStorage.getItem("token"));
-    }
     const { comments } = this.props;
-    const { newComment } = this.state;
+    const { newComment, username } = this.state;
     return (
       <div className="comments row mt-5">
         <h4 className="w-100">
           <strong>Comments ({comments.length})</strong>
         </h4>
-        <p>Start a discussion not a fire. Post with kindness</p>
+        <p className="ah-comment-tagline">
+          {" "}
+          Start a discussion not a fire. Post with kindness
+        </p>
         <textarea
           type="text"
           className="form-control rounded mb-10"
@@ -76,7 +83,7 @@ class Comments extends Component {
             createdAt={comment.created_at}
             commentBody={comment.comment_body}
             handleDelete={() => this.handleDelete(comment.id)}
-            currentUser={currentUser.username}
+            currentUser={username}
           />
         ))}
       </div>
@@ -86,14 +93,15 @@ class Comments extends Component {
 
 Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.object),
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string,
   deleteCom: PropTypes.func.isRequired,
   create: PropTypes.func.isRequired,
   getComments: PropTypes.func.isRequired
 };
 
 Comments.defaultProps = {
-  comments: []
+  comments: [],
+  slug: null
 };
 
 const mapStateToProps = ({ commentsReducer }) => {

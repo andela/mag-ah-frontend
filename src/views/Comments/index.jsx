@@ -45,11 +45,17 @@ const CommentCard = ({
 );
 
 CommentCard.propTypes = {
-  createdAt: PropTypes.string.isRequired,
-  commentedBy: PropTypes.string.isRequired,
-  commentBody: PropTypes.string.isRequired,
+  createdAt: PropTypes.string,
+  commentedBy: PropTypes.string,
+  commentBody: PropTypes.string,
   handleDelete: PropTypes.func.isRequired,
   currentUser: PropTypes.string.isRequired
+};
+
+CommentCard.defaultProps = {
+  createdAt: null,
+  commentedBy: null,
+  commentBody: null
 };
 
 export default CommentCard;

@@ -16,8 +16,8 @@ $twitter-color-hover: #087bc2;
 body {
   background: white;
   margin: 0px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,341 +37,322 @@ body {
 .App {
   min-height: 100vh;
 }
-.ah-article-body{
+.ah-article-body {
   font-size: 24px;
   letter-spacing: 3px;
   font-family: 'Exo', sans-serif;
 }
-.share-feed{
+.share-feed {
   font-size: 30px;
 }
-.fa-twitter{
+.fa-twitter {
   color: $twitter-color;
 }
 
-.fa-facebook{
+.fa-facebook {
   margin-right: 1em;
   color: $facebook-color;
 }
 
-.card-title {
- a {
-   text-decoration: none;
-   color: $ah-primary-color;
- }
+.App-link {
+  color: #61dafb;
 }
-  .App-link {
-    color: #61dafb;
-  }
 
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-  .ah-facebook-button {
-    color: #ffffff;
-    background-color: $facebook-color;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-  }
+.ah-facebook-button {
+  color: #ffffff;
+  background-color: $facebook-color;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
 
-  .ah-twitter-button {
-    color: #ffffff;
-    background-color: $twitter-color;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-  }
+.ah-twitter-button {
+  color: #ffffff;
+  background-color: $twitter-color;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
 
-  .ah-google-button {
-    color: #ffffff;
-    background-color: $google-color;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-  }
+.ah-google-button {
+  color: #ffffff;
+  background-color: $google-color;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
 
-  .ah-facebook-button:hover {
-    background-color: $facebook-color-hover;
-  }
+.ah-facebook-button:hover {
+  background-color: $facebook-color-hover;
+}
 
-  .ah-twitter-button:hover {
-    background-color: $twitter-color-hover;
-  }
+.ah-twitter-button:hover {
+  background-color: $twitter-color-hover;
+}
 
-  .ah-google-button:hover {
-    background-color: $google-color-hover;
-  }
+.ah-google-button:hover {
+  background-color: $google-color-hover;
+}
 
-  .ah-success-message {
-    font-size: 0.8rem;
-  }
+.ah-success-message {
+  font-size: 0.8rem;
+}
 
-  input[type='text'],
-  input[type='email'],
-  input[type='password'] {
-    font-size: 0.8rem;
-  }
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  font-size: 0.8rem;
+}
 
 .card-body {
   background-color: $article-card-bg-color;
 }
 .card {
-    border: none;
-  }
+  border: none;
+}
 
-  .card-text {
-    color: $ah-secondary-text-color;
-    font-size: 10pt;
-  }
+.card-text {
+  color: $ah-secondary-text-color;
+  font-size: 10pt;
+}
 
-  .card-title {
-    a {
-      text-decoration: none;
-      color: $ah-primary-color;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    font-size: 40px;
-    letter-spacing: 3px;
-  }
-
-  small a,
-  .ah-author-link {
-    color: $ah-primary-color;
-    text-decoration: underline;
-  }
-
-  small a:hover,
-  .ah-author-link:hover {
+.card-title {
+  a {
     text-decoration: none;
     color: $ah-primary-color;
-    background-color: $ah-alternate-color;
   }
+}
 
-  .ah-list-content {
-    line-height: 1;
-  }
+small a,
+.ah-author-link {
+  color: $ah-primary-color;
+  text-decoration: underline;
+}
 
-  .ah-jumbotron {
-    background-color: $ah-secondary-color;
-    padding: 0px;
-  }
+small a:hover,
+.ah-author-link:hover {
+  text-decoration: none;
+  color: $ah-primary-color;
+  background-color: $ah-alternate-color;
+}
 
-<<<<<<< HEAD
-  .ah-jumbotron h1,
-  .navbar-brand {
-    font-size: 2.5rem;
-    font-family: 'Vidaloka', serif;
-  }
-=======
+.ah-list-content {
+  line-height: 1;
+}
+
+.ah-jumbotron {
+  background-color: $ah-secondary-color;
+  padding: 0px;
+}
+
 .ah-jumbotron h1,
 .navbar-brand {
   font-size: 2.5rem;
-  font-family: "Vidaloka", serif;
+  font-family: 'Vidaloka', serif;
 }
->>>>>>> [Feature #159965271] Implement commenting on articles
 
-  .modal-content {
-    border: none;
-    border-radius: 0;
-  }
+.modal-content {
+  border: none;
+  border-radius: 0;
+}
 
 .modal-header {
   text-align: center;
 }
 
 .modal-title {
-  font-family: "Vidaloka", serif;
+  font-family: 'Vidaloka', serif;
   font-size: 2rem;
   line-height: 2rem;
 }
 .modal-header .close {
-    padding: 1rem;
-    margin: -1rem;
-  }
+  padding: 1rem;
+  margin: -1rem;
+}
 
-  .fa-facebook:hover,
-  .fa-twitter:hover,
-  .fa-envelope:hover,
-  .fa-flag:hover {
-    opacity: 0.7;
-    cursor: pointer;
-  }
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-envelope:hover,
+.fa-flag:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
 
-  .form-control {
-    border-radius: 0px;
-  }
+.form-control {
+  border-radius: 0px;
+}
 
-  .form-group {
-    border-radius: 0px;
-    border: none;
-  }
+.form-group {
+  border-radius: 0px;
+  border: none;
+}
 
-  .form-group input:focus,
-  textarea:focus {
-    background-color: $bg-color;
-  }
+.form-group input:focus,
+textarea:focus {
+  background-color: $bg-color;
+}
 
-  .custom-file-label {
-    background-color: transparent;
-  }
+.custom-file-label {
+  background-color: transparent;
+}
 
-  .form-control:focus {
-    box-shadow: None;
-  }
+.form-control:focus {
+  box-shadow: None;
+}
 
-  .btn:focus,
-  .btn:active {
-    box-shadow: none;
-  }
+.btn:focus,
+.btn:active {
+  box-shadow: none;
+}
 
-  .title {
-    font-weight: bold;
-    font-size: 2em;
-  }
+.title {
+  font-weight: bold;
+  font-size: 2em;
+}
 
-  .description {
-    font-size: 1.7em;
-  }
+.description {
+  font-size: 1.7em;
+}
 
-  h6 a,
-  h6 a:hover {
-    color: $ah-primary-color;
-  }
+h6 a,
+h6 a:hover {
+  color: $ah-primary-color;
+}
 
-  .error {
-    border-color: red;
-  }
+.error {
+  border-color: red;
+}
 
-  .ah-input-error {
-    font-size: 0.7rem;
-  }
+.ah-input-error {
+  font-size: 0.7rem;
+}
 
-  .editLink a,
-  .footer a {
-    color: $ah-secondary-text-color;
-  }
+.editLink a,
+.footer a {
+  color: $ah-secondary-text-color;
+}
 
-  fieldset,
-  label {
-    margin: 0;
-    padding: 0;
-  }
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
 
-  h1 {
-    font-size: 1.5em;
-    margin: 10px;
-  }
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
 
-  .rating {
-    border: none;
-    float: left;
-    margin-right: -20px;
-  }
+.rating {
+  border: none;
+  float: left;
+  margin-right: -20px;
+}
 .ah-rating-average {
-  font-family: "Vidaloka", serif;
+  font-family: 'Vidaloka', serif;
   font-weight: bold;
   font-size: 2rem;
 }
 
-  .ah-rating-average {
-    font-family: 'Vidaloka', serif;
-    font-weight: bold;
-    font-size: 2rem;
-  }
+.ah-rating-average {
+  font-family: 'Vidaloka', serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
 
-  .rating > input {
-    display: none;
-  }
+.rating > input {
+  display: none;
+}
 
 .rating > label:before {
   margin: 5px;
   font-size: 1.25em;
   font-family: FontAwesome;
   display: inline-block;
-  content: "\f005";
+  content: '\f005';
 }
 
 .rating > .half:before {
-  content: "\f089";
+  content: '\f089';
   position: absolute;
 }
 
-  .rating > .half:before {
-    content: '\f089';
-    position: absolute;
-  }
+.rating > .half:before {
+  content: '\f089';
+  position: absolute;
+}
 
-  .rating > label {
-    color: #ddd;
-    float: right;
-  }
+.rating > label {
+  color: #ddd;
+  float: right;
+}
 
-  @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-  fieldset,
-  label {
-    margin: 0;
-    padding: 0;
-  }
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
 
-  h1 {
-    font-size: 1.5em;
-    margin: 10px;
-  }
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
 
-  .rating {
-    border: none;
-    float: left;
-  }
+.rating {
+  border: none;
+  float: left;
+}
 
-  .rating > input {
-    display: none;
-  }
+.rating > input {
+  display: none;
+}
 
 .rating > label:before {
   margin: 5px;
   font-size: 1.25em;
   font-family: FontAwesome;
   display: inline-block;
-  content: "\f005";
+  content: '\f005';
 }
 
 .rating > .half:before {
-  content: "\f089";
+  content: '\f089';
   position: absolute;
 }
 
-  .rating > .half:before {
-    content: '\f089';
-    position: absolute;
-  }
+.rating > .half:before {
+  content: '\f089';
+  position: absolute;
+}
 
-  .rating > label {
-    color: #ddd;
-    float: right;
-  }
+.rating > label {
+  color: #ddd;
+  float: right;
+}
 
-  .rating > input:checked ~ label,
-  .rating:not(:checked) > label:hover,
-  .rating:not(:checked) > label:hover ~ label {
-    color: $ah-alternate-color;
-  }
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: $ah-alternate-color;
+}
 
-  .rating > input:checked + label:hover,
-  .rating > input:checked ~ label:hover,
-  .rating > label:hover ~ input:checked ~ label,
-  .rating > input:checked ~ label:hover ~ label {
-    color: $ah-alternate-color;
-  }
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: $ah-alternate-color;
+}
 
-  .header {
-    display: block;
-  }
+.header {
+  display: block;
+}
 
 .article {
   .ah-article-body {
@@ -382,59 +363,59 @@ body {
     height: 500px;
     object-fit: cover;
   }
-  font-family: "raleway", "sans";
+  font-family: 'raleway', 'sans';
 }
 
-  .likes a:hover,
-  .likes a {
-    background-color: $bg-color;
-    text-decoration: None;
-  }
+.likes a:hover,
+.likes a {
+  background-color: $bg-color;
+  text-decoration: None;
+}
 
-  .likes a {
-    margin-left: 6px;
-    text-decoration: None;
-  }
+.likes a {
+  margin-left: 6px;
+  text-decoration: None;
+}
 
-  .text-success {
-    color: #91be69 !important;
-  }
+.text-success {
+  color: #91be69 !important;
+}
 
-  .profile {
-    margin: 20px;
-  }
+.profile {
+  margin: 20px;
+}
 
-  .ah-profile-card {
-    border: $ah-secondary-color 1px solid;
-    border-radius: 5px;
-  }
+.ah-profile-card {
+  border: $ah-secondary-color 1px solid;
+  border-radius: 5px;
+}
 
-  .ah-avatar {
-    width: 100px;
-    margin-right: 10px;
-  }
+.ah-avatar {
+  width: 100px;
+  margin-right: 10px;
+}
 
-  .card-body {
-    .fa-user-circle {
-      font-size: 6.8rem;
-      color: lightblue;
-      padding: 0;
-    }
+.card-body {
+  .fa-user-circle {
+    font-size: 6.8rem;
+    color: lightblue;
+    padding: 0;
   }
-  .modal-body .ah-err-msg {
-    color: red;
-  }
-  // The notification bell
-  .fa-bell {
-    color: $ah-secondary-text-color;
-    font-size: 25px;
-  }
+}
+.modal-body .ah-err-msg {
+  color: red;
+}
+// The notification bell
+.fa-bell {
+  color: $ah-secondary-text-color;
+  font-size: 25px;
+}
 
-  .ah-notifications-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-  }
+.ah-notifications-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
 
 .dropdown-toggle::after {
   display: none;
@@ -486,97 +467,99 @@ body {
   }
 }
 
-  .bookmark a {
-    margin-left: 6px;
-    text-decoration: None;
-    color: $ah-secondary-text-color;
-  }
+.bookmark a {
+  margin-left: 6px;
+  text-decoration: None;
+  color: $ah-secondary-text-color;
+}
 
-  .bookmark {
-    margin-left: 6px;
-    text-decoration: None;
-    color: $ah-secondary-text-color;
-  }
+.bookmark {
+  margin-left: 6px;
+  text-decoration: None;
+  color: $ah-secondary-text-color;
+}
 
-  .bookmark:hover {
-    background-color: #fff !important;
-  }
+.bookmark:hover {
+  background-color: #fff !important;
+}
 
-  .search-container {
-    margin-right: 1.5rem;
-    max-width: 300px;
-    .fas {
-      color: $ah-primary-color;
-      font-size: 1.375rem;
-    }
-    .search {
-      -webkit-transition: width 0.3s ease;
-      -moz-transition: width 0.3s ease;
-      -o-transition: width 0.3s ease;
-      transition: width 0.3s ease;
+.search-container {
+  margin-right: 1.5rem;
+  max-width: 300px;
+  .fas {
+    color: $ah-primary-color;
+    font-size: 1.375rem;
+  }
+  .search {
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
     .filter-value:after {
-      content: "\2715";
+      content: '\2715';
       padding-left: 0.5rem;
       color: $ah-secondary-text-color;
       font-size: 0.75rem;
     }
   }
+}
 
-  .filter-container {
-    margin-top: 1rem;
-    .applied-filters {
-      margin-left: 0.3125rem;
-      .alert {
-        padding: 2px 0.5rem;
-        border-radius: 1rem;
-      }
-      .filter-value:after {
-        content: '\2715';
-        padding-left: 0.5rem;
-        color: $ah-secondary-text-color;
-        font-size: 0.75rem;
-      }
+.filter-container {
+  margin-top: 1rem;
+  .applied-filters {
+    margin-left: 0.3125rem;
+    .alert {
+      padding: 2px 0.5rem;
+      border-radius: 1rem;
     }
-    .filter {
-      margin-top: 1.5rem;
-      input {
-        margin-bottom: 1rem;
-      }
-      .results {
-        padding: 1rem;
-      }
-      .reset-filters {
-        display: block;
-        margin-top: 1rem;
-      }
-    }
-  }
-
-  .tags {
-    font-size: 15px;
-    font-weight: 400;
-  }
-
-  .tags {
-    ul {
-      list-style: none;
-    }
-    li {
-      float: left;
-      display: block;
-      border: $ah-secondary-color 1px solid;
-      border-radius: 2px;
-    }
-    li a:hover {
-      text-decoration: none;
-    }
-    li a {
+    .filter-value:after {
+      content: '\2715';
+      padding-left: 0.5rem;
       color: $ah-secondary-text-color;
+      font-size: 0.75rem;
     }
   }
+  .filter {
+    margin-top: 1.5rem;
+    input {
+      margin-bottom: 1rem;
+    }
+    .results {
+      padding: 1rem;
+    }
+    .reset-filters {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+}
 
-  .css-1sugtjn, [data-css-1sugtjn] {
-    z-index: 1060;
+.tags {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.tags {
+  ul {
+    list-style: none;
+  }
+  li {
+    float: left;
+    display: block;
+    border: $ah-secondary-color 1px solid;
+    border-radius: 2px;
+  }
+  li a:hover {
+    text-decoration: none;
+  }
+  li a {
+    color: $ah-secondary-text-color;
+  }
+}
+
+.css-1sugtjn,
+[data-css-1sugtjn] {
+  z-index: 1060;
 }
 .ah-editor-field {
   border: none;
@@ -614,7 +597,7 @@ body {
 }
 
 .form-group {
-  input[type="text"]:focus {
+  input[type='text']:focus {
     background: none;
   }
 }
@@ -622,7 +605,7 @@ body {
 .ah-main-article-title {
   font-size: 3rem;
   line-height: 1.1;
-  font-family: "Vidaloka";
+  font-family: 'Vidaloka';
   a {
     font-size: 2rem;
     text-decoration: none;
@@ -657,16 +640,21 @@ body {
 }
 
 .ahStarRating {
-  .badge{
-      padding: .3em .6em;
-      line-height: 1.3;
-    }
+  .badge {
+    padding: 0.3em 0.6em;
+    line-height: 1.3;
+  }
 }
 
-.css-1sugtjn, [data-css-1sugtjn] {
+.css-1sugtjn,
+[data-css-1sugtjn] {
   z-index: 1060;
 }
 
 .border-bottom {
   border-bottom: 1px solid #dee2e680 !important;
+}
+
+.ah-comment-tagline {
+  color: gray;
 }
