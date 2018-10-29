@@ -2,12 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { dislikeArticle } from "../../redux/actions/likeDislike";
-import Button from "../Button";
 
 class Dislike extends React.Component {
   handleClick = () => {
-    const { dispatch } = this.props;
-    dispatch(dislikeArticle());
+    const { dispatch, slug } = this.props;
+    dispatch(dislikeArticle(slug));
     const element = document.getElementById("dislikeButton");
     element.classList.add("bounceIn");
     window.setTimeout(() => {
@@ -16,34 +15,32 @@ class Dislike extends React.Component {
   };
 
   render() {
-    const { disliked } = this.props;
+    const { disliked, disLikeCount } = this.props;
     return (
-      <div>
-        <Button
-          className="btn btn-warning"
+      <span className="badge badge-light ah-badge-light">
+        <i
           id="dislikeButton"
           role="button"
           tabIndex="-1"
           onClick={this.handleClick}
           onKeyDown={this.handleClick}
-          label="Dislike"
-          disabled={disliked ? "disabled" : ""}
+          className={
+            disliked
+              ? "fas fa-thumbs-down text-warning ah-dislike-button disabled-button"
+              : "fas fa-thumbs-down text-warning ah-dislike-button"
+          }
         />
-        {/* <i
-          id="dislikeButton"
-          role="button"
-          tabIndex="-1"
-          onClick={this.handleClick}
-          onKeyDown={this.handleClick}
-          className="fas fa-thumbs-down text-warning ah-dislike-button"
-        /> */}
-      </div>
+        &ensp;
+        {disLikeCount}
+      </span>
     );
   }
 }
 
 Dislike.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  slug: PropTypes.string.isRequired,
+  disLikeCount: PropTypes.number.isRequired,
   disliked: PropTypes.bool
 };
 

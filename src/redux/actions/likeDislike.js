@@ -5,9 +5,15 @@ import {
   DISLIKE_ARTICLE,
   LIKE_DISLIKE_ARTICLE_ERROR
 } from "../action_types";
+import config from "../../config";
+
+const url = `${config.BASE_URL}/articles/`;
 
 /**
  * Like an article
+ *
+ * @param (string) message
+ * @return (object) type and payload
  */
 export const likeSuccess = message => ({
   type: LIKE_ARTICLE,
@@ -15,7 +21,10 @@ export const likeSuccess = message => ({
 });
 
 /**
- * Dislike article
+ * Dislike an article
+ *
+ * @param (string) message
+ * @return (object) type and payload
  */
 export const dislikeSuccess = message => ({
   type: DISLIKE_ARTICLE,
@@ -23,33 +32,31 @@ export const dislikeSuccess = message => ({
 });
 
 /**
- * like-Dislike article error
+ * Like or Dislike an article error
+ *
+ * @param (string) error
+ * @return (object) type and payload
  */
 export const likeDislikeError = error => ({
   type: LIKE_DISLIKE_ARTICLE_ERROR,
   error
 });
 
-export const likeArticle = () => dispatch => {
-  const slug = "my-journey-to-andela-961ae0";
+export const likeArticle = slug => dispatch => {
   axios({
     method: "post",
-    url: `/api/articles/${slug}/likes`,
+    url: `${url}${slug}/likes`,
     data: {
       like: true
     },
-    headers: {
-      Authorization:
-        "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1pY2Fob3JpYXNvIiwiZXhwIjoxNTQwMTUxNTk4fQ.6ui6K52uciZRkUApIYA2hztC_m9uKQaEGncyEtOo4x4"
-    }
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
   })
     .then(response => {
       const responseMessage = response.data.message;
-      dispatch(likeSuccess(responseMessage));
+      dispatch(likeSuccess("responseMessage"));
       toaster.success(responseMessage, { duration: 2 });
     })
     .catch(error => {
-      console.log(error.response);
       if (error.response) {
         const responseErrors =
           error.response.data.message || error.response.data.detail;
@@ -62,18 +69,14 @@ export const likeArticle = () => dispatch => {
     });
 };
 
-export const dislikeArticle = () => dispatch => {
-  const slug = "my-journey-to-andela-961ae0";
+export const dislikeArticle = slug => dispatch => {
   axios({
     method: "post",
-    url: `/api/articles/${slug}/likes`,
+    url: `${url}${slug}/likes`,
     data: {
       like: false
     },
-    headers: {
-      Authorization:
-        "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1pY2Fob3JpYXNvIiwiZXhwIjoxNTQwMTUxNTk4fQ.6ui6K52uciZRkUApIYA2hztC_m9uKQaEGncyEtOo4x4"
-    }
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
   })
     .then(response => {
       const responseMessage = response.data.message;

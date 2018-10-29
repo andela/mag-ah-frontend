@@ -93,12 +93,6 @@ class AHHeader extends Component {
               </div>
             </div>
           </div>
-          <div className="btn-group" role="group" aria-label="Third group">
-            &ensp;
-            <Like />
-            &ensp;
-            <Dislike />
-          </div>
         </div>
       </nav>
     ) : (

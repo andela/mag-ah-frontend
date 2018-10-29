@@ -1,6 +1,7 @@
 import React from "react";
 import { Router, Route } from "react-router-dom";
 import history from "./history";
+import PrivateRoute from "../helpers/PrivateRoute";
 import Home from "../views/Home/index";
 import AHHeader from "../views/Header";
 import Articles from "../components/articles/Articles";
@@ -17,11 +18,15 @@ const Routes = () => (
       <Route exact path="/login/" component={Home} />
       <Route exact path="/reset-password/" component={Home} />
       <Route exact path="/articles/" component={Articles} />
-      <Route exact path="/articles/me" component={MyArticles} />
-      <Route exact path="/articles/create/" component={NewArticle} />
-      <Route exact path="/articles/update/" component={UpdateArticle} />
-      <Route exact path="/articles/:slug" component={SingleArticle} />
-      <Route exact path="/articles/:slug/update" component={UpdateArticle} />
+      <PrivateRoute exact path="/articles/me" component={MyArticles} />
+      <PrivateRoute exact path="/articles/create/" component={NewArticle} />
+      <PrivateRoute exact path="/articles/update/" component={UpdateArticle} />
+      <PrivateRoute exact path="/articles/:slug" component={SingleArticle} />
+      <PrivateRoute
+        exact
+        path="/articles/:slug/update"
+        component={UpdateArticle}
+      />
     </div>
   </Router>
 );

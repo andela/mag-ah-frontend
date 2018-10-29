@@ -7,6 +7,8 @@ import viewSingleArticle from "../../redux/actions/viewSingleArticle";
 import Share from "../../views/Article/share";
 import RatingStars from "./RateArticle";
 import Comments from "./Comments";
+import Like from "./Like";
+import Dislike from "./Dislike";
 
 TimeAgo.locale(en);
 const timeAgo = new TimeAgo("en-US");
@@ -18,7 +20,7 @@ class SingleArticle extends React.Component {
   }
 
   render() {
-    const { article } = this.props;
+    const { article, match } = this.props;
     const { Article } = article;
     if (Object.keys(article).length === 0) {
       return <div className="no-article" />;
@@ -46,19 +48,30 @@ class SingleArticle extends React.Component {
                     </small>
                   </div>
                   <div className="d-flex">
-                    <span className="badge badge-pill badge-light text-muted">
-                      {timeAgo.format(new Date(Article.published_at))}
+                    <span className="badge badge-pill badge-light ah-badge-light text-muted">
+                      {timeAgo.format(new Date(Article.created_at))}
                     </span>
                     <span className="badge">&bull;</span>
-                    <span className="badge badge-pill badge-light text-muted">
+                    <span className="badge badge-pill badge-light ah-badge-light text-muted">
                       {Article.time_to_read} read
                     </span>
                   </div>
                   <div className="d-flex pl-2 mt-0">
-                    <RatingStars
-                      slug={Article.slug}
-                      avgRating={Number(Article.rating_average)}
+                    <Like
+                      slug={match.params.slug}
+                      likeCount={Article.userLikes.length}
                     />
+                    <Dislike
+                      slug={match.params.slug}
+                      disLikeCount={Article.userDisLikes.length}
+                    />
+                    &ensp;
+                    <span className="badge badge-light ah-badge-light">
+                      <RatingStars
+                        slug={Article.slug}
+                        avgRating={Number(Article.rating_average)}
+                      />
+                    </span>
                   </div>
                 </div>
               </div>
