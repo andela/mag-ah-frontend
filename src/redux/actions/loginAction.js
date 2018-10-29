@@ -65,7 +65,7 @@ export const Login = user => dispatch => {
 };
 
 export const Logout = () => dispatch => {
-  localStorage.removeItem("accessToken");
+  localStorage.removeItem("token");
   dispatch(logoutsuccessful());
-  history.push(`${Home}`);
+  history.push("/");
 };

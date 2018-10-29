@@ -23,7 +23,46 @@ const initialState = {
   username: null,
   email: null,
   isLogged: false,
-  loading: false
+  loading: false,
+  allArticles: {
+    articles: [],
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
+  },
+  singleArticle: {
+    article: {},
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
+  },
+  createArticle: {
+    message: "",
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
+  },
+  deleteArticle: {
+    message: "",
+    error: {},
+    fetching: false,
+    fetched: false,
+    success: false
+  },
+  viewArticle: {
+    article: {},
+    error: {}
+  },
+  editArticle: {
+    message: "",
+    error: {},
+    updating: false,
+    updated: false,
+    success: false
+  }
 };
 
 export default initialState;

@@ -1,4 +1,7 @@
-$bg-color: #f9f8f3;
+$facebook-color: #4065b4;
+$twitter-color: #55acee;
+$bg-color: #fbfbfb;
+$article-card-bg-color: #f9f8f3;
 $ah-primary-color: #000000;
 $ah-secondary-color: #e0e0d4;
 $ah-alternate-color: #ffde00;
@@ -10,12 +13,15 @@ $facebook-color: #3b5998;
 $facebook-color-hover: #1e3a74;
 $twitter-color: #1da1f2;
 $twitter-color-hover: #087bc2;
+
 body {
   background: $bg-color;
   margin: 0px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .btn-link {
@@ -26,117 +32,112 @@ body {
   color: $ah-primary-color;
   text-decoration: none;
 }
-  .App-link {
-    color: #61dafb;
-  }
+.App-link {
+  color: #61dafb;
+}
+.App {
+  min-height: 100vh;
+}
 
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-
-  .ah-facebook-button {
-    color: #ffffff;
-    background-color: $facebook-color;
-    padding: .375rem .75rem;
-    font-size: 1rem;
+  to {
+    transform: rotate(360deg);
   }
+}
 
-  .ah-twitter-button {
-    color: #ffffff;
-    background-color: $twitter-color;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-  }
+.ah-facebook-button {
+  color: #ffffff;
+  background-color: $facebook-color;
+}
 
-  .ah-google-button {
-    color: #ffffff;
-    background-color: $google-color;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-  }
+.ah-twitter-button {
+  color: #ffffff;
+  background-color: $twitter-color;
+}
 
-  .ah-facebook-button:hover {
-    background-color: $facebook-color-hover;
-  }
+.ah-google-button {
+  color: #ffffff;
+  background-color: $google-color;
+}
 
-  .ah-twitter-button:hover {
-    background-color: $twitter-color-hover;
-  }
+.ah-facebook-button:hover {
+  background-color: $facebook-color-hover;
+}
 
-  .ah-google-button:hover {
-    background-color: $google-color-hover;
-  }
+.ah-twitter-button:hover {
+  background-color: $twitter-color-hover;
+}
 
-  .ah-success-message {
-    font-size: 0.8rem;
-  }
+.ah-google-button:hover {
+  background-color: $google-color-hover;
+}
 
-  input[type='text'],
-  input[type='email'],
-  input[type='password'] {
-    font-size: 0.8rem;
-  }
+.ah-success-message {
+  font-size: 0.8rem;
+}
 
-  .card-body {
-    background-color: $bg-color;
-  }
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  font-size: 0.8rem;
+}
 
-  .card {
-    border: none;
-  }
+.card-body {
+  background-color: $article-card-bg-color;
+}
 
-  .card-text {
-    color: $ah-secondary-text-color;
-    font-size: 10pt;
-  }
+.card {
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
+  min-height: 400px;
+}
 
-  .card-title {
-    a {
-      text-decoration: none;
-      color: $ah-primary-color;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  }
+.card-text {
+  color: $ah-secondary-text-color;
+  font-size: 10pt;
+}
 
-  small a,
-  .ah-author-link {
-    color: $ah-primary-color;
-    text-decoration: underline;
-  }
-
-  small a:hover,
-  .ah-author-link:hover {
+.card-title {
+  a {
     text-decoration: none;
     color: $ah-primary-color;
-    background-color: $ah-alternate-color;
   }
+}
 
-  .ah-list-content {
-    line-height: 1;
-  }
+small a,
+.ah-author-link {
+  color: $ah-primary-color;
+  text-decoration: underline;
+}
 
-  .ah-jumbotron {
-    background-color: $ah-secondary-color;
-    padding: 0px;
-  }
+small a:hover,
+.ah-author-link:hover {
+  text-decoration: none;
+  color: $ah-primary-color;
+  background-color: $ah-alternate-color;
+}
 
-  .ah-jumbotron h1,
-  .navbar-brand {
-    font-size: 2.5rem;
-    font-family: 'Vidaloka', serif;
-  }
+.ah-list-content {
+  line-height: 1;
+}
 
-  .modal-content {
-    border: none;
-    border-radius: 0;
-  }
+.ah-jumbotron {
+  background-color: $ah-secondary-color;
+  padding: 0px;
+}
+
+.ah-jumbotron h1,
+.navbar-brand {
+  font-size: 2.5rem;
+  font-family: "Vidaloka", serif;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 0;
+}
 
 .modal-header {
   text-align: center;
@@ -147,369 +148,457 @@ body {
   font-size: 2rem;
   line-height: 2rem;
 }
+
 .modal-header .close {
-    padding: 1rem;
-    margin: -1rem;
-  }
-
-  .fa-facebook:hover,
-  .fa-twitter:hover,
-  .fa-envelope:hover,
-  .fa-flag:hover {
-    opacity: 0.7;
-    cursor: pointer;
-  }
-
-  .form-control {
-    border-radius: 0px;
-  }
-
-  .form-group {
-    border-radius: 0px;
-    border: none;
-  }
-
-  .form-group input:focus,
-  textarea:focus {
-    background-color: $bg-color;
-  }
-
-  .custom-file-label {
-    background-color: transparent;
-  }
-
-  .form-control:focus {
-    box-shadow: None;
-  }
-
-  .btn:focus,
-  .btn:active {
-    box-shadow: none;
-  }
-
-  .title {
-    font-weight: bold;
-    font-size: 2em;
-  }
-
-  .description {
-    font-size: 1.7em;
-  }
-
-  h6 a,
-  h6 a:hover {
-    color: $ah-primary-color;
-  }
-
-  .error {
-    border-color: red;
-  }
-
-  .ah-input-error {
-    font-size: 0.7rem;
-  }
-
-  .editLink a,
-  .footer a {
-    color: $ah-secondary-text-color;
-  }
-
-  fieldset,
-  label {
-    margin: 0;
-    padding: 0;
-  }
-
-  h1 {
-    font-size: 1.5em;
-    margin: 10px;
-  }
-
-  .rating {
-    border: none;
-    float: left;
-    margin-right: -20px;
-  }
-
-  .ah-rating-average {
-    font-family: 'Vidaloka', serif;
-    font-weight: bold;
-    font-size: 2rem;
-  }
-
-  .rating > input {
-    display: none;
-  }
-
-  .rating > label:before {
-    margin: 5px;
-    font-size: 1.25em;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: '\f005';
-  }
-
-  .rating > .half:before {
-    content: '\f089';
-    position: absolute;
-  }
-
-  .rating > label {
-    color: #ddd;
-    float: right;
-  }
-
-  @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-  fieldset,
-  label {
-    margin: 0;
-    padding: 0;
-  }
-
-  h1 {
-    font-size: 1.5em;
-    margin: 10px;
-  }
-
-  .rating {
-    border: none;
-    float: left;
-  }
-
-  .rating > input {
-    display: none;
-  }
-
-  .rating > label:before {
-    margin: 5px;
-    font-size: 1.25em;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: '\f005';
-  }
-
-  .rating > .half:before {
-    content: '\f089';
-    position: absolute;
-  }
-
-  .rating > label {
-    color: #ddd;
-    float: right;
-  }
-
-  .rating > input:checked ~ label,
-  .rating:not(:checked) > label:hover,
-  .rating:not(:checked) > label:hover ~ label {
-    color: $ah-alternate-color;
-  }
-
-  .rating > input:checked + label:hover,
-  .rating > input:checked ~ label:hover,
-  .rating > label:hover ~ input:checked ~ label,
-  .rating > input:checked ~ label:hover ~ label {
-    color: $ah-alternate-color;
-  }
-
-  .header {
-    display: block;
-  }
-
-  .article {
-    border-bottom: 1px solid rgb(238, 235, 235);
-    margin-bottom: 2px !important;
-  }
-
-  .likes a:hover,
-  .likes a {
-    background-color: $bg-color;
-    text-decoration: None;
-  }
-
-  .likes a {
-    margin-left: 6px;
-    text-decoration: None;
-  }
-
-  .text-success {
-    color: #91be69 !important;
-  }
-
-  .profile {
-    margin: 20px;
-  }
-
-  .ah-profile-card {
-    border: $ah-secondary-color 1px solid;
-    border-radius: 5px;
-  }
-
-  .ah-avatar {
-    width: 100px;
-    margin-right: 10px;
-  }
-
-  .card-body {
-    .fa-user-circle {
-      font-size: 6.8rem;
-      color: lightblue;
-    }
-  }
-  .modal-body .ah-err-msg {
-    color: red;
-  }
-  // The notification bell
-  .fa-bell {
-    color: $ah-secondary-text-color;
-    font-size: 25px;
-  }
-
-  .ah-notifications-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-  }
-
-  .dropdown-toggle::after {
-    display: none;
-  }
-  .navbar {
-    .fa-user-circle {
-      font-size: 2.0625rem;
-    }
-    .dropdown-menu {
-      right: 0;
-      left: auto;
-    }
-  }
-  // notification dropdown style
-  .notifications {
-    margin-right: 1rem;
-    .dropdown-menu {
-      min-width: 20rem;
-      font-size: 0.8125rem;
-      .dropdown-item {
-        white-space: normal;
-        // The placeholder user icon
-        .fa-user-circle {
-          color: lightblue;
-          font-size: 40px;
-        }
-        .fa-check {
-          color: green;
-          margin-right: 1rem;
-        }
-        p {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-  /** Comment section CSS **/
-
-  .comments {
-    border-color: rgb(238, 235, 235);
-    padding: 1rem;
-    margin: 1rem 0 2rem 0;
-    .fa-user-circle {
-      font-size: 3rem;
-    }
-    .col {
-      margin-top: 1.5rem;
-    }
-    .card-text {
-      font-size: 1rem;
-    }
-  }
-
-  .bookmark a {
-    margin-left: 6px;
-    text-decoration: None;
-    color: $ah-secondary-text-color;
-  }
-
-  .bookmark {
-    margin-left: 6px;
-    text-decoration: None;
-    color: $ah-secondary-text-color;
-  }
-
-  .bookmark:hover {
-    background-color: #fff !important;
-  }
-
-  .search-container {
-    margin-right: 1.5rem;
-    max-width: 300px;
-    .fas {
-      color: $ah-primary-color;
-      font-size: 1.375rem;
-    }
-    .search {
-      -webkit-transition: width 0.3s ease;
-      -moz-transition: width 0.3s ease;
-      -o-transition: width 0.3s ease;
-      transition: width 0.3s ease;
-    }
-  }
-
-  .filter-container {
-    margin-top: 1rem;
-    .applied-filters {
-      margin-left: 0.3125rem;
-      .alert {
-        padding: 2px 0.5rem;
-        border-radius: 1rem;
-      }
-      .filter-value:after {
-        content: '\2715';
-        padding-left: 0.5rem;
-        color: $ah-secondary-text-color;
-        font-size: 0.75rem;
-      }
-    }
-    .filter {
-      margin-top: 1.5rem;
-      input {
-        margin-bottom: 1rem;
-      }
-      .results {
-        padding: 1rem;
-      }
-      .reset-filters {
-        display: block;
-        margin-top: 1rem;
-      }
-    }
-  }
-
-  .tags {
-    font-size: 15px;
-    font-weight: 400;
-  }
-
-  .tags {
-    ul {
-      list-style: none;
-    }
-    li {
-      float: left;
-      display: block;
-      border: $ah-secondary-color 1px solid;
-      border-radius: 2px;
-    }
-    li a:hover {
-      text-decoration: none;
-    }
-    li a {
-      color: $ah-secondary-text-color;
-    }
-  }
-
-  .css-1sugtjn, [data-css-1sugtjn] {
-    z-index: 1060;
+  padding: 1rem;
+  margin: -1rem;
 }
 
-.btn-link.focus, .btn-link:focus {
-  text-decoration: none;
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-envelope:hover,
+.fa-flag:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+.form-group {
+  border-radius: 0px;
+  border: none;
+}
+
+.custom-file-label {
+  background-color: transparent;
+}
+
+.form-control:focus {
+  box-shadow: None;
+}
+
+.btn:focus,
+.btn:active {
+  box-shadow: none;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.description {
+  font-size: 1.7em;
+}
+
+h6 a,
+h6 a:hover {
+  color: $ah-primary-color;
+}
+
+.error {
+  border-color: red;
+}
+
+.ah-input-error {
+  font-size: 0.7rem;
+}
+
+.editLink a,
+.footer a {
+  color: $ah-secondary-text-color;
+}
+
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+.rating {
+  border: none;
+  float: left;
+  margin-right: -20px;
+}
+
+.ah-rating-average {
+  font-family: "Vidaloka", serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: $ah-alternate-color;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: $ah-alternate-color;
+}
+
+.header {
+  display: block;
+}
+
+.article {
+  .ah-article-body {
+    font-size: 1.0625rem;
+    font-weight: 500;
+  }
+  img {
+    height: 500px;
+    object-fit: cover;
+  }
+  font-family: "raleway", "sans";
+}
+
+.likes a:hover,
+.likes a {
+  background-color: $bg-color;
+  text-decoration: None;
+}
+
+.likes a {
+  margin-left: 6px;
+  text-decoration: None;
+}
+
+.text-success {
+  color: #91be69 !important;
+}
+
+.profile {
+  margin: 20px;
+}
+
+.ah-profile-card {
+  border: $ah-secondary-color 1px solid;
+  border-radius: 5px;
+}
+
+.ah-avatar {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.card-body {
+  .fa-user-circle {
+    font-size: 6.8rem;
+    color: lightblue;
+  }
+}
+.modal-body .ah-err-msg {
+  color: red;
+}
+// The notification bell
+.fa-bell {
+  color: $ah-secondary-text-color;
+  font-size: 25px;
+}
+
+.ah-notifications-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+.navbar {
+  .fa-user-circle {
+    font-size: 2.0625rem;
+  }
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+}
+// notification dropdown style
+.notifications {
+  margin-right: 1rem;
+  .dropdown-menu {
+    min-width: 20rem;
+    font-size: 0.8125rem;
+    .dropdown-item {
+      white-space: normal;
+      // The placeholder user icon
+      .fa-user-circle {
+        color: lightblue;
+        font-size: 40px;
+      }
+      .fa-check {
+        color: green;
+        margin-right: 1rem;
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+/** Comment section CSS **/
+
+.comments {
+  border-color: rgb(238, 235, 235);
+  padding: 1rem;
+  margin: 1rem 0 2rem 0;
+  .fa-user-circle {
+    font-size: 3rem;
+  }
+  .col {
+    margin-top: 1.5rem;
+  }
+  .card-text {
+    font-size: 1rem;
+  }
+}
+
+.bookmark a {
+  margin-left: 6px;
+  text-decoration: None;
+  color: $ah-secondary-text-color;
+}
+
+.bookmark {
+  margin-left: 6px;
+  text-decoration: None;
+  color: $ah-secondary-text-color;
+}
+
+.bookmark:hover {
+  background-color: #fff !important;
+}
+
+.search-container {
+  margin-right: 1.5rem;
+  max-width: 300px;
+  .fas {
+    color: $ah-primary-color;
+    font-size: 1.375rem;
+  }
+  .search {
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+  }
+}
+
+.filter-container {
+  margin-top: 1rem;
+  .applied-filters {
+    margin-left: 0.3125rem;
+    .alert {
+      padding: 2px 0.5rem;
+      border-radius: 1rem;
+    }
+    .filter-value:after {
+      content: "\2715";
+      padding-left: 0.5rem;
+      color: $ah-secondary-text-color;
+      font-size: 0.75rem;
+    }
+  }
+  .filter {
+    margin-top: 1.5rem;
+    input {
+      margin-bottom: 1rem;
+    }
+    .results {
+      padding: 1rem;
+    }
+    .reset-filters {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.tags {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.tags {
+  ul {
+    list-style: none;
+  }
+  li {
+    float: left;
+    display: block;
+    border: $ah-secondary-color 1px solid;
+    border-radius: 2px;
+  }
+  li a:hover {
+    text-decoration: none;
+  }
+
+  .css-1sugtjn,
+  [data-css-1sugtjn] {
+    z-index: 1060;
+  }
+
+  .btn-link.focus,
+  .btn-link:focus {
+    text-decoration: none;
+  }
+  li a {
+    color: $ah-secondary-text-color;
+  }
+}
+
+.ah-editor-field {
+  border: none;
+  background: none;
+}
+
+.ah-editor-field:focus {
+  border: none;
+  background: none;
+}
+
+.ah-article-title {
+  font-size: 2rem !important;
+  font-weight: bold;
+}
+
+.ah-article-description {
+  font-size: 1.5rem !important;
+  font-weight: bolder;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #a09f9d87;
+}
+.form-control:-moz-placeholder {
+  color: #a09f9d87;
+}
+.form-control::-moz-placeholder {
+  color: #a09f9d87;
+}
+.form-control:-ms-input-placeholder {
+  color: #a09f9d87;
+}
+.form-control::-ms-input-placeholder {
+  color: #a09f9d87;
+}
+
+.ah-editor-container {
+  background-color: $article-card-bg-color;
+}
+
+.form-group {
+  input[type="text"]:focus {
+    background: none;
+  }
+}
+
+.ah-main-article-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-family: "Vidaloka";
+  a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: $ah-primary-color;
+    font-weight: 200;
+  }
+}
+
+.ah-main-article-description {
+  font-size: 1.1875rem;
+}
+.ah-main-article-body {
+  font-size: 1.1875rem;
+  line-height: 200%;
+}
+
+.ah-navbar {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.ah-page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.ah-dropdown-arrow:hover {
+  cursor: pointer;
+}
+
+.ah-header-container {
+  width: 90%;
 }

@@ -1,9 +1,6 @@
 import React from "react";
+import Articles from "../../components/articles/Articles";
 
-const Home = () => (
-  <div className="container">
-    <p className="ml-3">Welcome to Authors Haven</p>
-  </div>
-);
+const Home = () => <Articles />;
 
 export default Home;
