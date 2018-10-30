@@ -102,6 +102,11 @@ class SingleArticle extends React.Component {
         <div className="row">
           <div className="mt-3">
             <div className="ah-main-article-body">{Article.body}</div>
+            <div className="ah-main-article-body">
+              {Article.article_tags.map(tag => (
+                <span className="badge badge-success mr-2">{tag}</span>
+              ))}
+            </div>
           </div>
         </div>
         <Comments slug={Article.slug} />

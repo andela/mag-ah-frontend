@@ -1,7 +1,6 @@
 import React from "react";
 import Enzyme, { mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { Provider } from "react-redux";
 import expect from "expect";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
@@ -16,25 +15,46 @@ const store = mockStore({});
 const props = {
   avgRating: 0,
   slug: "",
-  postRatings: jest.fn()
+  postRatings: jest.fn(),
+  store
 };
 
 describe("Renders <RatingStars /> correctly", () => {
-  const wrapper = mount(
-    <Provider store={store}>
-      <RatingStars {...props} />
-    </Provider>
-  );
+  const wrapper = mount(<RatingStars {...props} />);
+  const children = wrapper.children();
+  const starRater = children.find("StarRatingComponent");
+  const star = starRater.find(".dv-star-rating-star").last();
+  const container = wrapper.find(".ahStarRating");
 
   it("renders StarRatingComponent component", () => {
-    expect(wrapper.find(".ahStarRating").length).toEqual(1);
+    expect(container.length).toEqual(1);
   });
 
   it("renders <StarRatingComponent />", () => {
     expect(wrapper.find("StarRatingComponent").length).toEqual(1);
   });
 
-  it("renders with the prop avgRating and assigns it a value", () => {
-    expect(wrapper.props().children.props.avgRating).toEqual(0);
+  it("sets state of value on hover", () => {
+    star.simulate("mouseover");
+    expect(children.state("rating")).toEqual(1);
+  });
+
+  it("returns to rating 0 on mouse leave if avg_rating is not set", () => {
+    wrapper.setProps({ avgRating: 5 });
+    star.simulate("mouseLeave");
+    container.simulate("mouseleave");
+    expect(children.state("rating")).toEqual(5);
+  });
+
+  it("returns to rating 0 on mouse leave if avg_rating is not set", () => {
+    wrapper.setProps({ avgRating: null });
+    star.simulate("mouseLeave");
+    container.simulate("mouseleave");
+    expect(children.state("rating")).toEqual(0);
+  });
+
+  it("calls the postRating function", () => {
+    star.simulate("click");
+    expect(store.getActions()).toContainEqual({ type: "START_FETCH" });
   });
 });

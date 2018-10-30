@@ -674,3 +674,12 @@ h1 {
 .disabled {
   pointer-events: none !important;
 }
+
+.react-tagsinput--focused {
+  border-color: rgba(49, 163, 74, 0.4);
+}
+
+.react-tagsinput{
+  border-radius: 3px;
+  margin-bottom: 15px;
+}

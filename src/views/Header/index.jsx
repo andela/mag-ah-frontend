@@ -14,7 +14,11 @@ import history from "../../routes/history";
 
 class AHHeader extends Component {
   componentDidMount() {
-    if (window.location.pathname && window.location.pathname === "/login") {
+    if (
+      document.querySelector("#signInButton") &&
+      window.location.pathname &&
+      window.location.pathname === "/login"
+    ) {
       document.querySelector("#signInButton").click();
     }
     if (

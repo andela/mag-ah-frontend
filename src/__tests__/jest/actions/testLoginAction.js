@@ -1,8 +1,11 @@
 import moxios from "moxios";
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
-import * as types from "../../redux/action_types";
-import { loginError, loginSuccessful } from "../../redux/actions/loginAction";
+import * as types from "../../../redux/action_types";
+import {
+  loginError,
+  loginSuccessful
+} from "../../../redux/actions/loginAction";
 
 const middleware = [thunk];
 const mockstore = configureMockStore(middleware);
