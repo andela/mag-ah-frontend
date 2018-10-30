@@ -5,6 +5,7 @@ import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import viewSingleArticle from "../../redux/actions/viewSingleArticle";
 import Share from "../../views/Article/share";
+import RatingStars from "./RateArticle";
 
 TimeAgo.locale(en);
 const timeAgo = new TimeAgo("en-US");
@@ -51,6 +52,12 @@ class SingleArticle extends React.Component {
                     <span className="badge badge-pill badge-light text-muted">
                       {Article.time_to_read} read
                     </span>
+                  </div>
+                  <div className="d-flex pl-2 mt-0">
+                    <RatingStars
+                      slug={Article.slug}
+                      avgRating={Number(Article.rating_average)}
+                    />
                   </div>
                 </div>
               </div>

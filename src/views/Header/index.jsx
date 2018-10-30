@@ -10,6 +10,7 @@ import ResetPassword from "../Login/PasswordReset";
 import AuthButton from "../../components/auth/AuthButton";
 import LoginPage from "../../components/auth/login";
 import ForgotPasswordComp from "../../components/auth/ForgotPasswordComp";
+import history from "../../routes/history";
 
 class AHHeader extends Component {
   componentDidMount() {
@@ -20,7 +21,11 @@ class AHHeader extends Component {
       window.location.pathname &&
       window.location.pathname === "/reset-password/"
     ) {
-      document.querySelector("#newPassword").click();
+      if (document.querySelector("#newPassword")) {
+        document.querySelector("#newPassword").click();
+      } else {
+        history.push("/");
+      }
     }
   }
 

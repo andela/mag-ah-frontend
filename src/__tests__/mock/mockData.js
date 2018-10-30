@@ -19,3 +19,8 @@ export const authenticatedUser = {
   isLogged: true,
   loading: false
 };
+
+export const errors = {
+  errors: "I am a response error",
+  serverError: "Something is wrong with the server"
+};
