@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import viewSingleArticle from "../../redux/actions/viewSingleArticle";
-import Share from "./share";
+import Share from "../../views/Article/share";
 
 TimeAgo.locale(en);
 const timeAgo = new TimeAgo("en-US");

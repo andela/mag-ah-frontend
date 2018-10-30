@@ -10,10 +10,10 @@ import article from "../../mock/article";
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
+let mock;
 let store;
 
 describe("Article Action tests", () => {
-  let mock;
   const baseUrl = config.BASE_URL;
   const slug = "dummy";
   beforeEach(() => {

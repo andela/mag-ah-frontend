@@ -12,18 +12,17 @@ const initialState = {
 const action = { payload: {} };
 
 describe("Article reducer test", () => {
-  it("should return initial test when no test", () => {
+  it("should return initial state when no article has been provided", () => {
     expect(articleReducer(initialState, action)).toEqual(initialState);
   });
-});
 
-describe("Article reducer test", () => {
-  it("should handle article reducer", () => {
+  it("should handle article success in reducer ", () => {
     action.type = VIEW_ARTICLE;
     expect(articleReducer(initialState.viewArticle, action).article).toEqual(
       action.payload
     );
   });
+
   it("should handle article error in reducer", () => {
     action.type = SERVER_ERROR;
     expect(articleReducer(initialState.viewArticle, action).error).toEqual(
