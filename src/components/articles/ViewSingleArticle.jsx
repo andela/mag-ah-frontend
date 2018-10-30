@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import viewSingleArticle from "../../redux/actions/viewSingleArticle";
+import Share from "../../views/Article/share";
 
 TimeAgo.locale(en);
 const timeAgo = new TimeAgo("en-US");
@@ -52,6 +53,20 @@ class SingleArticle extends React.Component {
                     </span>
                   </div>
                 </div>
+              </div>
+              <div className="d-flex align-items-end mt-4">
+                <Share
+                  url={Article.share_urls.twitter}
+                  className="fab fa-lg fa-twitter share-feed"
+                />
+                <Share
+                  url={Article.share_urls.facebook}
+                  className="fab fa-lg fa-facebook share-feed ml-4"
+                />
+                <Share
+                  url={Article.share_urls.email}
+                  className="fas fa-lg fa-envelope share-feed"
+                />
               </div>
             </div>
           </div>
