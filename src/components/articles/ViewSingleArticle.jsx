@@ -6,6 +6,7 @@ import en from "javascript-time-ago/locale/en";
 import viewSingleArticle from "../../redux/actions/viewSingleArticle";
 import Share from "../../views/Article/share";
 import RatingStars from "./RateArticle";
+import Comments from "./Comments";
 
 TimeAgo.locale(en);
 const timeAgo = new TimeAgo("en-US");
@@ -90,6 +91,7 @@ class SingleArticle extends React.Component {
             <div className="ah-main-article-body">{Article.body}</div>
           </div>
         </div>
+        <Comments slug={Article.slug} />
       </div>
     );
   }
