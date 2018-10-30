@@ -37,23 +37,27 @@ class Articles extends Component {
     return (
       <div className="container">
         <div className="ah-page-title pt-4 pb-4">Your Stories</div>
-        {articles.map(article => (
-          <FlatArticle
-            slug={article.slug}
-            key={article.slug}
-            title={article.title}
-            description={article.description}
-            publishedAt={article.published_at}
-            handleDelete={() => this.handleDelete(article.slug)}
-          />
-        ))}
+        {articles.results && (
+          <div>
+            {articles.results.map(article => (
+              <FlatArticle
+                slug={article.slug}
+                key={article.slug}
+                title={article.title}
+                description={article.description}
+                publishedAt={article.published_at}
+                handleDelete={() => this.handleDelete(article.slug)}
+              />
+            ))}
+          </div>
+        )}
       </div>
     );
   }
 }
 
 Articles.propTypes = {
-  articles: PropTypes.arrayOf(PropTypes.object),
+  articles: PropTypes.shape,
   fetch: PropTypes.func.isRequired,
   trash: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
@@ -61,12 +65,12 @@ Articles.propTypes = {
 };
 
 Articles.defaultProps = {
-  articles: []
+  articles: () => {}
 };
 
 const mapStateToProps = ({ deleteArticleReducer, allArticlesReducer }) => {
   const { articles } = allArticlesReducer || {
-    articles: []
+    articles: {}
   };
   const { success } = deleteArticleReducer || { success: false };
   return {

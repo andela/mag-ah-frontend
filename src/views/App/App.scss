@@ -637,7 +637,9 @@ h1 {
 }
 
 .ah-header-container {
-  width: 90%;
+  width: 90% !important;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .ahStarRating {
@@ -667,4 +669,8 @@ h1 {
 
 .ah-badge-light {
   background-color: $bg-color !important;
+}
+
+.disabled {
+  pointer-events: none !important;
 }

@@ -14,7 +14,7 @@ const mockStore = configureStore(middleware);
 const store = mockStore({});
 
 const props = {
-  articles: [],
+  articles: {},
   fetching: true,
   fetchArticles: jest.fn()
 };
@@ -26,9 +26,8 @@ describe("Renders <Articles /> correctly", () => {
     </Provider>
   );
 
-  it("renders row when articles is not empty", () => {
-    wrapper.setProps({ article: articlesMockData.Articles.results });
-
-    expect(wrapper.find(".row").exists()).toBe(true);
+  it("renders Articles when articles is not empty", () => {
+    wrapper.setProps({ article: articlesMockData.Articles });
+    expect(wrapper.find("Articles").exists()).toBe(true);
   });
 });

@@ -11,7 +11,7 @@ import {
 import articlesMockData from "../../mock/articles";
 import config from "../../../config";
 
-const articles = articlesMockData.Articles.results;
+const articles = articlesMockData.Articles;
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
 let store;

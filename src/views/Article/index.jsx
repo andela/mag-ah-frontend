@@ -23,7 +23,7 @@ const ArticleCard = ({
         height="250"
       />
       <div className="card-body d-flex flex-column">
-        <h5 className="card-title">
+        <h5 className="card-title text-truncate">
           <a href={`articles/${slug}`}>{title}</a>
         </h5>
         <p className="card-text">{description}</p>

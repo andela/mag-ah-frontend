@@ -13,7 +13,7 @@ const mockStore = configureStore(middleware);
 const store = mockStore({});
 
 const props = {
-  articles: []
+  articles: {}
 };
 
 describe("Renders <Articles /> correctly", () => {
@@ -24,7 +24,7 @@ describe("Renders <Articles /> correctly", () => {
   });
 
   it("renders <Articles/> when articles is not empty", () => {
-    wrapper.setProps({ articles: articlesMockData.Articles.results });
+    wrapper.setProps({ articles: articlesMockData.Articles });
     expect(wrapper.find("Articles").exists()).toBe(true);
   });
 });

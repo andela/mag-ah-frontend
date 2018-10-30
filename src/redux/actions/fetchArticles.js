@@ -3,7 +3,7 @@ import { ARTICLE_FETCH_SUCCESS, ARTICLE_FETCH_ERROR } from "../action_types";
 import { startFetch } from "./common";
 import config from "../../config";
 
-const url = `${config.BASE_URL}/articles/`;
+let url = `${config.BASE_URL}/articles/`;
 
 /**
  * Article fetch success
@@ -27,18 +27,31 @@ export const articleFetchError = error => ({
   error
 });
 
-export const fetchArticles = (username = null) => async dispatch => {
+export const fetchArticles = (
+  username = null,
+  paginationUrl = null
+) => async dispatch => {
   let response;
   dispatch(startFetch);
+
+  if (paginationUrl) {
+    url = paginationUrl;
+  }
   try {
     if (username) {
-      response = await axios.get(
-        `${url}?author__username__icontains=${username}`
-      );
+      if (paginationUrl) {
+        response = await axios.get(
+          `${paginationUrl}&&author__username__icontains=${username}`
+        );
+      } else {
+        response = await axios.get(
+          `${url}?author__username__icontains=${username}`
+        );
+      }
     } else {
       response = await axios.get(url);
     }
-    dispatch(articleFetchSuccess(response.data.Articles.results));
+    dispatch(articleFetchSuccess(response.data.Articles));
   } catch (error) {
     dispatch(articleFetchError(error.message));
   }
