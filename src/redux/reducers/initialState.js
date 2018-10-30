@@ -73,6 +73,13 @@ const initialState = {
     fetching: false,
     fetched: false,
     success: false
+  },
+  likeDislike: {
+    likeMessage: "",
+    dislikeMessage: "",
+    liked: false,
+    disliked: false,
+    error: ""
   }
 };
 

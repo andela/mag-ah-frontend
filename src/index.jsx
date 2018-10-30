@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import "popper.js/dist/popper.min";
 import "bootstrap/dist/js/bootstrap.min";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "animate.css/animate.min.css";
 import App from "./views/App";
 import * as serviceWorker from "./serviceWorker";
 import store from "./redux/store/store";
