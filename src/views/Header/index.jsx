@@ -97,30 +97,30 @@ class AHHeader extends Component {
       </nav>
     ) : (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light p-0">
-          <div className="container">
+        <nav className="ah-navbar navbar navbar-expand-lg navbar-light mb-4">
+          <div className="ah-header-container  d-flex justify-content-between mr-auto ml-auto">
             <Router>
               <a href="/" className="navbar-brand font-weight-bold">
                 Authors&apos; Haven
               </a>
             </Router>
-            <div
-              className="btn-toolbar"
-              role="toolbar"
-              aria-label="Toolbar with button groups"
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarTogglerDemo03"
+              aria-controls="navbarTogglerDemo03"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
-              <div
-                className="btn-group mr-2"
-                role="group"
-                aria-label="Second group"
-              >
-                <div
-                  className="btn-group"
-                  role="group"
-                  aria-label="Third group"
-                >
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+              <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li className="nav-item active">
                   <AuthButton isAuthenticated={false} />
-
+                </li>
+                <li className="nav-item">
                   <Button
                     className="btn btn-outline-success rounded"
                     type="button"
@@ -128,21 +128,16 @@ class AHHeader extends Component {
                     dataToggle="modal"
                     label="Get Started"
                   />
-                  <Button
-                    id="newPassword"
-                    className="d-none"
-                    type="button"
-                    dataTarget="#ahNewPasswordModal"
-                    dataToggle="modal"
-                    label="Reset password"
-                  />
-                  <div
-                    className="btn-group mr-2"
-                    role="group"
-                    aria-label="Second group"
-                  />
-                </div>
-              </div>
+                </li>
+                <Button
+                  id="newPassword"
+                  className="d-none"
+                  type="button"
+                  dataTarget="#ahNewPasswordModal"
+                  dataToggle="modal"
+                  label="Reset password"
+                />
+              </ul>
             </div>
           </div>
         </nav>

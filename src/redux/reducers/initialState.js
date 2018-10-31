@@ -25,7 +25,7 @@ const initialState = {
   isLogged: false,
   loading: false,
   allArticles: {
-    articles: [],
+    articles: {},
     error: {},
     fetching: false,
     fetched: false,
