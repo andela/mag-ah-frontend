@@ -10,19 +10,20 @@ import { clearState } from "../../redux/actions/common";
 let currentUser;
 if (localStorage.getItem("token")) {
   currentUser = jwtDecode(localStorage.getItem("token"));
+  currentUser = currentUser.username;
 }
 
 class Articles extends Component {
   componentDidMount() {
     const { fetch } = this.props;
-    fetch(currentUser.username);
+    fetch(currentUser);
   }
 
   componentDidUpdate() {
     const { success } = this.props;
     if (success) {
       const { fetch, reset } = this.props;
-      fetch(currentUser.username);
+      fetch(currentUser);
       reset();
     }
   }

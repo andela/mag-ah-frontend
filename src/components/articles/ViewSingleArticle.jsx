@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import TimeAgo from "javascript-time-ago";
+import jwtDecode from "jwt-decode";
 import en from "javascript-time-ago/locale/en";
 import viewSingleArticle from "../../redux/actions/viewSingleArticle";
 import Share from "../../views/Article/share";
@@ -12,6 +13,12 @@ import Dislike from "./Dislike";
 
 TimeAgo.locale(en);
 const timeAgo = new TimeAgo("en-US");
+let currentUser;
+
+if (localStorage.getItem("token")) {
+  currentUser = jwtDecode(localStorage.getItem("token"));
+  currentUser = currentUser.username;
+}
 
 class SingleArticle extends React.Component {
   componentDidMount() {
@@ -110,6 +117,14 @@ class SingleArticle extends React.Component {
           </div>
         </div>
         <Comments slug={Article.slug} />
+        {currentUser === Article.author && (
+          <a
+            className="align-middle ah-floatingButton badge badge-primary rounded-circle"
+            href={`/articles/${Article.slug}/update`}
+          >
+            <i className="fas fa-pencil-alt" />
+          </a>
+        )}
       </div>
     );
   }
