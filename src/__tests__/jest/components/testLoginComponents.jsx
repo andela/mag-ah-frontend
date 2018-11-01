@@ -4,7 +4,7 @@ import Adapter from "enzyme-adapter-react-16";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
-import LoginPage from "../../components/auth/login";
+import LoginPage from "../../../components/auth/login";
 
 Enzyme.configure({ adapter: new Adapter() });
 

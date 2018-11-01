@@ -5,12 +5,14 @@ import { TextInput, TextArea, SubmitButton } from "../../views/Form";
 import viewSingleArticle from "../../redux/actions/viewSingleArticle";
 import updateArticle from "../../redux/actions/editArticle";
 import { clearError } from "../../redux/actions/common";
+import ArticleTags from "./ArticleTags";
 
 class UpdateArticle extends React.Component {
   state = {
     title: "",
     description: "",
     body: "",
+    tags: [],
     loaded: false
   };
 
@@ -27,7 +29,8 @@ class UpdateArticle extends React.Component {
         loaded: true,
         title: nextProps.article.Article.title,
         description: nextProps.article.Article.description,
-        body: nextProps.article.Article.body
+        body: nextProps.article.Article.body,
+        tags: nextProps.article.Article.article_tags
       }));
     }
   }
@@ -40,21 +43,33 @@ class UpdateArticle extends React.Component {
     dispatch(clearError());
   };
 
+  handleTags = tags => {
+    const { article } = this.state;
+    this.setState({
+      tags,
+      article: {
+        ...article,
+        tags: tags.join()
+      }
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
-    const { title, body, description } = this.state;
+    const { title, body, description, tags } = this.state;
     const { dispatch, match } = this.props;
     dispatch(
       updateArticle(match.params.slug, {
         title,
         body,
-        description
+        description,
+        tags: tags.join()
       })
     );
   };
 
   render() {
-    const { title, body, description } = this.state;
+    const { title, body, description, tags } = this.state;
     const { updating, error } = this.props;
     return (
       <div className="container">
@@ -105,6 +120,8 @@ class UpdateArticle extends React.Component {
                   required
                   rows={8}
                 />
+                <ArticleTags handleTags={this.handleTags} tags={tags} />
+
                 <SubmitButton
                   label="Update"
                   type="submit"
@@ -135,8 +152,8 @@ UpdateArticle.defaultProps = {
 
 const mapStateToProps = ({ editArticle, getArticle }) => {
   const { updating, error } = editArticle || {
-    updating: null,
-    error: null
+    updating: false,
+    error: {}
   };
   const { article } = getArticle || {
     article: {}

@@ -4,9 +4,9 @@ import moxios from "moxios";
 import Adapter from "enzyme-adapter-react-16";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { ForgotPassword } from "../../components/auth/ForgotPasswordComp";
-import { FORGOT_PWD } from "../../redux/action_types";
-import { forgotPassword } from "../../redux/actions/ForgotPasswordAction";
+import { ForgotPassword } from "../../../components/auth/ForgotPasswordComp";
+import { FORGOT_PWD } from "../../../redux/action_types";
+import { forgotPassword } from "../../../redux/actions/ForgotPasswordAction";
 
 Enzyme.configure({ adapter: new Adapter() });
 const middlewares = [thunk];
@@ -54,14 +54,17 @@ describe("forgotPassword component", () => {
   });
 
   it("renders an info component for displaying message", () => {
-    expect(wrapper.find("p.info").length).toBe(2);
+    expect(wrapper.find("p.info").length).toBe(1);
   });
 
   it("Email input field should respond to change event and change the state of the component", () => {
     wrapper.find("#email").simulate("change", {
       target: { name: "email", value: "test@gmail.com" }
     });
-    expect(wrapper.state("user")).toEqual({ email: "test@gmail.com" });
+    expect(wrapper.state("user")).toEqual({
+      client_url: "http://localhost/",
+      email: "test@gmail.com"
+    });
   });
 
   it("Reset password link button should respond to submit event", () => {

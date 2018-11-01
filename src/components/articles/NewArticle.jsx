@@ -4,13 +4,16 @@ import PropTypes from "prop-types";
 import { TextInput, TextArea, SubmitButton } from "../../views/Form";
 import { createArticle } from "../../redux/actions/createArticle";
 import { clearError } from "../../redux/actions/common";
+import ArticleTags from "./ArticleTags";
 
 class NewArticle extends React.Component {
   state = {
+    tags: [],
     article: {
       title: "",
       description: "",
-      body: ""
+      body: "",
+      tags: ""
     }
   };
 
@@ -30,6 +33,17 @@ class NewArticle extends React.Component {
     dispatch(createArticle(article));
   };
 
+  handleTags = tags => {
+    const { article } = this.state;
+    this.setState({
+      tags,
+      article: {
+        ...article,
+        tags: tags.join()
+      }
+    });
+  };
+
   changeHandle(article, name, value) {
     this.setState({
       article: {
@@ -40,7 +54,7 @@ class NewArticle extends React.Component {
   }
 
   render() {
-    const { article } = this.state;
+    const { article, tags } = this.state;
     const { error, fetching } = this.props;
     return (
       <div className="container">
@@ -91,6 +105,7 @@ class NewArticle extends React.Component {
                   required
                   rows={8}
                 />
+                <ArticleTags handleTags={this.handleTags} tags={tags} />
                 <SubmitButton
                   label="Publish"
                   type="submit"

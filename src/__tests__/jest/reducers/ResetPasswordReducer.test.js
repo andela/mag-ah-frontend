@@ -1,5 +1,5 @@
-import reducer from "../../redux/reducers/ResetPassword";
-import * as types from "../../redux/action_types";
+import reducer from "../../../redux/reducers/ResetPassword";
+import * as types from "../../../redux/action_types";
 
 describe("password reset reducers", () => {
   it("should return initial state", () => {

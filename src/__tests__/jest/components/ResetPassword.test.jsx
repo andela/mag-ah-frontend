@@ -1,10 +1,10 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { ResetPassword } from "../../components/auth/ResetPassword";
+import { ResetPassword } from "../../../components/auth/ResetPassword";
 
 Enzyme.configure({ adapter: new Adapter() });
-const props = { dispatch: jest.fn(), message: {} };
+const props = { dispatch: jest.fn(), message: {}, error: {} };
 
 describe("forgotPassword component", () => {
   it("renders without crashing", () => {
@@ -27,7 +27,7 @@ describe("forgotPassword component", () => {
       wrapper.find("#password").simulate("change", {
         target: { name: "password", value: "newpassword" }
       });
-      wrapper.find("#confirm_password").simulate("change", {
+      wrapper.find("#confirmPassword").simulate("change", {
         target: { name: "confirm_password", value: "newpassword" }
       });
 
