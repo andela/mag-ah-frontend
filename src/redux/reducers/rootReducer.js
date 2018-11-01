@@ -10,6 +10,7 @@ import articleRatingReducer from "./articleRatingReducer";
 import commentsReducer from "./commentsReducer";
 import likeDislikeReducer from "./likeDislikeReducer";
 import profileReducer from "./profileReducer";
+import notifications from "./notificationsReducer";
 
 export default combineReducers({
   authSignup: authReducer,
@@ -22,5 +23,6 @@ export default combineReducers({
   rateArticle: articleRatingReducer,
   commentsReducer,
   likeDislikeReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  NotificationReducer: notifications
 });

@@ -81,7 +81,8 @@ const initialState = {
     disliked: false,
     error: ""
   },
-  profile: {}
+  profile: {},
+  notifications: []
 };
 
 export default initialState;
