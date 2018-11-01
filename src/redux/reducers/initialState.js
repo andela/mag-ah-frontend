@@ -82,7 +82,11 @@ const initialState = {
     error: ""
   },
   profile: {},
-  notifications: []
+  notifications: [],
+  notificationOpt: {
+    message: "",
+    error: ""
+  }
 };
 
 export default initialState;

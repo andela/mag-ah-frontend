@@ -36,6 +36,7 @@
     "react-spinners": "^0.4.5",
     "react-star-rating-component": "^1.4.1",
     "react-tagsinput": "^3.19.0",
+    "react-switch": "^3.0.4",
     "react-twitter-auth": "0.0.12",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",

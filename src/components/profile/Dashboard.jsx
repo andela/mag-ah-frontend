@@ -2,17 +2,48 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import Switch from "react-switch";
+import jwtDecode from "jwt-decode";
 import { getCurrentProfile } from "../../redux/actions/profileActions";
+import { optNotification } from "../../redux/actions/notificationOpt";
 
+let currentUser;
+if (localStorage.getItem("token")) {
+  currentUser = jwtDecode(localStorage.getItem("token"));
+}
 class Dashboard extends Component {
+  state = {
+    checked: true,
+    loaded: false
+  };
+
   componentDidMount() {
     const { getProfile } = this.props;
     getProfile();
+    this.setState({ loaded: true });
   }
+
+  componentWillReceiveProps(nextProps) {
+    const { loaded } = this.state;
+    if (loaded) {
+      this.setState(state => ({
+        ...state,
+        checked: nextProps.profile.response.profile.app_notification_enabled,
+        loaded: false
+      }));
+    }
+  }
+
+  handleChange = checked => {
+    const { notificationOpt } = this.props;
+    notificationOpt();
+    this.setState({ checked });
+  };
 
   render() {
     const { profile, loading } = this.props;
+    const { checked } = this.state;
+
     let dashboardContent;
     if (profile == null || loading) {
       dashboardContent = (
@@ -60,6 +91,19 @@ class Dashboard extends Component {
                     48 Followers
                   </small>{" "}
                 </div>
+                {currentUser.username === profile.response.profile.username && (
+                  <div className="col-sm-12 d-flex">
+                    <small className="d-flex align-items-center mt-2">
+                      Turn notifications on/off
+                      <Switch
+                        className="ml-4"
+                        onChange={this.handleChange}
+                        checked={checked}
+                        id="normal-switch"
+                      />
+                    </small>
+                  </div>
+                )}
               </div>
             </div>
             <div className="col-sm-4 float-right mt-3">
@@ -95,6 +139,7 @@ class Dashboard extends Component {
 
 Dashboard.propTypes = {
   getProfile: PropTypes.func.isRequired,
+  notificationOpt: PropTypes.func.isRequired,
   profile: PropTypes.instanceOf(Object).isRequired,
   loading: PropTypes.bool.isRequired
 };
@@ -106,5 +151,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getProfile: getCurrentProfile }
+  { getProfile: getCurrentProfile, notificationOpt: optNotification }
 )(Dashboard);
