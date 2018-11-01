@@ -21,29 +21,34 @@ describe("Follow and unFollow reducer test", () => {
       initialState
     );
   });
+
   it("should handle when follow is default", () => {
     expect(
       followUnfollowReducer(initialState.followUnfollow, action).follow
     ).toEqual(false);
   });
+
   it("should handle successful follow ", () => {
     action.type = FOLLOW_SUCCESS;
     expect(
       followUnfollowReducer(initialState.followUnfollow, action).follow
     ).toEqual(true);
   });
+
   it("should handle successful unfollw", () => {
     action.type = UNFOLLOW_SUCCESS;
     expect(
       followUnfollowReducer(initialState.followUnfollow, action).follow
     ).toEqual(false);
   });
+
   it("should check if following is true", () => {
     action.type = FOLLOWING;
     expect(
       followUnfollowReducer(initialState.followUnfollow, action).follow
     ).toEqual(true);
   });
+
   it("should check if isfollowing is false", () => {
     action.type = NOT_FOLLOWING;
     expect(

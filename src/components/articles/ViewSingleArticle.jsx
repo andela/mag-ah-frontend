@@ -79,6 +79,11 @@ class SingleArticle extends React.Component {
                       <a className="ah-author-link font-weight-bold" href="/">
                         {Article.author}
                       </a>
+                      <FollowUnfollowButton
+                        className="btn btn-outline-success ah-follow-button pt-0 pb-0 pl-2 pr-2 ml-2"
+                        label={follow ? "Following" : "Follow"}
+                        onclick={event => this.handleClick(event)}
+                      />
                     </small>
                   </div>
                   <div className="d-flex">
@@ -110,10 +115,6 @@ class SingleArticle extends React.Component {
                 </div>
               </div>
               <div className="d-flex" />
-              <FollowUnfollowButton
-                label={follow ? "Unfollow" : "Follow"}
-                onclick={event => this.handleClick(event)}
-              />
               <div className="d-flex align-items-end mt-4">
                 <Share
                   url={Article.share_urls.twitter}
@@ -162,11 +163,15 @@ class SingleArticle extends React.Component {
   }
 }
 
+SingleArticle.defaultProps = {
+  follow: false
+};
+
 SingleArticle.propTypes = {
   article: PropTypes.shape().isRequired,
   match: PropTypes.shape(() => {}).isRequired,
   dispatch: PropTypes.func.isRequired,
-  follow: PropTypes.bool.isRequired
+  follow: PropTypes.bool
 };
 
 const mapStateToProps = ({ getArticle, followReducer }) => {

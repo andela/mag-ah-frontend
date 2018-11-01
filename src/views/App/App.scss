@@ -679,10 +679,18 @@ h1 {
   border-radius: 3px;
   margin-bottom: 15px;
 }
+.ah-follow-button{
+  font-size: 0.8rem;
+  padding-top: 0.1em !important;
+  padding-bottom: 0.1em !important;
+}
+.overflow-wrap {
+  overflow-wrap: break-word;
+}
   .overflow-wrap {
     overflow-wrap: break-word;
    }
-   
+
 
 .ah-floatingButton {
   position: fixed;

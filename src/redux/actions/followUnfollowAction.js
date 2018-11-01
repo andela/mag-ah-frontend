@@ -28,18 +28,15 @@ export const followStatus = author => async dispatch => {
     }
   );
   const currentUser = jwtDecode(token).username;
-  if (allFollowers.data !== undefined || allFollowers.data.length !== 0) {
-    const profiles = allFollowers.data.find(
-      profile => profile.username === currentUser
-    );
-    if (profiles) {
-      following();
-    } else {
-      notFollowing();
-    }
-  } else {
-    notFollowing();
-  }
+  const checkData =
+    allFollowers.data !== undefined || allFollowers.data.length !== 0;
+  const username = allFollowers.data.find(
+    profile => profile.username === currentUser
+  );
+
+  const ternaryFunc = () => (username ? following() : notFollowing());
+  /* eslint no-unused-expressions: [2, { allowTernary: true }] */
+  checkData ? ternaryFunc() : notFollowing();
 };
 
 const FollowUser = (username, follow) => async dispatch => {

@@ -29,6 +29,7 @@ describe("FollowUnfollow Action tests", () => {
       });
     });
   });
+
   it("should dispatch unfollow success", () => {
     mock.onDelete(url).reply(200);
     return store.dispatch(followUser(author, true)).then(() => {
