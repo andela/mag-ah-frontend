@@ -5,6 +5,10 @@ import TimeAgo from "javascript-time-ago";
 import jwtDecode from "jwt-decode";
 import en from "javascript-time-ago/locale/en";
 import viewSingleArticle from "../../redux/actions/viewSingleArticle";
+import FollowUnfollowButton from "../../views/Button";
+import followUser, {
+  followStatus
+} from "../../redux/actions/followUnfollowAction";
 import Share from "../../views/Article/share";
 import RatingStars from "./RateArticle";
 import Comments from "./Comments";
@@ -21,14 +25,37 @@ if (localStorage.getItem("token")) {
 }
 
 class SingleArticle extends React.Component {
+  state = {
+    loaded: false
+  };
+
   componentDidMount() {
     const { match, dispatch } = this.props;
     dispatch(viewSingleArticle(match.params.slug));
+    this.setState({ loaded: true });
   }
 
-  render() {
-    const { article, match } = this.props;
+  componentWillReceiveProps(nextProps) {
+    const { loaded } = this.state;
+    const { article, dispatch } = nextProps;
+    if (loaded) {
+      const { Article } = article;
+      dispatch(followStatus(Article.author));
+    }
+  }
+
+  handleClick = event => {
+    const { article } = this.props;
     const { Article } = article;
+    event.preventDefault();
+    const { dispatch, follow } = this.props;
+    dispatch(followUser(Article.author, follow));
+  };
+
+  render() {
+    const { article, follow, match } = this.props;
+    const { Article } = article;
+
     if (Object.keys(article).length === 0) {
       return <div className="no-article" />;
     }
@@ -59,7 +86,7 @@ class SingleArticle extends React.Component {
                       {timeAgo.format(new Date(Article.created_at))}
                     </span>
                     <span className="badge">&bull;</span>
-                    <span className="badge badge-pill badge-light ah-badge-light text-muted">
+                    <span className="badge badge-pill badge-light text-muted">
                       {Article.time_to_read} read
                     </span>
                   </div>
@@ -82,6 +109,11 @@ class SingleArticle extends React.Component {
                   </div>
                 </div>
               </div>
+              <div className="d-flex" />
+              <FollowUnfollowButton
+                label={follow ? "Unfollow" : "Follow"}
+                onclick={event => this.handleClick(event)}
+              />
               <div className="d-flex align-items-end mt-4">
                 <Share
                   url={Article.share_urls.twitter}
@@ -133,17 +165,26 @@ class SingleArticle extends React.Component {
 SingleArticle.propTypes = {
   article: PropTypes.shape().isRequired,
   match: PropTypes.shape(() => {}).isRequired,
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
+  follow: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = ({ getArticle }) => {
+const mapStateToProps = ({ getArticle, followReducer }) => {
   const { article, error } = getArticle || {
     article: {},
     error: {}
   };
+  const { message, err, follow } = followReducer || {
+    message: {},
+    err: {}
+  };
+
   return {
     article,
-    error
+    error,
+    message,
+    err,
+    follow
   };
 };
 
