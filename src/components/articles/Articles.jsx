@@ -117,6 +117,15 @@ class Articles extends Component {
             ))}
           </div>
         )}
+        {localStorage.getItem("token") && (
+          <a
+            className="align-middle ah-floatingButton badge badge-primary rounded-circle"
+            href="/articles/create"
+          >
+            +
+          </a>
+        )}
+
         {articles.results && this.renderPaginationButtons()}
       </div>
     );

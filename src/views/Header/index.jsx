@@ -77,9 +77,6 @@ class AHHeader extends Component {
                       className="dropdown-menu"
                       aria-labelledby="navbarDropdownMenuLink"
                     >
-                      <a className="dropdown-item" href="/articles/create">
-                        New Article
-                      </a>
                       <a className="dropdown-item" href="/articles">
                         All Articles
                       </a>

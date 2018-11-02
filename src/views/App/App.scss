@@ -37,11 +37,6 @@ body {
 .App {
   min-height: 100vh;
 }
-.ah-article-body {
-  font-size: 24px;
-  letter-spacing: 3px;
-  font-family: "Exo", sans-serif;
-}
 .share-feed {
   font-size: 30px;
 }
@@ -595,6 +590,7 @@ h1 {
 
 .ah-editor-container {
   background-color: $article-card-bg-color;
+  min-height: 80vh;
 }
 
 .form-group {
@@ -687,3 +683,16 @@ h1 {
     overflow-wrap: break-word;
    }
    
+
+.ah-floatingButton {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+}
+
+.fa-pencil-alt{
+  font-size: 1.5rem;
+}

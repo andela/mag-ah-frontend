@@ -9,7 +9,6 @@ import {
   LOGIN_ERROR,
   LOGOUT_SUCCESSFUL
 } from "../action_types";
-import Home from "../../views/Home/index";
 
 const url = `${config.BASE_URL}/users/login/`;
 
@@ -53,7 +52,7 @@ export const Login = user => dispatch => {
       localStorage.setItem("token", message.response.token);
       document.querySelector(".modal-backdrop").remove();
       document.querySelector("#ahSignInModal").remove();
-      history.push(Home);
+      history.push("/");
     })
     .catch(error => {
       if (error.response) {
