@@ -30,7 +30,7 @@ export default authData => dispatch => {
     .then(response => {
       const { token, username, email } = response.data.response;
       dispatch(socialLoginSuccess(token, username, email));
-      localStorage.setItem("accessToken", token);
+      localStorage.setItem("token", token);
       history.push(homepage);
     })
     .catch(error => {

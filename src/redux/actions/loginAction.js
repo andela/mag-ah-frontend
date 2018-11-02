@@ -2,6 +2,7 @@ import axios from "axios";
 import history from "../../routes/history";
 import config from "../../config";
 import { serverError } from "./common";
+import { clearCurrentProfile } from "./profileActions";
 
 import {
   LOGIN_SUCCESSFUL,
@@ -66,6 +67,7 @@ export const Login = user => dispatch => {
 
 export const Logout = () => dispatch => {
   localStorage.removeItem("token");
+  dispatch(clearCurrentProfile());
   dispatch(logoutsuccessful());
   history.push("/");
 };

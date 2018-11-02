@@ -1,5 +1,6 @@
 import React from "react";
 import { Router, Route } from "react-router-dom";
+
 import history from "./history";
 import PrivateRoute from "../helpers/PrivateRoute";
 import Home from "../views/Home/index";
@@ -9,6 +10,9 @@ import MyArticles from "../components/articles/MyArticles";
 import NewArticle from "../components/articles/NewArticle";
 import UpdateArticle from "../components/articles/UpdateArticle";
 import SingleArticle from "../components/articles/ViewSingleArticle";
+import ResetPass from "../views/Login/PasswordReset";
+import Dashboard from "../components/profile/Dashboard";
+import EditProfile from "../components/profile/EditProfile";
 
 const Routes = () => (
   <Router history={history}>
@@ -27,7 +31,11 @@ const Routes = () => (
         path="/articles/:slug/update"
         component={UpdateArticle}
       />
+      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+      <Route exact path="/reset-password/" component={ResetPass} />
     </div>
   </Router>
 );
+
 export default Routes;

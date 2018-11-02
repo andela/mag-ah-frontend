@@ -40,11 +40,11 @@ class AHHeader extends Component {
     }
   }
 
-  onLogout(event) {
+  onLogout = event => {
     const { dispatch } = this.props;
     event.preventDefault();
     dispatch(Logout());
-  }
+  };
 
   render() {
     const { isAuthenticated } = this.props;
@@ -85,6 +85,9 @@ class AHHeader extends Component {
                       </a>
                       <a className="dropdown-item" href="/articles/me">
                         My Articles
+                      </a>
+                      <a className="dropdown-item" href="/dashboard">
+                        My Profile
                       </a>
                       <Button
                         className="dropdown-item"

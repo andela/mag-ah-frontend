@@ -34,14 +34,14 @@ class LoginPage extends React.Component {
     return (
       <div className="modal-body text-center">
         <LoginForm
-          handleChange={this.handleChange}
+          handleChange={event => this.handleChange(event)}
           email={email}
           password={password}
           error={error}
         />
         <Button
           className="btn btn-primary mb-5 col-2"
-          onclick={this.onLogin}
+          onclick={event => this.onLogin(event)}
           label="Sign in"
         />
         <div className="col-9 m-auto">
