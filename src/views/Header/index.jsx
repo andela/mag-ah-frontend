@@ -11,6 +11,7 @@ import AuthButton from "../../components/auth/AuthButton";
 import LoginPage from "../../components/auth/login";
 import ForgotPasswordComp from "../../components/auth/ForgotPasswordComp";
 import history from "../../routes/history";
+import Notifications from "../../components/notifications/Notification";
 
 class AHHeader extends Component {
   componentDidMount() {
@@ -62,6 +63,9 @@ class AHHeader extends Component {
             <div className="btn-group" role="group" aria-label="Second group">
               <div className="navbar-text">
                 <ul className="navbar-nav">
+                  <li className="nav-item dropdown m-auto">
+                    <Notifications />
+                  </li>
                   <li className="nav-item dropdown">
                     <a
                       className="nav-link dropdown-toggle"
