@@ -39,4 +39,8 @@ describe("Renders <Articles /> correctly", () => {
     expect(wrapper.find(".ah-main-article-title").length).toEqual(1);
     expect(wrapper.find(".ah-main-article-description").length).toEqual(1);
   });
+
+  it("renders follow button", () => {
+    expect(wrapper.find(".ah-follow-button").length).toEqual(1);
+  });
 });

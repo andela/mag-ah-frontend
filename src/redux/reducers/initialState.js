@@ -63,6 +63,11 @@ const initialState = {
     updated: false,
     success: false
   },
+  followUnfollow: {
+    follow: false,
+    message: {},
+    error: {}
+  },
   articleRating: {
     response: null,
     error: null
